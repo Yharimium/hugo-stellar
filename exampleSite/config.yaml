@@ -27,10 +27,10 @@ params:
     url: "https://gohugo.io/"
     logo: "/img/social/hugo.svg"
   - name: "github"
-    url: "https://github.com/Yharimium/"
+    url: "https://github.com/"
     logo: "/img/social/github.svg"
   - name: "bilibili"
-    url: "https://space.bilibili.com/1116690502/"
+    url: "https://space.bilibili.com/"
     logo: "/img/social/bilibili.svg"
 
 menus:
