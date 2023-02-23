@@ -1,0 +1,17 @@
+<div class="projects">
+    {{- range (.Scratch.Get "Pages") -}}
+    <a class="project" href="{{ .Permalink }}">
+      <div class="card">
+        {{- if .Params.logo -}}
+        <div class="preview">
+          <img src="{{ .Params.logo | safeURL }}">
+        </div>
+        {{- end -}}
+        <div class="excerpt">
+          <h2 class="title">{{ .Title }}</h2>
+          <div class="description">{{ .Description }}</div>
+        </div>
+      </div>
+    </a>
+    {{- end -}}
+</div>

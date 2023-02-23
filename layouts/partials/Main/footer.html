@@ -1,0 +1,23 @@
+<footer class="footer">
+    <br><br><hr>
+    <div class="sitemap">
+    {{- range .Site.Menus.main -}}
+        <div class="group">
+            <span class="title">{{ .Name }}</span>
+            {{- range .Params.tabs -}}
+                <a class="link" href="{{ .url }}">{{ .name }}</a>
+            {{- end -}}
+        </div>
+    {{- end -}}
+    </div>
+    <br>
+    <div class="reference markdown">
+    {{- if reflect.IsSlice .Site.Params.Copyright -}}
+        {{- range .Site.Params.Copyright -}}
+            {{ . | $.Page.RenderString }} <br>
+        {{- end -}}
+    {{- else -}}
+        {{- .Site.Params.Copyright | $.Page.RenderString -}}
+    {{- end -}}
+    </div>
+</footer>

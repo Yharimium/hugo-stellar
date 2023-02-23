@@ -1,0 +1,22 @@
+{{- define "main" -}}
+
+{{- .Scratch.Set "Pages" (.Paginate (where (where .Site.RegularPages "Section" "posts") ".Params.hide" "!=" "true")).Pages -}}
+{{- .Scratch.Set "Widgets" (slice "search" "notice" "recent") -}}
+{{- .Scratch.Set "Active" (dict "Menu" "/" "Tabs" "/") -}}
+
+<div class="LBody">
+    <div class="Side">
+        {{- partial "Side/header.html" . -}}
+        {{- partial "Side/widgets.html" . -}}
+        {{- partial "Side/footer.html" . -}}
+    </div>
+    <div class="Main">
+        {{- partial "dpi.html" . -}}
+        {{- partial "Main/tabs.html" . -}}
+        {{- partial "Main/posts.html" . -}}
+        {{- partial "Main/pages.html" . -}}
+        {{- partial "Main/footer.html" . -}}
+    </div>
+</div>
+
+{{- end -}}

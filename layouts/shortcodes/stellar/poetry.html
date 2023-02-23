@@ -1,0 +1,13 @@
+{{- $author := .Get 0 | markdownify -}}
+{{- $footer := .Get 1 | markdownify -}}
+{{- $title := .Get 2 | markdownify -}}
+{{- $content := .Inner | markdownify -}}
+
+<div class='stellar poetry'>
+    <div class='inner'>
+        <div class='title'>{{ $title }}</div>
+        <div class='meta'>{{ $author }}</div>
+        <div class='body'>{{ $content }}</div>
+        <div class='footer'>{{ $footer }}</div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+> .footer
+    padding: 1rem
+    > .sitemap
+        @include hideScrollBar
+        margin: .5rem 0
+        display: grid
+        grid-gap: 1rem 1rem
+        grid-auto-flow: column dense
+        overflow: scroll
+        > .group
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            > .title
+                @include font(15px, $text-p0)
+                margin-bottom: .5rem
+            > .link
+                @include font(13px, $text-p3)
+                margin: 2px 0
+                &:hover
+                    @include font($text-warn)
+
+    > .reference
+        @include font(13px)
+        text-align: center

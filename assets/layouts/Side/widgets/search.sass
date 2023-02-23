@@ -1,0 +1,40 @@
+&.search
+    margin-top: 0
+
+    .search-form
+        top: 0
+        position: -webkit-sticky
+        position: sticky
+        display: flex
+        align-items: center
+        z-index: 999
+        background: $bg-dark
+
+        .search-input
+            @include border(all, none)
+            width: 100%
+            padding: .5rem 0 .5rem 1.5rem
+            color: $text-p0
+            background: none
+
+        .search-icon
+            position: absolute
+            width: 1rem
+            height: 1rem
+            left: 0
+            margin-left: .25rem
+            vertical-align: middle
+            opacity: .7
+
+        &::after
+            @include HiDPI
+            @include radius
+            content: ''
+            position: absolute
+            left: 0
+            right: 0
+            bottom: 0
+            height: 2px
+            background: linear-gradient(to right,#04f3ff,#08ffc6,#ddf730,#ffbd19,#ff1fe0,#c418ff,#04f3ff)
+            background-size: 200%
+            animation: glow 20s linear infinite

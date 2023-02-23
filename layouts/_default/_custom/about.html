@@ -1,0 +1,22 @@
+{{- define "main" -}}
+
+{{- .Scratch.Set "Widgets" (slice "search" "toc") -}}
+{{- .Scratch.Set "Active" (dict "Menu" .Params.url) -}}
+
+<div class="LBody">
+    <div class="Side">
+        {{- partial "Side/header.html" . -}}
+        {{- partial "Side/widgets.html" . -}}
+        {{- partial "Side/footer.html" . -}}
+    </div>
+    <div class="Main">
+        {{- partial "dpi.html" . -}}
+        <div class="content markdown">
+            <h1 class="title">{{ .Title }}</h1>
+            <span class="description">{{ .Description }}</span>
+            {{- partial "content.html" . -}}
+        </div>
+    </div>
+</div>
+
+{{- end -}}

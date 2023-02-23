@@ -1,0 +1,15 @@
+<div class="topic mobile">
+    <a class="avatar" href="/">
+        <div class="bg shadow"></div>
+        <div class="bg rainbow"></div>
+        <img class="avatar" src="{{ .Site.Params.avatar }}">
+    </a>
+    <a class="title" href="/">
+        <h1 class="text">{{ .Site.Params.Author }}</h1>
+        <div class="sub up">{{ index .Site.Params.Description 0 }}</div>
+        <div class="sub dw">{{ index .Site.Params.Description 1 }}</div>
+    </a>
+</div>
+<div class="sidebar-toggle mobile" onclick="sidebar_button_click()">
+    <img src="/img/menu.svg"></img>
+</div>

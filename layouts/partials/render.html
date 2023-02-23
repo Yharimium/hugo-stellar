@@ -1,0 +1,113 @@
+{{- $render_text := .str -}}
+{{- $render_root := .root -}}
+{{- $render_data := .root.Site.Data.syntax -}}
+
+{{- range $render_root.Site.Params.syntax -}}
+    {{- $syn := index $render_data . -}}
+    {{- $mac := index $render_data "macros" -}}
+    
+    {{- $render_text = partial "format" (
+        dict
+        "str" $render_text
+        "exec" $syn.exec
+        "protect" $mac.protect
+        "regex_maps" (slice $syn.macros.regex $mac.regex)
+        "plain_maps" (slice $syn.macros.plain $mac.plain)
+    ) -}}
+{{- end -}}
+
+{{/*  {{- $render_text = (printf "<pre><code>%s<code></pre>" $render_text) | safeHTML -}}  */}}
+{{/*  {{- return $render_text -}}  */}}
+
+{{- $render_text := $render_text | markdownify | emojify -}}
+{{- return $render_text -}}
+
+{{- define "partials/format" -}}
+    {{- $cfg := . -}}
+    {{- $str := printf "\n%s\n" .str -}}
+
+    {{/*  Protect  */}}
+    {{- $protect := (dict) -}}
+    {{- range $id, $term := .protect -}}
+        {{- range $index, $val := ($str | findRE $term.match) -}}
+            {{- $key := printf "<--PROTECT-%d-%d-->" $id $index -}}
+            {{- $protect = merge $protect (dict $key $val) -}}
+            {{- $str = replace $str $val $key -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{/*  Exec  */}}
+    {{- range .exec -}}
+        {{- $match := partial "subByMaps" (dict "str" .match "maps" $cfg.regex_maps) -}}
+        {{- $cover := partial "subByMaps" (dict "str" .cover "maps" $cfg.plain_maps) -}}
+        {{- $exec := .exec -}}
+        {{- if .flag -}}
+            {{- $match = printf "(?%s:%s)" .flag $match -}}
+        {{- end -}}
+        {{- if and (not $cover) ($exec) -}}
+            {{- $match = printf "(%s)" $match -}}
+            {{- $cover = printf "$1" -}}
+        {{- end -}}
+        {{- range $before := ($str | findRE $match) -}}
+            {{- $after := $before | replaceRE $match $cover -}}
+            {{- if $exec -}}
+                {{- $after = partial "format" (merge $cfg (
+                    dict "str" $after "exec" $exec
+                )) -}}
+            {{- end -}}
+            {{- $str = replace $str $before $after -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{- $str = partial "sortArgs" (dict "str" $str) -}}
+    {{- $str = partial "indent" (dict "str" $str) -}}
+
+    {{/*  Protect Release  */}}
+    {{- range $key, $val := $protect -}}
+        {{- $str = replace $str $key $val -}}
+    {{- end -}}
+
+    {{- $str = $str | replaceRE "(^\\s*|\\s*$)" "" -}}
+
+    {{- if ne $str .str -}}
+        {{- $str = partial "format" (merge $cfg (dict "str" $str)) -}}
+    {{- end -}}
+    
+    {{- return $str -}}
+{{- end -}}
+
+{{- define "partials/subByMaps" -}}
+    {{- $str := .str -}}
+    {{- range .maps -}}
+        {{- range . -}}
+            {{- range $key, $val := . -}}
+                {{- $str = $str | replaceRE $key $val -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+    {{- return $str -}}
+{{- end -}}
+
+{{- define "partials/sortArgs" -}}
+    {{- $str := .str -}}
+    {{- range $str | findRE "<%SORT-(.*?)%>" -}}
+        {{- $val := . | replaceRE "<%SORT-(.*?)%>" "$1" -}}
+        {{- $val = split $val " " -}}
+        {{- $val = sort $val -}}
+        {{- $val = delimit $val " " -}}
+        {{- $str = replace $str . ($val) -}}
+    {{- end -}}
+    {{- return $str -}}
+{{- end -}}
+
+{{- define "partials/indent" -}}
+    {{- $str := .str -}}
+    {{- range $str | findRE "<%BEGIN-INDENT%>([\\s\\S]*)<%END-INDENT%>" -}}
+        {{- $val := . -}}
+        {{- $val = $val | replaceRE "<%BEGIN-INDENT%>" "" -}}
+        {{- $val = $val | replaceRE "<%END-INDENT%>" "" -}}
+        {{- $val = $val | replaceRE "\\n(\\t|\\x20{4})" "\n" -}}
+        {{- $str = replace $str . ($val) -}}
+    {{- end -}}
+    {{- return $str -}}
+{{- end -}}

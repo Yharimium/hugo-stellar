@@ -1,0 +1,5 @@
+{{- $content := trim .Inner " " | safeHTML -}}
+
+<div class='stellar copy-area'>
+    <pre><code>{{ $content }}</code><span class='clipboard'><img src='/img/clipboard.svg'></span></pre>
+</div>

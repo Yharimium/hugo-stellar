@@ -1,0 +1,11 @@
+{{- $type := .Get 0 -}}
+{{- $title := .Get 1 | markdownify -}}
+{{- $content := .Inner | safeHTML -}}
+
+<div class='mkdocs hint {{ $type }}' open>
+    <p class='title'>
+        <img class='icon' src='/img/material/{{ $type }}.svg' />
+        <span>{{ $title }}</span>
+    </p>
+    <div class='inner'>{{ $content }}</div>
+</div>

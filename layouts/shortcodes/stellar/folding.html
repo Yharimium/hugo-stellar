@@ -1,0 +1,13 @@
+{{- $codeblock := .Get 0 -}}
+{{- $color := .Get 1 -}}
+{{- $open := .Get 2 -}}
+{{- $title := .Get 3 | safeHTML -}}
+{{- $content := .Inner | markdownify -}}
+
+<details class='stellar folding' color='{{ $color }}' {{ if eq $codeblock "true" }}child="codeblock"{{ end }} {{ if eq $open "true" }}open{{ end }}>
+    <summary>
+        <img class='arrow' src='/img/arrow.svg' />
+        <span>{{ $title }}</span>
+    </summary>
+    <div class='body'>{{ $content }}</div>
+</details>

@@ -1,0 +1,25 @@
+.widgets
+    @include hideScrollBar
+    overflow: hidden scroll
+    flex-grow: 1
+    z-index: -1
+    line-height: 1.2
+    padding: 0 1rem
+
+    > .widget
+        display: block
+
+        > .title
+            @include font(13.6px, $text-link)
+            margin-top: 2rem
+            margin-bottom: 1rem
+        
+        &:first-of-type
+            > .title
+                margin-top: 1rem
+
+        @import "search"
+        @import "notice"
+        @import "recent"
+        @import "toc"
+        @import "tree"

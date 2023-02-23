@@ -1,0 +1,5 @@
+{{- $color := .Get 0 -}}
+{{- $url := .Get 1 -}}
+{{- $content := .Inner | markdownify -}}
+
+<a class='stellar tag' color='{{ $color }}' href='{{ $url }}' target='_blank'>{{ $content }}</a>

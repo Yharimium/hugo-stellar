@@ -1,0 +1,39 @@
+{{- define "main" -}}
+
+{{- .Scratch.Set "Widgets" (slice "search" "notice" "recent") -}}
+{{- .Scratch.Set "Active" (dict "Menu" "/" "Tabs" "/archives/") -}}
+
+<div class="LBody">
+    <div class="Side">
+        {{- partial "Side/header.html" . -}}
+        {{- partial "Side/widgets.html" . -}}
+        {{- partial "Side/footer.html" . -}}
+    </div>
+    <div class="Main">
+        {{- partial "dpi.html" . -}}
+        {{- partial "Main/tabs.html" . -}}
+        {{- template "archives" . -}}
+        {{- partial "Main/footer.html" . -}}
+    </div>
+</div>
+
+{{- end -}}
+
+{{- define "archives" -}}
+<div class="archive">
+    {{- range (where (where .Site.RegularPages "Section" "posts") ".Params.hide" "!=" "true").GroupByDate "2006" -}}
+        <h1 class="year">{{ .Key }}</h1>
+        {{- range .Pages.GroupByDate "January" -}}
+        <div class="group">
+            <h2 class="month">{{ .Key }}</h2>
+            {{- range .Pages -}}
+            <a class="post" href="{{ .Permalink }}">
+                <span class="time">{{ .Date.Format "01-02" }}</span>
+                <span class="title">{{ .Title }}</span>
+            </a>
+            {{- end -}}
+        </div>
+        {{- end -}}
+    {{- end -}}
+    </div>
+{{- end -}}

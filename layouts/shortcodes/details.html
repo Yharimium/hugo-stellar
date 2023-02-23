@@ -1,0 +1,5 @@
+{{ $name := cond .IsNamedParams (.Get "title") (.Get 0) }}
+<details class="book-details" {{ if or (.Get "open") (in .Params "open") }}open{{ end }}>
+  <summary><span>{{ cond .IsNamedParams (.Get "title") (.Get 0) }}</span><img class="alt" src="/img/arrow.svg"></summary>
+  <div class='inner'>{{ .Inner | $.Page.RenderString }}</div>
+</details>

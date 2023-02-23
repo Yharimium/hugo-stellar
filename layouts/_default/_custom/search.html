@@ -1,0 +1,76 @@
+{{- define "main" -}}
+
+{{- .Scratch.Set "Widgets" (slice "notice" "recent") -}}
+{{- .Scratch.Set "Active" (dict "Menu" .Params.url) -}}
+
+<div class="LBody">
+    <div class="Side">
+        {{- partial "Side/header.html" . -}}
+        {{- partial "Side/widgets.html" . -}}
+        {{- partial "Side/footer.html" . -}}
+    </div>
+    <div class="Main">
+        {{- partial "dpi.html" . -}}
+        <div class="content markdown search">
+            <h1 class="title">{{ .Title }}</h1>
+            {{- template "content" . -}}
+        </div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+
+{{- end -}}
+
+{{- define "content" -}}
+<div class="sec_tabs">
+    <nav class="nav">
+        <a class="tab posts">博客搜索</a>
+        <a class="tab docs">文档搜索</a>
+    </nav>
+</div>
+<div class="search-form">
+    <input type="text" class="search-input" id="search-input" placeholder="search">
+    <img class="search-icon" src="/img/search.svg">
+</div>
+<div class="search-result cards" id="search-result"></div>
+
+<div id="data" style="display: none">
+    {{- partial "generateXML" (dict "root" . "section" "posts") -}}
+    {{- partial "generateXML" (dict "root" . "section" "docs") -}}
+</div>
+{{- end -}}
+
+{{- define "partials/generateXML" -}}
+{{- $root := .root -}}
+{{- $section := .section -}}
+<pre id="{{ $section }}">
+{{- range where (where $root.Site.Pages "Section" $section) ".Params.hide" "!=" "true" -}}
+    {{- if (and .File .Content) -}}
+    <item>
+        <title>{{ .Title }}</title>
+        <url>{{ .Permalink }}</url>
+        <description>{{ partial "subFile" .File }}</description>
+    </item>
+    {{- end -}}
+{{- end -}}
+</pre>
+{{- end -}}
+
+{{- define "partials/subFile" -}}
+    {{- $file := (readFile . )
+        | replaceRE "\\|(?:([^\\r\\n|]*)\\|)+\\r?\\n\\|(?:(:?-+:?)\\|)+\\r?\\n(\\|(?:([^\\r\\n|]*)\\|)+\\r?\\n)+" ""
+        | replaceRE "[\\s\\n\\t\\r]+" " "
+        | replaceRE "<script.+?/script>" ""
+        | replaceRE "<img.+?/img>" ""
+        | replaceRE "<center>(.+?)</center>" "$1"
+        | replaceRE "^-{3,}.+?-{3,}" ""
+        | replaceRE "\\{\\{.+?\\}\\}" ""
+        | replaceRE "[\\s]*\\!\\[\\]\\(.+?\\)[\\s]*" ""
+        | replaceRE "[\\s]*\\[(.+?)\\]\\(.+?\\)[\\s]*" "$1"
+        | replaceRE "#{1,}" ""
+        | replaceRE "\\$" ""
+        | replaceRE "[\\s\\n\\t\\r]+" " "
+    -}}
+    {{- return $file -}}
+{{- end -}}

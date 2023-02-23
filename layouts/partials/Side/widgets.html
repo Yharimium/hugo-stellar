@@ -1,0 +1,106 @@
+<div class="widgets">
+    {{- $curr := . -}}
+    {{- range .Scratch.Get "Widgets" -}}
+    <div class="widget {{ . }}">
+        {{- partial . $curr -}}
+    </div>
+    {{- end -}}
+</div>
+
+{{/*  search  */}}
+{{- define "partials/search" -}}
+<div class="search-form">
+    <input type="text" class="search-input" id="side-search-input" placeholder="search" AUTOCOMPLETE="off">
+    <img class="search-icon" src="/img/search.svg">
+    <script>
+        $input = $('#side-search-input');
+        $input.keydown( (e) => {
+            if (e.keyCode == 13) {
+                var section = window.location.pathname.substring(0,6) == "/docs/" ? "docs" : "posts";
+                window.open(`/search/?sec=${section}?key=${$input.val()}`)
+            }
+        });
+    </script>
+</div>
+{{- end -}}
+
+{{/*  notice  */}}
+{{- define "partials/notice" -}}
+<p class="title">公告</p>
+<div class="content markdown">
+    {{- if reflect.IsSlice .Site.Params.Notice -}}
+    <ul>
+        {{- range .Site.Params.Notice -}}
+        <li>{{ . | $.Page.RenderString }}</li>
+        {{- end -}}
+    </ul>
+    {{- else -}}
+        {{ .Site.Params.Notice | $.Page.RenderString }}
+    {{- end -}}
+</div>
+{{- end -}}
+
+{{/*  recent  */}}
+{{- define "partials/recent" -}}
+<p class="title">最近更新</p>
+<div class="content">
+    {{- range (first 5 (where (where .Site.RegularPages "Section" "posts") ".Params.hide" "!=" "true")) -}}
+    <a class="item" href="{{ .Permalink }}">{{ .Title }}</a>
+    {{- end -}}
+</div>
+{{- end -}}
+
+{{/*  toc  */}}
+{{- define "partials/toc" -}}
+{{- if ne .TableOfContents "<nav id=\"TableOfContents\"></nav>" -}}
+<p class="title"><a href="#">{{ .Title }}</a></p>
+<div class="content markdown">{{ .TableOfContents }}</div>
+{{- end -}}
+{{- end -}}
+
+{{/*  tree  */}}
+{{- define "partials/tree" -}}
+{{- $section := index (last 1 (where .Ancestors "Section" "docs")) 0 -}}
+{{- $root := index $section.Data.Pages 0 -}}
+{{- $curr := . -}}
+{{- range $root.Data.Pages.ByWeight -}}
+    {{- template "buildTree" (dict "root" . "curr" $curr) -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "buildTree" -}}
+{{- $root := .root -}}
+{{- $curr := .curr -}}
+<details class="item" {{ if or (in $curr.Ancestors $root) (eq $root.Permalink $curr.Permalink) }}open{{ end }}>
+    <summary class="title">{{ $root.Title }}</summary>
+    <div class="inner">
+        <ul class="list">
+            <li>
+                {{- template "treeNode" (dict "root" $root "curr" $curr "title" "overview") -}}
+            </li>
+            {{- with $root.Data.Pages.ByWeight -}}
+            {{- range . -}}
+            <li>
+            {{- if .IsPage -}}
+                {{- template "treeNode" (dict "root" . "curr" $curr) -}}
+            {{- else -}}
+                {{- template "buildTree" (dict "root" . "curr" $curr) -}}
+            {{- end -}}
+            </li>
+            {{- end -}}
+            {{- end -}}
+        </ul>
+    </div>
+</details>
+{{- end -}}
+
+{{- define "treeNode" -}}
+{{- $title := cond (ne .title nil) .title .root.Title -}}
+{{- if eq .root.Permalink .curr.Permalink -}}
+    <a href="{{ .root.Permalink }}" class="active">{{ $title }}</a>
+    {{- .root.TableOfContents -}}
+{{- else -}}
+    <a href="{{ .root.Permalink }}">{{ $title }}</a>
+{{- end -}}
+{{- end -}}
+

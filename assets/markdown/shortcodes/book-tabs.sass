@@ -1,0 +1,74 @@
+.book-tabs
+    margin: 1rem 0
+    overflow: visible
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+    .label
+        @include font(13px, $text-p3)
+        @include radius
+        cursor: pointer
+        position: relative
+        padding: .1rem 1rem
+        margin: 0 .25rem
+        margin-bottom: 1.2rem
+        line-height: 2
+        text-align: center
+        white-space: nowrap
+
+        &.disable
+            pointer-events: none
+            padding: .1rem 0
+
+        &:not(.active):hover
+            color: $text-p0
+            background: $hover
+
+        &::after
+            @include HiDPI
+            @include radius
+            content: ''
+            pointer-events: none
+            cursor: default
+            height: 2px
+            position: absolute
+            bottom: -.5rem
+            left: -.6rem
+            right: 0
+            background: $hover
+        
+        &:first-of-type
+            &::after
+                left: 0
+
+    .inner
+        @include trim
+        order: 999
+        width: 100%
+        display: none
+
+    input[type="radio"]
+        display: none
+
+        &:checked + .label
+            color: $text-p0
+            background: $bg-lite
+            box-shadow: $shadow
+
+            &::before
+                @include HiDPI
+                @include radius
+                content: ''
+                pointer-events: none
+                cursor: default
+                z-index: 1
+                height: 2px
+                position: absolute
+                bottom: -.5rem
+                left: .5rem
+                right: .5rem
+                background: $stick
+
+            & + .inner
+                display: block

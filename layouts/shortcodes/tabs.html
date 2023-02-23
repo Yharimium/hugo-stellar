@@ -1,0 +1,21 @@
+{{- if .Inner -}}{{- end -}}
+{{- $id := .Get 0 -}}
+{{- $group := printf "tabs-%s" $id -}}
+{{- $pure := (.Get 1) -}}
+
+{{- $checked := false -}}
+
+<div class="book-tabs">
+{{- range $index, $tab := .Scratch.Get $group -}}
+    <input type="radio" class="toggle" name="{{ $group }}" id="{{ printf "%s-%d" $group $index }}"
+        {{ if and ($tab.Able) (not $checked) }}checked="checked"{{ $checked = true }}{{ end }} />
+    <label class="label {{ if not $tab.Able }}disable{{ end }}" for="{{ printf "%s-%d" $group $index }}">
+        {{- $tab.Name | $.Page.RenderString -}}
+    </label>
+    {{ if $tab.Able }}
+    <div class="inner">
+        {{- .Content | $.Page.RenderString -}}
+    </div>
+    {{ end }}
+{{- end -}}
+</div>

@@ -1,0 +1,76 @@
+@import "Side/header"
+
+.mobile
+    display: none !important
+
+    &.sidebar-toggle
+        @include radius(all, 100%)
+        @include transition(box-shadow .3s ease)
+        z-index: 1001
+        cursor: pointer
+        position: fixed
+        bottom: 2rem
+        right: 1rem
+        height: 40px
+        width: 40px
+        background: $bg-lite
+        box-shadow: $shadow-block
+        box-sizing: content-box
+
+        img
+            width: 20px
+            height: 20px
+            margin: 10px
+
+        &.layout
+            box-shadow: $shadow-hover
+
+    &.topic
+        @extend %topic
+        padding: 1rem 1rem 0 1rem
+
+@media screen and (max-width: 830px)
+    .projects .card
+        display: block !important
+        padding: 0 !important
+        overflow: auto 
+
+        .preview img
+            display: block
+            margin: 0 auto
+            max-width: 100%
+
+@media screen and (max-width: 730px)
+    .mobile
+        &.sidebar-toggle
+            display: block !important
+        &.topic
+            display: flex !important
+
+    .LBody
+        padding: 0
+        > .Side
+            @include transition(transform .3s ease)
+            position: fixed
+            left: -320px
+            margin: 0
+            background: $bg-dark
+            z-index: 1000
+            box-shadow: $shadow-hover
+            
+            &.layout
+                transform: translateX(320px)
+
+        > .Main
+            width: 100%
+            
+            .tabs
+                top: -1px
+                nav
+                    margin-top: .5rem !important
+
+@media screen and (max-width: 500px)
+    .content
+        .cards
+            .card
+                width: 100% !important

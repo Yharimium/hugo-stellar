@@ -1,0 +1,250 @@
+.markdown
+    @include selectable(true)
+
+    font-size: 16px
+    line-height: 1.5
+
+    h1, h2, h3, h4, h5, h6
+        margin: 2rem 0 1rem 0
+        .anchor
+            opacity: 0
+            cursor: pointer
+        &:hover .anchor
+            opacity: 1
+
+    h2 + h3, h3 + h4
+        margin-top: 1rem
+
+    h1
+        @include font(2rem)
+
+    h2
+        @include font(1.7rem)
+        @include border(b)
+
+    h3
+        @include font(1.25rem)
+
+    h4
+        @include font(1rem)
+
+    p
+        margin: 1rem 0
+    
+    dl
+        margin: 1rem 0
+        dt
+            @include font(bold)
+        dd
+            margin-bottom: 1rem
+
+    ol, ul
+        margin: 1rem 0
+        margin-left: 1rem
+        li
+            margin: .5rem 0
+        ol, ul
+            margin: 0
+    
+    > ol, > ul
+        margin-left: 2rem
+
+    a.md_link
+        .icon
+            height: .8em
+            vertical-align: -1.5px
+            margin-left: 4px
+            filter: invert(60%)
+
+    blockquote
+        @include trim
+        @include border(l, 4px solid $text-p4)
+        @include font($text-p3)
+        margin: 1rem 0
+        padding: 0 1rem
+
+    code
+        @include font(90%, $text-p1)
+        @include radius(all, 2px)
+        background: rgba(102, 178, 255, 0.15)
+        padding: 0 4px
+
+    pre
+        padding: .5rem 1rem
+        background: $block !important
+        overflow: auto
+        position: relative
+        line-height: 1.6
+
+        code
+            @include border(all, none)
+            background: none
+            padding: 0
+            display: flex
+            flex-direction: column
+            color: $text-p0
+
+            &, span
+                font-style: normal !important
+
+    .highlight
+        @include radius(all, 2px)
+        margin: 1rem 0
+        padding: .5rem
+        position: relative
+        background: $block
+
+        > pre
+            padding: 0 .5rem
+
+        .lntable
+            display: block
+            width: auto
+            border-collapse: collapse
+            overflow: auto
+            .lntd
+                pre.chroma
+                    padding: 0 .5rem
+                    span.lnt
+                        @include selectable(false)
+                        margin: 0
+                        padding-right: .5rem
+                        a.lnlinks
+                            pointer-events: none
+                    span.line
+                        display: block
+
+                &:first-of-type
+                    display: block
+                    pre.chroma
+                        @include border(r)
+                &:last-of-type
+                    width: 100%
+
+        &:hover
+            .board
+                opacity: 1
+                img
+                    opacity: .3
+
+        .board
+            @include size(1.2rem * 2 + .5rem, 1.2rem)
+            @include radius("bl", 2px)
+            @include transition(opacity .15s)
+            display: flex
+            cursor: pointer
+            position: absolute
+            top: 0
+            right: 0
+            padding: 8px
+            background: $block
+            box-sizing: content-box
+            opacity: 0
+
+            &.active
+                opacity: 1
+
+            img
+                @include size(1.2rem)
+                @include radius
+                @include transition(opacity .15s)
+                opacity: .3
+
+                & + img
+                    margin-left: .5rem
+
+                &:hover
+                    opacity: 1 !important
+
+                &.active
+                    opacity: 1 !important
+                    filter: invert(42%) sepia(94%) saturate(0639%) hue-rotate(188deg) brightness(102%) contrast(101%)
+
+        &[title]
+            > .title
+                @include border(b)
+                @include radius(tltr, 2px)
+                @include font(13px, bold)
+                padding: 6px 1rem
+                margin: -.5rem !important
+                margin-bottom: .5rem !important
+                background: $block
+            > .board
+                top: 6px
+                padding: 0 8px
+                opacity: 1
+                img
+                    opacity: .3
+
+        &[render="true"]
+            > .result
+                @include trim
+                @include border(t)
+                @include radius(blbr, 2px)
+                padding: 1rem
+                margin: -.5rem !important
+                margin-top: .5rem !important
+                background: $bg-lite
+        
+        &[compress="true"]
+            > pre
+                max-height: 10rem
+
+    table:not(.lntable)
+        @include font(95%)
+        @include border
+        @include radius(all, 2px)
+        display: block
+        max-width: fit-content
+        margin: 1rem 0
+        border-spacing: 0
+        overflow: auto
+        background: $bg-lite
+        -webkit-overflow-scrolling: touch
+
+        tr
+            @include transition(background .15s)
+            th, td
+                @include font(normal)
+                padding: .4rem 1.2rem
+                // white-space: nowrap
+            td
+                @include border(t)
+            &:hover
+                background: lighten($block, 3%)
+
+    img, svg
+        @include selectable(false)
+        &.md_img
+            display: block
+            margin: 0 auto
+            max-width: 100%
+            background: inherit
+
+    sup[id^="fnref"]
+        @include selectable(false)
+        line-height: 0
+
+    .footnotes
+        @include font(90%)
+        ol
+            margin-top: .5rem
+            li, p
+                margin: 5px 0
+            p
+                .footnote-backref
+                    opacity: 0
+
+                &:hover
+                    .footnote-backref
+                        opacity: 1
+    
+    .MathJax_SVG_Display
+        margin: 0
+        overflow: auto hidden
+    
+    .mermaid
+        text-align: center
+
+@import "shortcodes/index"
+@import "chroma.scss"

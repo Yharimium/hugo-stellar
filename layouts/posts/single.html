@@ -1,0 +1,43 @@
+{{- define "main" -}}
+
+{{- .Scratch.Set "Widgets" (slice "search" "toc") -}}
+{{- .Scratch.Set "Active" (dict "Menu" (.Params.menu | default "/")) -}}
+
+<div class="LBody">
+    <div class="Side">
+        {{- partial "Side/header.html" . -}}
+        {{- partial "Side/widgets.html" . -}}
+        {{- partial "Side/footer.html" . -}}
+    </div>
+    <div class="Main">
+        {{- partial "dpi.html" . -}}
+        {{- template "contents" . -}}
+    </div>
+</div>
+
+{{- end -}}
+
+{{- define "contents" -}}
+<main class="content markdown">
+    <div class="params">
+        {{- if .Params.Categories -}}
+        <div class="categories">
+            {{- range .Params.Categories -}}
+            <a class="param" href="/categories/{{ lower . | replaceRE "\\s" "-" }}">{{ . }}</a>
+            {{- end -}}
+        </div>
+        {{- end -}}
+        {{- if .Params.Tags -}}
+        <div class="tags">
+            {{- range .Params.Tags -}}
+            <a class="param" href="/tags/{{ lower . | replaceRE "\\s" "-" }}">{{ . }}</a>
+            {{- end -}}
+        </div>
+        {{- end -}}
+    </div>
+    <div class="meta">发布于 {{ .Date.Format "2006-1-2" }}</div>
+    <h1 class="title">{{ .Title }}</h1>
+    <span class="description">{{ .Description }}</span>
+    {{- partial "content.html" . -}}
+</main>
+{{- end -}}

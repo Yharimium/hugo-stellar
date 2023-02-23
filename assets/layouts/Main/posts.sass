@@ -1,0 +1,47 @@
+> .posts
+    margin: 1rem
+
+    .post
+        display: block
+
+    .card
+        @include radius(all, 6px)
+        @include transition(box-shadow .1s ease-out)
+        background: $bg-lite
+        margin: 1rem 0
+        padding: 1rem
+        box-shadow: $shadow
+
+        .title
+            @include font(22px, normal, $text-p0)
+
+        .description
+            @include font(15px, $text-p2)
+            margin-top: .5rem
+
+        .meta
+            @include font(13px, $text-p3)
+            margin-top: .5rem
+
+        &:hover
+            box-shadow: $shadow-hover
+
+.projects
+    @extend .posts
+
+    .project
+        display: block
+    
+    .card
+        display: flex
+        align-items: center
+
+        .preview
+            margin: 1rem
+            height: 5rem
+            img
+                width: 12rem
+                height: 5rem
+
+        .excerpt
+            margin: 1rem

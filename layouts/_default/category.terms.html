@@ -1,0 +1,25 @@
+{{- define "main" -}}
+{{- .Scratch.Set "Widgets" (slice "search" "notice" "recent") -}}
+{{- .Scratch.Set "Active" (dict "Menu" "/" "Tabs" "/categories/") -}}
+
+<div class="LBody">
+    <div class="Side">
+        {{- partial "Side/header.html" . -}}
+        {{- partial "Side/widgets.html" . -}}
+        {{- partial "Side/footer.html" . -}}
+    </div>
+    <div class="Main">
+        {{- partial "dpi.html" . -}}
+        {{- partial "Main/tabs.html" . -}}
+        <div class="list categories">
+            {{- range $taxonomy := .Site.Taxonomies.categories -}}
+            <a class="item" href={{ .Page.Permalink }}>
+                <span class="title">{{ .Page.Title }}</span>
+                <span class="count">({{ $taxonomy.Count }})</span>
+            </a>
+            {{- end -}}
+        </div>
+        {{- partial "Main/footer.html" . -}}
+    </div>
+</div>
+{{- end -}}

@@ -1,0 +1,79 @@
+.list
+    padding: 1rem
+
+    .item
+        @include radius
+        display: block
+        padding: .5rem 1rem
+        color: $text-p2
+        line-height: 1
+
+        img
+            width: 18px
+            height: 18px
+            margin-right: 3px
+            opacity: .7
+            vertical-align: text-bottom
+
+        .type
+            @include font(14px, bold)
+            margin-right: .5rem
+
+        .title
+            @include font(14px)
+
+        &:not(.dir):hover
+            background: $hover
+            color: $text-p0
+            .count
+                color: $text-link
+
+        &.dir
+            @include font(14px)
+            padding: .6rem 1rem;
+            margin-bottom: .5rem
+            background: $bg-lite
+            box-shadow: $shadow
+            display: flex
+            line-height: 1.2
+
+            .seperator
+                margin: 0 1px
+
+            .subdir
+                color: $text-p1
+                &:hover
+                    color: $text-link
+                    text-decoration: underline
+
+    &.categories
+        .count
+            @include font(12px, bold, $text-p4)
+            float: right
+            line-height: 1.4
+
+    &.tags
+        padding: calc(1rem - 4px)
+
+        .card
+            @include transition(color, background, .1s)
+            @include radius
+            display: inline-flex
+            margin: 4px
+            padding: .4rem .75rem
+            background: $block
+
+            span
+                &.sign
+                    @include font(13px, bold, $text-p4)
+                    padding-right: 3px
+                &.title
+                    @include font(13px, $text-p2)
+
+            &:hover
+                color: $text-p0
+                background: $bg-lite
+                box-shadow: $shadow
+
+                .sign
+                    color: $text-link

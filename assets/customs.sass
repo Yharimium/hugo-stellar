@@ -1,0 +1,39 @@
+*
+    margin: 0
+    padding: 0
+    outline: none
+    box-sizing: border-box
+    -webkit-user-drag: none
+
+body, input, button
+    @include selectable(false)
+
+::selection
+    color: #000
+    background-color: #CCE2FF
+
+a
+    @include transition(color .15s)
+    color: $text-link
+    word-break: break-word
+    text-decoration: none
+    -webkit-user-drag: auto
+    &:hover
+        color: lighten($text-link, 25%)
+
+ul
+    list-style: disc
+
+hr
+    @include border(all, none)
+    @include border(b)
+
+@keyframes rotate
+    100%
+        transform: rotate(360deg)
+
+@keyframes glow
+    from 
+        background-position: 0
+    to
+        background-position: 1000%

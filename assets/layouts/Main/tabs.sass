@@ -1,0 +1,55 @@
+.tabs
+    position: -webkit-sticky
+    position: sticky
+    top: 0
+    background: $bg-dark
+    z-index: 999
+    &:after
+        @include radius
+        content: ''
+        height: 2px
+        position: absolute
+        bottom: 0
+        left: 1rem
+        right: 1rem
+        background: $hover
+
+    .nav
+        @include hideScrollBar
+        @include font(13px, $text-p3)
+        display: flex
+        position: relative
+        margin: .5rem 0
+        padding: .5rem 1rem
+        overflow: scroll hidden
+        .tab
+            @include radius
+            padding: 0 1rem
+            line-height: 2.2
+            color: $text-p3
+            white-space: nowrap
+            position: relative
+            z-index: 1
+            &.active
+                color: $text-p1
+                background: $bg-lite
+                box-shadow: $shadow-block
+                &::after
+                    @include radius
+                    content: ''
+                    pointer-events: none
+                    cursor: default
+                    height: 2px
+                    position: absolute
+                    bottom: -.5rem
+                    left: 1rem
+                    right: 1rem
+                    background: $stick
+
+
+            &:not(.active):hover
+                color: $text-p0
+                background: $hover
+
+            & + .tab
+                margin-left: .5rem

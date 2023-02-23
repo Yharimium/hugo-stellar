@@ -1,0 +1,25 @@
+{{- $active := index (.Scratch.Get "Active") "Menu" -}}
+
+<header class="header">
+    <div class="topic">
+        <a class="avatar" href="/">
+            <div class="bg shadow"></div>
+            <div class="bg rainbow" style='background-image: url("/img/rainbow64@3x.webp")'></div>
+            <img class="avatar" src="{{ .Site.Params.avatar }}">
+        </a>
+        <a class="title" href="/">
+            <h1 class="text">{{ .Site.Params.Author }}</h1>
+            <div class="sub up">{{ index .Site.Params.Description 0 }}</div>
+            <div class="sub dw">{{ index .Site.Params.Description 1 }}</div>
+        </a>
+    </div>
+    <nav class="menu">
+    {{- range .Site.Menus.main -}}
+        {{- $url := .URL -}}
+        {{- if ne (substr $url -1 1) "/" -}}
+            {{- $url = add $url "/" -}}
+        {{- end -}}
+        <a class="nav-item {{ if eq $active $url }}active{{ end }}" href="{{ $url }}">{{ .Name }}</a>
+    {{- end -}}
+    </nav>
+</header>

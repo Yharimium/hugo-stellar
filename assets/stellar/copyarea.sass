@@ -1,0 +1,36 @@
+.stellar.copy-area
+    display: flex
+    margin: 1rem 0
+    pre
+        @include border
+        @include radius(all, 4px !important)
+        display: inline-block
+        max-width: 100%
+        overflow: hidden
+        padding: 3px .5rem
+        margin: 0
+        background: $block
+        position: relative
+        code
+            @include hideScrollBar
+            display: block
+            overflow: auto
+            margin: 0 2rem 0 .2rem
+        .clipboard
+            @include border(l)
+            @include transition(background, .1s)
+            display: flex
+            cursor: pointer
+            position: absolute
+            top: 0;
+            right: 0;
+            height: 100%
+            padding: 0 .3rem
+            background: $hover
+            align-items: center
+            img
+                width: 1.2rem
+                height: 1.2rem
+                opacity: 1 !important
+            &:hover, &.active
+                background: $bg-lite

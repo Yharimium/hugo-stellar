@@ -1,0 +1,16 @@
+&.recent
+    .content
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        margin: 1rem 0
+
+        .item
+            @include font(13.6px, $text-p2)
+            @include border(b, 1px dashed $text-meta)
+            margin-bottom: .5rem
+            padding-bottom: 2px
+
+            &:hover
+                color: $text-warn
+                border-color: $text-warn

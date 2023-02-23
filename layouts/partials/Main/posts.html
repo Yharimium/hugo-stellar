@@ -1,0 +1,11 @@
+<div class="posts">
+    {{- range (.Scratch.Get "Pages") -}}
+    <a class="post" href="{{ .Permalink }}">
+      <div class="card">
+        <h2 class="title">{{ .Title }}</h2>
+        <div class="description">{{ .Description }}</div>
+        <div class="meta">发布于 {{ .Date.Format "2006-01-02" }}</div>
+      </div>
+    </a>
+    {{- end -}}
+</div>

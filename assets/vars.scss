@@ -1,0 +1,37 @@
+$width-side: 300px;
+$width-main: 720px;
+$radius: 4px;
+
+$bg-dark: #f9fafb;
+$bg-lite: #ffffff;
+$stick: #1cd0fd;
+$block: #f1f2f3;
+$border: #e3e5e8;
+$hover: #e9eaec;
+
+$text-p0: #000;
+$text-p1: #333;
+$text-p2: #4d4d4d;
+$text-p3: #808080;
+$text-p4: #999;
+$text-meta: #ccc;
+$text-warn: #f53900;
+$text-link: #2385d5;
+
+$shadow: 0 0 2px 0 rgba(0,0,0,.04), 0 0 8px 0 rgba(0,0,0,.04);
+$shadow-hover: 0 1px 4px 0 rgba(0,0,0,.1), 0 4px 16px 0 rgba(0,0,0,.1);
+$shadow-block: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+$shadow-block-hover: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+$border-filters: (
+    't': border-top,
+    'b': border-bottom,
+    'l': border-left,
+    'r': border-right
+);
+$radius-filters: (
+    'tl': border-top-left-radius,
+    'tr': border-top-right-radius,
+    'bl': border-bottom-left-radius,
+    'br': border-bottom-right-radius
+);

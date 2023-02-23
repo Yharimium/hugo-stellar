@@ -1,0 +1,37 @@
+<!-- MathJax -->
+<script src="/js/mathjax.js"></script>
+
+<!-- DPI -->
+<script src="/js/fiximg.js"></script>
+
+<!-- TOC And Header -->
+<script src="/js/toc.js"></script>
+
+<!-- Codeblock -->
+<script src="/js/codeblock.js"></script>
+
+<!-- Redirector -->
+{{- if .Site.Params.tencentUrl | default true -}}
+<script src="/js/tencenturl.js"></script>
+{{- end -}}
+
+<!-- Built-in -->
+<script>
+    toggleClass = (el, className) =>
+        el.hasClass(className) ? el.removeClass(className) : el.addClass(className)
+
+    sidebar_button_click = (e) => {
+        toggleClass($(".Side"), "layout"), toggleClass($(".sidebar-toggle"), "layout")
+    }
+</script>
+
+<!-- Mermaid -->
+<script>
+    mermaid.initialize({
+        securityLevel: 'loose',
+        themeVariables: {
+            fontFamily: 'Roboto Mono',
+            fontSize: '85%'
+        }
+    });
+</script>

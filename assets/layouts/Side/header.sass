@@ -1,0 +1,111 @@
+%topic
+    display: flex
+    --sz: 50px
+
+    a.avatar
+        @include HiDPI
+        @include radius(all, 100%)
+        width: var(--sz)
+        height: var(--sz)
+        flex: 0 0 var(--sz)
+        overflow: hidden
+        margin-right: 1rem
+
+        div.bg
+            @include transition(opacity .2s ease)
+            position: absolute
+            z-index: -1
+            width: var(--sz)
+            height: var(--sz)
+
+            &.rainbow
+                opacity: 0
+                background-size: cover
+            &.shadow
+                @include radius(all, 100%)
+                background: $border
+
+        img.avatar
+            @include radius(all, 100%)
+            margin: 2px
+            width: calc(100% - 4px)
+            height: calc(100% - 4px)
+            background-color: white
+
+        &:hover
+            div.bg.rainbow
+                opacity: 1
+                animation: rotate 2.5s infinite linear
+
+    a.title
+        flex-grow: 1
+        position: relative
+        white-space: nowrap
+
+        .text
+            @include font(27px, bold, $text-p0)
+            line-height: 2rem
+
+        .sub
+            @include transition(transform, opacity, .2s ease-out)
+            @include font(13px, $text-p2)
+            line-height: 1rem
+            position: absolute
+            white-space: nowrap
+            &.dw
+                transform: translateY(8px)
+                opacity: 0
+
+        &:hover
+            .dw
+                transform: translateY(0)
+                opacity: 1
+            .up
+                transform: translateY(-8px)
+                opacity: 0
+
+.header
+    margin: 1rem
+    margin-top: 2rem
+
+    .back
+        @include font(13px, $text-p2)
+        display: block
+        margin-bottom: .5rem
+        span
+            display: inline-block
+            vertical-align: 3px
+        &:hover
+            @include font($text-warn)
+
+    .topic
+        @extend %topic
+
+    .menu
+        @include border
+        @include radius
+        z-index: 999
+        margin: 1rem 0 0 0
+        background: $block
+        display: flex
+
+        .nav-item
+            @include font(14px, $text-p3)
+            @include radius
+            flex-grow: 1
+            text-overflow: ellipsis
+            padding: .375rem .5rem
+            margin: 1px
+            overflow: hidden
+            text-align: center
+
+            &.active, &:hover
+                color: $text-p1
+                background: $bg-lite
+                box-shadow: $shadow
+            
+            & + .nav-item
+                margin-right: .5px
+
+
+

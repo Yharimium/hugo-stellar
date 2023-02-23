@@ -1,0 +1,49 @@
+.pages
+    @include hideScrollBar
+    @include radius(all, 6px)
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    background: $bg-lite
+    padding: .25rem
+    margin: 1rem
+    box-shadow: $shadow
+    overflow: scroll hidden
+
+    .box
+        @include font(16px, bold, $text-link)
+        @include radius
+        display: flex
+        justify-content: center
+        margin: 0 .5rem
+        padding: 4px 8px
+        min-width: 30px
+        background: $block
+        white-space: nowrap
+
+        &.prev
+            margin-left: 0
+
+        &.next
+            margin-right: 0
+
+        &.prev, &.next
+            background: none
+            img
+                width: 1rem
+                height: 100%
+                filter: grayscale(100%)
+
+        &.box.eldivpsis
+            width: 3rem
+
+        &.disabled
+            color: $text-p3
+            cursor: default
+            img
+                opacity: .5
+
+        &:not(.disabled):hover
+            color: $text-warn
+            img
+                filter: grayscale(0)

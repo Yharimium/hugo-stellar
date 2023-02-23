@@ -1,0 +1,66 @@
+&.tree
+    margin-top: 2rem
+    .item
+        @include border
+        @include radius
+        margin: 4px 0
+        background: $block
+        overflow: hidden
+
+        > .title
+            @include font(12px, $text-p2)
+            padding: .5rem .7rem
+            display: block
+            position: relative
+            &::after
+                content: "+"
+                float: right
+                display: none
+            &:hover
+                cursor: pointer
+                background: $border
+                &::after
+                    display: block
+            
+        > .inner > .list
+            @include border(t)
+            padding: 4px
+            background: $bg-lite
+
+            > :last-child
+                .item
+                    margin-bottom: 0
+
+            > li
+                list-style: none
+                > a
+                    @include font(13px, $text-p2)
+                    @include radius
+                    display: block
+                    position: relative
+                    width: 100%
+                    padding: 5px 8px
+
+                    &:hover
+                        background: $border
+                        color: $text-p1
+                        text-decoration: none
+
+                    &.active
+                        color: $text-link
+    
+        &[open]
+            > .title
+                @include font(bold)
+                &::after
+                    content: "-"
+        
+        #TableOfContents
+            @import "toc"
+            @extend %toc
+            ul
+                @extend %toc
+            a
+                font-size: 13px !important
+            &::after
+                display: none

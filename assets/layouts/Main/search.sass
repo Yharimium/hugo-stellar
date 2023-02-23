@@ -1,0 +1,92 @@
+> .search
+    .search-form
+        position: relative
+        display: flex
+        align-items: center
+        z-index: 999
+        background: $bg-dark
+
+        .search-input
+            @include border(all, none)
+            width: 100%
+            padding: .5rem 0 .5rem 1.5rem
+            color: $text-p0
+            background: none
+
+        .search-icon
+            position: absolute
+            width: 1rem
+            height: 1rem
+            left: 0
+            margin-left: .25rem
+            vertical-align: middle
+            opacity: .7
+
+        &::after
+            @include HiDPI
+            @include radius
+            content: ''
+            position: absolute
+            left: 0
+            right: 0
+            bottom: 0
+            height: 2px
+            background: linear-gradient(to right,#04f3ff,#08ffc6,#ddf730,#ffbd19,#ff1fe0,#c418ff,#04f3ff)
+            background-size: 200%
+            animation: glow 20s linear infinite
+
+    .search-result
+        .item
+            @include font(15px)
+            @include trim
+            display: block
+            // margin: 1rem 0
+
+            // .title
+                // @include font($text-p0)
+
+            .preview
+                @include font(13px, $text-p4)
+                margin-top: .2rem
+                height: 3.75rem
+                overflow: hidden
+                .key
+                    background: yellow
+
+            &.summary
+                @include font(13px, $text-link)
+                margin-top: 1.5rem
+                width: 100%
+    
+    .sec_tabs
+        background: $bg-dark
+        z-index: 999
+
+        .nav
+            @include hideScrollBar
+            @include font(13px, $text-p3)
+            display: flex
+            justify-content: center
+            position: relative
+            padding: .5rem 1rem
+            overflow: scroll hidden
+            .tab
+                @include radius
+                padding: 0 1rem
+                line-height: 2.2
+                color: $text-p3
+                white-space: nowrap
+                position: relative
+                cursor: pointer
+                z-index: 1
+                &.active
+                    color: $text-p1
+                    background: $bg-lite
+                    box-shadow: $shadow-block
+
+                &:not(.active):hover
+                    color: $text-p0
+                    background: $hover
+
+                & + .tab
+                    margin-left: .5rem

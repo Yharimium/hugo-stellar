@@ -1,0 +1,7 @@
+{{- $checked := .Get 0 -}}
+{{- $content := .Inner | markdownify -}}
+
+<div class='stellar radio-box'>
+    <input type='radio' checked='{{ $checked }}' />
+    <span>{{ $content }}</span>
+</div>

@@ -1,0 +1,32 @@
+.stellar.folding
+    @include border(all, 1px solid var(--theme-border))
+    @include radius
+    background: var(--theme-bg2)
+    margin: 1rem 0
+    > summary
+        @include font(13.6px, bold)
+        cursor: pointer
+        display: flex
+        color: var(--text-p1)
+        padding: .5rem
+        > img
+            width: 20px
+            height: 20px
+            margin-right: .25rem
+            &.arrow
+                @include transition(transform .15s ease)
+
+    > .body
+        @include trim
+        @include font(95%)
+        padding: 1rem
+        padding-top: .5rem
+        code 
+            color: var(--text-code)
+            background: var(--theme-bg1)
+        > .highlight
+            @include border(all, 1px solid var(--theme-border))
+    &[open]
+        > summary
+            > img.arrow
+                transform: rotate(90deg)

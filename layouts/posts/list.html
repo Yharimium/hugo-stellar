@@ -1,0 +1,59 @@
+{{- define "main" -}}
+
+{{- .Scratch.Set "Widgets" (slice "search" "notice" "recent") -}}
+{{- .Scratch.Set "Active" (dict "Menu" "/" "Tabs" "/posts/") -}}
+
+<div class="LBody">
+    <div class="Side">
+        {{- partial "Side/header.html" . -}}
+        {{- partial "Side/widgets.html" . -}}
+        {{- partial "Side/footer.html" . -}}
+    </div>
+    <div class="Main">
+        {{- partial "dpi.html" . -}}
+        {{- partial "Main/tabs.html" . -}}
+        {{- template "list" . -}}
+        {{- partial "Main/footer.html" . -}}
+    </div>
+</div>
+
+{{- end -}}
+
+{{- define "list" -}}
+
+{{- $dir := "posts" -}}
+{{- with .File -}}
+    {{- if .Dir -}}
+        {{- $dir = substr .Dir 0 -1 -}}
+    {{- end -}}
+{{- end -}}
+
+<div class="list">
+    <span class="item dir">
+        <span class="seperator"><strong>site:</strong></span>
+    {{- range $index, $content := split $dir "\\" -}}
+        <span class="seperator">/</span>
+        <a class="subdir" href='/{{ delimit (split $dir "\\" | first (add $index 1)) "/" }}'>{{ $content }}</a>
+    {{- end -}}
+        <span class="seperator">/</span>
+    </span>
+    {{- if not (eq .Parent.Kind "home") -}}
+    <a class="item" href="..">
+        <span class="type">{{ print "DIR" }}</span>
+        <span class="title">..</span>
+    </a>
+    {{- end -}}
+    {{- range where (where .Data.Pages ".Params.hide" "!=" "true").ByWeight ".IsPage" false -}}
+    <a class="item" href={{ .Permalink }}>
+        <span class="type">{{ print "DIR" }}</span>
+        <span class="title">{{ .Title }}</span>
+    </a>
+    {{- end -}}
+    {{- range where (where .Data.Pages ".Params.hide" "!=" "true").ByWeight ".IsPage" true -}}
+    <a class="item" href={{ .Permalink }}>
+        <span class="title">{{ .Title }}</span>
+    </a>
+    {{- end -}}
+</div>
+
+{{- end -}}
