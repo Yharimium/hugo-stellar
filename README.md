@@ -12,6 +12,8 @@ Yharim Area：<https://yharim.com/>
 
 DeCheng Note：<https://note.dc6.fun/>
 
+![hugo-stellar rth1 vip_](https://user-images.githubusercontent.com/97100140/220954726-781e0bdc-2444-4e41-91eb-584ece86cb30.png)
+
 ## Usage
 
 ### 方案 1：GitHub Actions + Pages 建站
