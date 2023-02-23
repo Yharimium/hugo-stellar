@@ -12,8 +12,6 @@ Yharim Area：<https://yharim.com/>
 
 DeCheng Note：<https://note.dc6.fun/>
 
-请尽量使用国内网络访问。
-
 ## Usage
 
 ### 方案 1：GitHub Actions + Pages 建站
