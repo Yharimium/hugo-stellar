@@ -6,8 +6,6 @@
 
 ## Demo
 
-样板网站：<https://hugo-stellar.rth1.vip/>
-
 Yharim Area：<https://yharim.com/>
 
 DeCheng Note：<https://note.dc6.fun/>
