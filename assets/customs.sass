@@ -14,12 +14,12 @@ body, input, button
 
 a
     @include transition(color .15s)
-    color: $text-link
+    color: var(--text-link)
     word-break: break-word
     text-decoration: none
     -webkit-user-drag: auto
     &:hover
-        color: lighten($text-link, 25%)
+        color: var(--text-link-hover)
 
 ul
     list-style: disc

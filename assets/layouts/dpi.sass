@@ -1,6 +1,6 @@
 @import "Side/header"
 
-.mobile
+.mobile-only
     display: none !important
 
     &.sidebar-toggle
@@ -13,8 +13,8 @@
         right: 1rem
         height: 40px
         width: 40px
-        background: $bg-lite
-        box-shadow: $shadow-block
+        background: var(--card)
+        box-shadow: var(--shadow-block)
         box-sizing: content-box
 
         img
@@ -23,7 +23,7 @@
             margin: 10px
 
         &.layout
-            box-shadow: $shadow-hover
+            box-shadow: var(--shadow-hover)
 
     &.topic
         @extend %topic
@@ -41,7 +41,7 @@
             max-width: 100%
 
 @media screen and (max-width: 730px)
-    .mobile
+    .mobile-only
         &.sidebar-toggle
             display: block !important
         &.topic
@@ -54,9 +54,9 @@
             position: fixed
             left: -320px
             margin: 0
-            background: $bg-dark
+            background: var(--site-bg)
             z-index: 1000
-            box-shadow: $shadow-hover
+            box-shadow: var(--shadow-hover)
             
             &.layout
                 transform: translateX(320px)

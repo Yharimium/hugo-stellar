@@ -4,8 +4,8 @@
     @include border(l, 4px solid)
     @include radius
     margin: 1rem 0
-    box-shadow: $shadow-block
-    background: $bg-lite
+    box-shadow: var(--shadow-block)
+    background: var(--card)
     overflow: hidden
 
     > .title
@@ -32,7 +32,6 @@
 
     > .inner
         @include trim
-        @include radius
         @include font(93.75%)
         padding: .7rem 1rem
 
@@ -45,12 +44,17 @@
         &.#{$Type}
             border-color: $color
             > .title
-                background: mix($color, white, 14%)
+                background: #{$color}1f
             &[open] > .title
-                @include border(b, 1px solid mix($color, white, 25%))
+                @include border(b, 1px solid #{$color}1f)
 
     @each $Type, $filter in $hint-filter
         &.#{$Type}
             > .title
                 > img.icon
                     filter: $filter
+
+@media (prefers-color-scheme: dark)
+    .mkdocs.hint
+        > .inner
+            background: var(--block)

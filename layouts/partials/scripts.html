@@ -17,11 +17,9 @@
 
 <!-- Built-in -->
 <script>
-    toggleClass = (el, className) =>
-        el.hasClass(className) ? el.removeClass(className) : el.addClass(className)
-
     sidebar_button_click = (e) => {
-        toggleClass($(".Side"), "layout"), toggleClass($(".sidebar-toggle"), "layout")
+        $(".Side")[0].classList.toggle("layout");
+        $(".sidebar-toggle")[0].classList.toggle("layout");
     }
 </script>
 
@@ -30,7 +28,7 @@
     mermaid.initialize({
         securityLevel: 'loose',
         themeVariables: {
-            fontFamily: 'Roboto Mono',
+            fontFamily: 'Cera Round Pro',
             fontSize: '85%'
         }
     });

@@ -4,6 +4,9 @@
     padding-left: .5rem
     position: relative
 
+    *
+        font-weight: normal !important
+
     &::after
         @include HiDPI
         content: ""
@@ -12,7 +15,7 @@
         bottom: 0
         left: 0
         width: 1.5px
-        background: $border
+        background: var(--hover)
 
     ul
         margin-left: 1rem
@@ -21,21 +24,20 @@
         list-style: none
         margin: 0
         > a
-            @include font(13.6px, $text-p2)
+            @include font(13.6px, --text-p2)
             @include radius
-            font-weight: normal !important
             display: block
             position: relative
             width: 100%
             padding: 5px 8px
 
             &:hover
-                background: $border
-                color: $text-p1
+                background: var(--hover)
+                color: var(--text-p1)
                 text-decoration: none
 
             &.active
-                color: $text-link
+                color: var(--text-link)
 
                 &::after
                     @include HiDPI
@@ -47,7 +49,7 @@
                     bottom: 4px
                     left: -8.5px
                     width: 3px
-                    background: $text-link
+                    background: var(--text-link)
     
 &.toc
     .content

@@ -27,9 +27,7 @@ $toc.find("ul").each( (id, el) => {
 
 $anchor = $toc.find("a");
 $widgets = $(".widgets");
-$heading = $(".content").children("h2, h3, h4");
-
-onClick = false;
+$heading = $(".content").children("h1, h2, h3, h4, h5, h6");
 
 scrollParentToChild = (parent, child) => {
     if (!parent || !child)
@@ -58,18 +56,13 @@ setActiveAnchor = ($cntAnchor) => {
 }
 
 $(window).scroll( () => {
-    onClick ? onClick = false : setActiveAnchor(currentAnchor());
+    setActiveAnchor(currentAnchor());
 });
 
 setActiveAnchor(currentAnchor());
 
 $anchor.each( (id, el) => {
     $(el).click( () => {
-        onClick = true;
-        setActiveAnchor($(el));
-        var heading = $heading.filter(`[id=\"${$(el).attr("href")}\"]`);
-        heading.css({ color: "#f53900" })
-            .animate({ opacity: 1 }, 100)
-            .animate({ color: "#000000" }, "swing");
+        scrollParentToChild($widgets[0], el);
     });
 });

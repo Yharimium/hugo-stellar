@@ -15,14 +15,14 @@
             &::before 
                 content: "/"
                 margin: 0 .5rem
-                color: $text-p3
+                color: var(--text-p3)
 
     > .meta
-        @include font(13.6px, $text-p3)
+        @include font(13.6px, --text-p3)
         margin-bottom: 1rem
 
     > .description
-        @include font($text-p3)
+        @include font(--text-p3)
         display: block
         margin-bottom: 1rem
 
@@ -43,15 +43,15 @@
             width: calc(50% - .5rem)
             margin: .5rem 0
             padding: 1rem
-            background: $bg-lite
-            box-shadow: $shadow-block
+            background: var(--card)
+            box-shadow: var(--shadow-block)
             span
                 overflow: hidden
                 &.title
-                    @include font(16px, $text-p0)
+                    @include font(16px, --text-p0)
                     margin-bottom: 2px
                 &.link
-                    @include font(13.5px, $text-p4)
+                    @include font(13.5px, --text-p4)
 
             &:hover
-                box-shadow: $shadow-block-hover
+                box-shadow: var(--shadow-block-hover)

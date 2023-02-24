@@ -9,7 +9,6 @@ cdn:
   - "host://lxgw-wenkai-screen-webfont@1.1.0/lxgwwenkaiscreen.css"
   script:
   - "host://jquery@3.6.3/dist/jquery.min.js"
-  - "host://jquery-color-animation@1.5.1/jquery.animate-colors-min.js"
   - "host://withinviewport@2.1.2/withinviewport.js"
   - "host://withinviewport@2.1.2/jquery.withinviewport.js"
   - "host://mermaid@9.4.0/dist/mermaid.js"

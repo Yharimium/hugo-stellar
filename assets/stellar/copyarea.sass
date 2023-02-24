@@ -9,11 +9,12 @@
         overflow: hidden
         padding: 3px .5rem
         margin: 0
-        background: $block
+        background: var(--block)
         position: relative
         code
             @include hideScrollBar
             display: block
+            color: var(--text-p0)
             overflow: auto
             margin: 0 2rem 0 .2rem
         .clipboard
@@ -26,11 +27,11 @@
             right: 0;
             height: 100%
             padding: 0 .3rem
-            background: $hover
+            background: var(--hover)
             align-items: center
             img
                 width: 1.2rem
                 height: 1.2rem
                 opacity: 1 !important
             &:hover, &.active
-                background: $bg-lite
+                background: var(--card)

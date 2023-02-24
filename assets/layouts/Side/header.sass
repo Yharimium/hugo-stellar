@@ -21,9 +21,10 @@
             &.rainbow
                 opacity: 0
                 background-size: cover
+                scale: 1.2
             &.shadow
                 @include radius(all, 100%)
-                background: $border
+                background: var(--hover)
 
         img.avatar
             @include radius(all, 100%)
@@ -43,12 +44,12 @@
         white-space: nowrap
 
         .text
-            @include font(27px, bold, $text-p0)
+            @include font(27px, bold, --text-p0)
             line-height: 2rem
 
         .sub
             @include transition(transform, opacity, .2s ease-out)
-            @include font(13px, $text-p2)
+            @include font(13px, --text-p0)
             line-height: 1rem
             position: absolute
             white-space: nowrap
@@ -69,14 +70,14 @@
     margin-top: 2rem
 
     .back
-        @include font(13px, $text-p2)
+        @include font(13px, --text-p2)
         display: block
         margin-bottom: .5rem
         span
             display: inline-block
             vertical-align: 3px
         &:hover
-            @include font($text-warn)
+            @include font(--text-warn)
 
     .topic
         @extend %topic
@@ -86,11 +87,11 @@
         @include radius
         z-index: 999
         margin: 1rem 0 0 0
-        background: $block
+        background: var(--block)
         display: flex
 
         .nav-item
-            @include font(14px, $text-p3)
+            @include font(14px, --text-p3)
             @include radius
             flex-grow: 1
             text-overflow: ellipsis
@@ -100,9 +101,9 @@
             text-align: center
 
             &.active, &:hover
-                color: $text-p1
-                background: $bg-lite
-                box-shadow: $shadow
+                color: var(--text-p1)
+                background: var(--card)
+                box-shadow: var(--shadow)
             
             & + .nav-item
                 margin-right: .5px

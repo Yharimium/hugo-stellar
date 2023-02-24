@@ -1,5 +1,5 @@
 <head>
-    <title>{{ .Site.Title }}</title>
+    <title>{{ cond (or .IsHome (not (len .Title))) .Site.Title (printf "%s - %s" .Title .Site.Title) }}</title>
 
     <meta charset="utf-8">
     <meta name="author" content="{{ .Site.Params.author }}">

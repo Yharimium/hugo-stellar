@@ -3,34 +3,35 @@ html
     -webkit-tap-highlight-color: transparent
     text-rendering: optimizelegibility
     overflow-y: scroll
+    scroll-behavior: smooth
 
 body
     margin: 0 auto
-    background: $bg-dark
+    background: var(--site-bg)
 
 .LBody
     display: flex
     justify-content: center
 
     > .Side
-        @import "Side/index"
+        @import "Side"
         z-index: 8
         position: -webkit-sticky
         position: sticky
         top: 0
         display: flex
         flex-direction: column
-        width: $width-side
+        width: var(--width-side)
         height: 100vh
         margin-right: 1rem
 
     > .Main
-        @import "Main/index"
+        @import "Main"
         position: relative
         flex-shrink: 1
         flex-grow: 1
         width: 0;
-        max-width: $width-main
+        max-width: var(--width-main)
         padding: 1rem 0
 
 @import "dpi"

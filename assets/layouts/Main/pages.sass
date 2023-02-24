@@ -4,21 +4,22 @@
     display: flex
     flex-flow: row nowrap
     justify-content: space-between
-    background: $bg-lite
+    background: var(--card)
     padding: .25rem
     margin: 1rem
-    box-shadow: $shadow
+    box-shadow: var(--shadow)
     overflow: scroll hidden
 
     .box
-        @include font(16px, bold, $text-link)
+        @include font(16px, bold, --text-link)
         @include radius
         display: flex
         justify-content: center
         margin: 0 .5rem
         padding: 4px 8px
-        min-width: 30px
-        background: $block
+        height: 1.8rem
+        min-width: 1.8rem
+        background: var(--block)
         white-space: nowrap
 
         &.prev
@@ -38,12 +39,12 @@
             width: 3rem
 
         &.disabled
-            color: $text-p3
+            color: var(--text-p3)
             cursor: default
             img
                 opacity: .5
 
         &:not(.disabled):hover
-            color: $text-warn
+            color: var(--text-warn)
             img
                 filter: grayscale(0)

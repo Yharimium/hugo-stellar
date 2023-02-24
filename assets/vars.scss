@@ -1,27 +1,59 @@
-$width-side: 300px;
-$width-main: 720px;
-$radius: 4px;
+:root {
+    --width-side: 300px;
+    --width-main: 720px;
 
-$bg-dark: #f9fafb;
-$bg-lite: #ffffff;
-$stick: #1cd0fd;
-$block: #f1f2f3;
-$border: #e3e5e8;
-$hover: #e9eaec;
+    --radius: 4px;
 
-$text-p0: #000;
-$text-p1: #333;
-$text-p2: #4d4d4d;
-$text-p3: #808080;
-$text-p4: #999;
-$text-meta: #ccc;
-$text-warn: #f53900;
-$text-link: #2385d5;
+    --site-bg: #f9fafb;
+    --bar: #1cd0fd;
+    --card: #ffffff;
+    --block: #f1f2f3;
+    --border: #e3e5e8;
+    --hover: #e9eaec;
 
-$shadow: 0 0 2px 0 rgba(0,0,0,.04), 0 0 8px 0 rgba(0,0,0,.04);
-$shadow-hover: 0 1px 4px 0 rgba(0,0,0,.1), 0 4px 16px 0 rgba(0,0,0,.1);
-$shadow-block: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-$shadow-block-hover: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    --text-p0: #000;
+    --text-p1: #333;
+    --text-p2: #4d4d4d;
+    --text-p3: #808080;
+    --text-p4: #999;
+    --text-meta: #ccc;
+    --text-warn: #f53900;
+    --text-codespan: #66b2ff26;
+    --text-link: #2385d5;
+    --text-link-hover: #8bc1ec;
+
+    --shadow: 0 0 2px 0 rgba(0,0,0,.04), 0 0 8px 0 rgba(0,0,0,.04);
+    --shadow-hover: 0 1px 4px 0 rgba(0,0,0,.1), 0 4px 16px 0 rgba(0,0,0,.1);
+    --shadow-block: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    --shadow-block-hover: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --site-bg: #1c1e21;
+        --card: #373d43;
+        --block: #26292c;
+        --border: #383d42;
+        --hover: #2f3337;
+        --text-p0: #fff;
+        --text-p1: #ccc;
+        --text-p2: #b3b3b3;
+        --text-p3: #858585;
+        --text-p4: #707070;
+        --text-meta: #4d4d4d;
+        --text-warn: #ff6333;
+        --text-codespan: #21222c;
+        --text-link: #03cafc;
+        --text-link-hover: #2385d5;
+    }
+    .rainbow, .search-icon, .md_img[src*=svg], .social img, .board img, .clipboard img, img.arrow {
+        filter: invert(100%);
+    }
+    table:not(.lntable) {
+        background: var(--block) !important;
+    }
+    @import "markdown/monokai";
+}
 
 $border-filters: (
     't': border-top,

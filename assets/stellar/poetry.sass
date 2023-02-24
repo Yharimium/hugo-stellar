@@ -13,7 +13,7 @@
             top: 4px
             bottom: 4px
             border-radius: 4px
-            background: $block
+            background: var(--block)
         > .title
             padding-top: .75rem
             position: relative
@@ -27,12 +27,12 @@
                 border-radius: 4px
                 background: #ff5724
         > .meta
-            @include font(13px, $text-p2)
+            @include font(13px, --text-p2)
             margin-top: 4px
         
         > .body
             @include trim
-            @include border(tb, 1px dashed $border)
+            @include border(tb, 1px dashed var(--border))
             margin: .75rem 0
             padding: .5rem 0
             p
@@ -40,5 +40,5 @@
                 margin: 5px 0
         
         > .footer
-            @include font(13px, italic, $text-p3)
+            @include font(13px, italic, --text-p3)
             padding-bottom: .75rem

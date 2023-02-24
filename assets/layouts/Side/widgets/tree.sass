@@ -4,11 +4,11 @@
         @include border
         @include radius
         margin: 4px 0
-        background: $block
+        background: var(--block)
         overflow: hidden
 
         > .title
-            @include font(12px, $text-p2)
+            @include font(12px, --text-p2)
             padding: .5rem .7rem
             display: block
             position: relative
@@ -18,14 +18,14 @@
                 display: none
             &:hover
                 cursor: pointer
-                background: $border
+                background: var(--hover)
                 &::after
                     display: block
             
         > .inner > .list
             @include border(t)
             padding: 4px
-            background: $bg-lite
+            background: var(--card)
 
             > :last-child
                 .item
@@ -34,7 +34,7 @@
             > li
                 list-style: none
                 > a
-                    @include font(13px, $text-p2)
+                    @include font(13px, --text-p2)
                     @include radius
                     display: block
                     position: relative
@@ -42,12 +42,12 @@
                     padding: 5px 8px
 
                     &:hover
-                        background: $border
-                        color: $text-p1
+                        background: var(--hover)
+                        color: var(--text-p1)
                         text-decoration: none
 
                     &.active
-                        color: $text-link
+                        color: var(--text-link)
     
         &[open]
             > .title

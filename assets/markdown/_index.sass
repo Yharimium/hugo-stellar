@@ -3,10 +3,12 @@
 
     font-size: 16px
     line-height: 1.5
+    color: var(--text-p0)
 
     h1, h2, h3, h4, h5, h6
         margin: 2rem 0 1rem 0
         .anchor
+            display: inline-block
             opacity: 0
             cursor: pointer
         &:hover .anchor
@@ -53,25 +55,25 @@
         .icon
             height: .8em
             vertical-align: -1.5px
-            margin-left: 4px
+            margin: 0 4px
             filter: invert(60%)
 
     blockquote
         @include trim
-        @include border(l, 4px solid $text-p4)
-        @include font($text-p3)
+        @include border(l, 4px solid var(--text-p4))
+        @include font(--text-p3)
         margin: 1rem 0
         padding: 0 1rem
 
     code
-        @include font(90%, $text-p1)
+        @include font(90%, --text-p1)
         @include radius(all, 2px)
-        background: rgba(102, 178, 255, 0.15)
+        background: var(--text-codespan)
         padding: 0 4px
 
     pre
         padding: .5rem 1rem
-        background: $block !important
+        background: var(--block) !important
         overflow: auto
         position: relative
         line-height: 1.6
@@ -82,7 +84,7 @@
             padding: 0
             display: flex
             flex-direction: column
-            color: $text-p0
+            color: var(--text-p0)
 
             &, span
                 font-style: normal !important
@@ -92,7 +94,7 @@
         margin: 1rem 0
         padding: .5rem
         position: relative
-        background: $block
+        background: var(--block)
 
         > pre
             padding: 0 .5rem
@@ -116,6 +118,9 @@
 
                 &:first-of-type
                     display: block
+                    position: sticky
+                    left: 0
+                    z-index: 1
                     pre.chroma
                         @include border(r)
                 &:last-of-type
@@ -137,7 +142,7 @@
             top: 0
             right: 0
             padding: 8px
-            background: $block
+            background: var(--block)
             box-sizing: content-box
             opacity: 0
 
@@ -168,7 +173,7 @@
                 padding: 6px 1rem
                 margin: -.5rem !important
                 margin-bottom: .5rem !important
-                background: $block
+                background: var(--block)
             > .board
                 top: 6px
                 padding: 0 8px
@@ -184,7 +189,7 @@
                 padding: 1rem
                 margin: -.5rem !important
                 margin-top: .5rem !important
-                background: $bg-lite
+                background: var(--card)
         
         &[compress="true"]
             > pre
@@ -199,7 +204,7 @@
         margin: 1rem 0
         border-spacing: 0
         overflow: auto
-        background: $bg-lite
+        background: var(--card)
         -webkit-overflow-scrolling: touch
 
         tr
@@ -210,8 +215,6 @@
                 // white-space: nowrap
             td
                 @include border(t)
-            &:hover
-                background: lighten($block, 3%)
 
     img, svg
         @include selectable(false)
@@ -246,5 +249,5 @@
     .mermaid
         text-align: center
 
-@import "shortcodes/index"
+@import "shortcodes"
 @import "chroma.scss"

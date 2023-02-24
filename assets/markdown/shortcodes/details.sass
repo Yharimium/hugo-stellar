@@ -1,14 +1,14 @@
 .book-details
-    @include border(l, 4px solid $text-meta)
+    @include border(l, 4px solid var(--text-meta))
     @include radius
     display: block
     overflow: hidden
     margin: 1rem 0
-    background: $block
-    box-shadow: $shadow-block
+    background: var(--block)
+    box-shadow: var(--shadow-block)
 
     summary
-        @include font(14px, bold, $text-p2)
+        @include font(14px, bold, --text-p2)
         cursor: pointer
         padding: .3rem .5rem
 
@@ -27,7 +27,7 @@
     .inner
         @include trim()
         padding: 1rem
-        background: $bg-lite
+        background: var(--card)
         overflow: hidden
 
     &[open]

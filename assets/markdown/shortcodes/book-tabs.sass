@@ -6,7 +6,7 @@
     justify-content: center
 
     .label
-        @include font(13px, $text-p3)
+        @include font(13px, --text-p3)
         @include radius
         cursor: pointer
         position: relative
@@ -22,8 +22,8 @@
             padding: .1rem 0
 
         &:not(.active):hover
-            color: $text-p0
-            background: $hover
+            color: var(--text-p0)
+            background: var(--hover)
 
         &::after
             @include HiDPI
@@ -36,7 +36,7 @@
             bottom: -.5rem
             left: -.6rem
             right: 0
-            background: $hover
+            background: var(--hover)
         
         &:first-of-type
             &::after
@@ -52,9 +52,9 @@
         display: none
 
         &:checked + .label
-            color: $text-p0
-            background: $bg-lite
-            box-shadow: $shadow
+            color: var(--text-p0)
+            background: var(--card)
+            box-shadow: var(--shadow)
 
             &::before
                 @include HiDPI
@@ -68,7 +68,7 @@
                 bottom: -.5rem
                 left: .5rem
                 right: .5rem
-                background: $stick
+                background: var(--bar)
 
             & + .inner
                 display: block

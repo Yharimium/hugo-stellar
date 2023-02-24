@@ -5,7 +5,7 @@
         @include radius
         display: block
         padding: .5rem 1rem
-        color: $text-p2
+        color: var(--text-p2)
         line-height: 1
 
         img
@@ -23,17 +23,17 @@
             @include font(14px)
 
         &:not(.dir):hover
-            background: $hover
-            color: $text-p0
+            background: var(--hover)
+            color: var(--text-p0)
             .count
-                color: $text-link
+                color: var(--text-link)
 
         &.dir
             @include font(14px)
             padding: .6rem 1rem;
             margin-bottom: .5rem
-            background: $bg-lite
-            box-shadow: $shadow
+            background: var(--card)
+            box-shadow: var(--shadow)
             display: flex
             line-height: 1.2
 
@@ -41,14 +41,14 @@
                 margin: 0 1px
 
             .subdir
-                color: $text-p1
+                color: var(--text-p1)
                 &:hover
-                    color: $text-link
+                    color: var(--text-link)
                     text-decoration: underline
 
     &.categories
         .count
-            @include font(12px, bold, $text-p4)
+            @include font(12px, bold, --text-p4)
             float: right
             line-height: 1.4
 
@@ -56,24 +56,25 @@
         padding: calc(1rem - 4px)
 
         .card
-            @include transition(color, background, .1s)
+            @include transition(background .1s)
             @include radius
             display: inline-flex
             margin: 4px
             padding: .4rem .75rem
-            background: $block
+            background: var(--block)
 
             span
                 &.sign
-                    @include font(13px, bold, $text-p4)
+                    @include transition(color .1s)
+                    @include font(13px, bold, --text-p4)
                     padding-right: 3px
                 &.title
-                    @include font(13px, $text-p2)
+                    @include font(13px, --text-p2)
 
             &:hover
-                color: $text-p0
-                background: $bg-lite
-                box-shadow: $shadow
+                color: var(--text-p0)
+                background: var(--card)
+                box-shadow: var(--shadow)
 
                 .sign
-                    color: $text-link
+                    color: var(--text-link)

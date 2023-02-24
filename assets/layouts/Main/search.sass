@@ -4,13 +4,13 @@
         display: flex
         align-items: center
         z-index: 999
-        background: $bg-dark
+        background: var(--site-bg)
 
         .search-input
             @include border(all, none)
             width: 100%
             padding: .5rem 0 .5rem 1.5rem
-            color: $text-p0
+            color: var(--text-p0)
             background: none
 
         .search-icon
@@ -40,13 +40,9 @@
             @include font(15px)
             @include trim
             display: block
-            // margin: 1rem 0
-
-            // .title
-                // @include font($text-p0)
 
             .preview
-                @include font(13px, $text-p4)
+                @include font(13px, --text-p4)
                 margin-top: .2rem
                 height: 3.75rem
                 overflow: hidden
@@ -54,17 +50,17 @@
                     background: yellow
 
             &.summary
-                @include font(13px, $text-link)
+                @include font(13px, --text-link)
                 margin-top: 1.5rem
                 width: 100%
     
     .sec_tabs
-        background: $bg-dark
+        background: var(--site-bg)
         z-index: 999
 
         .nav
             @include hideScrollBar
-            @include font(13px, $text-p3)
+            @include font(13px, --text-p3)
             display: flex
             justify-content: center
             position: relative
@@ -74,19 +70,19 @@
                 @include radius
                 padding: 0 1rem
                 line-height: 2.2
-                color: $text-p3
+                color: var(--text-p3)
                 white-space: nowrap
                 position: relative
                 cursor: pointer
                 z-index: 1
                 &.active
-                    color: $text-p1
-                    background: $bg-lite
-                    box-shadow: $shadow-block
+                    color: var(--text-p1)
+                    background: var(--card)
+                    box-shadow: var(--shadow-block)
 
                 &:not(.active):hover
-                    color: $text-p0
-                    background: $hover
+                    color: var(--text-p0)
+                    background: var(--hover)
 
                 & + .tab
                     margin-left: .5rem

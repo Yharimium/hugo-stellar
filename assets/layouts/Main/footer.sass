@@ -12,13 +12,13 @@
             flex-direction: column
             align-items: flex-start
             > .title
-                @include font(15px, $text-p0)
+                @include font(15px, --text-p0)
                 margin-bottom: .5rem
             > .link
-                @include font(13px, $text-p3)
+                @include font(13px, --text-p3)
                 margin: 2px 0
                 &:hover
-                    @include font($text-warn)
+                    @include font(--text-warn)
 
     > .reference
         @include font(13px)

@@ -2,12 +2,12 @@
     margin: 0 1rem
 
     .year
-        @include font(24px, bold, $text-p1)
+        @include font(24px, bold, --text-p1)
         padding: 2rem 1rem
         padding-bottom: 0
 
     .month
-        @include font(18px, bold, $text-p2)
+        @include font(18px, bold, --text-p2)
         padding: 2px 0
 
     > .group
@@ -22,12 +22,14 @@
             margin: .25rem 0
 
             > .title
-                color: $text-p1
+                color: var(--text-p1)
 
             > .time
-                @include font(bold, $text-p4)
-                margin-right: .5rem
+                @include font(bold, --text-p4)
+                display: inline-block
+                width: 3.25em
+                // margin-right: .5rem
 
             &:hover
                 > .title, > .time
-                    color: $text-warn
+                    color: var(--text-warn)

@@ -6,11 +6,11 @@
         margin: 1rem 0
 
         .item
-            @include font(13.6px, $text-p2)
-            @include border(b, 1px dashed $text-meta)
+            @include font(13.6px, --text-p2)
+            @include border(b, 1px dashed var(--text-meta))
             margin-bottom: .5rem
             padding-bottom: 2px
 
             &:hover
-                color: $text-warn
-                border-color: $text-warn
+                color: var(--text-warn)
+                border-color: var(--text-warn)
