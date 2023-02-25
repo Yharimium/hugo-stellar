@@ -37,3 +37,12 @@ hr
         background-position: 0
     to
         background-position: 1000%
+
+@media (prefers-color-scheme: dark)
+    .rainbow, .search-icon, .social img, .board img, .clipboard img, img.arrow
+        filter: invert(100%)
+
+    table:not(.lntable)
+        background: var(--block) !important
+        
+    @import "markdown/monokai"

@@ -21,6 +21,9 @@
     <link rel="stylesheet" href={{ partial "toCSS" (printf "%s/_index.sass" .) }}>
     {{- end -}}
     {{- end -}}
+    {{- if .Site.Params.autoInvert -}}
+    <link rel="stylesheet" href={{ partial "toCSS" "autoinvert.sass" }}>
+    {{- end -}}
 
     {{- $cdn := .Site.Params.cdn -}}
     {{- $host := $cdn.host -}}

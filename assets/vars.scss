@@ -46,13 +46,6 @@
         --text-link: #03cafc;
         --text-link-hover: #2385d5;
     }
-    .rainbow, .search-icon, .md_img[src*=svg], .social img, .board img, .clipboard img, img.arrow {
-        filter: invert(100%);
-    }
-    table:not(.lntable) {
-        background: var(--block) !important;
-    }
-    @import "markdown/monokai";
 }
 
 $border-filters: (

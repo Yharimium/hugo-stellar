@@ -22,6 +22,9 @@ params:
 
   copyright: "place copyright here"
 
+  tencentUrl: true
+  autoInvert: true
+
   social:
   - name: "hugo"
     url: "https://gohugo.io/"
