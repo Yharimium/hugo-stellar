@@ -1,18 +1,11 @@
-.tabs
+> .tabs
     position: -webkit-sticky
     position: sticky
     top: 0
-    background: var(--site-bg)
+    background: var(--bg-site)
     z-index: 999
-    &:after
-        @include radius
-        content: ''
-        height: 2px
-        position: absolute
-        bottom: 0
-        left: 1rem
-        right: 1rem
-        background: var(--hover)
+    &::after
+        @extend %line-h
 
     .nav
         @include hideScrollBar
@@ -23,33 +16,16 @@
         padding: .5rem 1rem
         overflow: scroll hidden
         .tab
-            @include radius
-            padding: 0 1rem
-            line-height: 2.2
-            color: var(--text-p3)
-            white-space: nowrap
-            position: relative
+            @extend %card-dis
             z-index: 1
             &.active
-                color: var(--text-p1)
-                background: var(--card)
-                box-shadow: var(--shadow-block)
+                @extend %card-bold
                 &::after
-                    @include radius
-                    content: ''
-                    pointer-events: none
-                    cursor: default
-                    height: 2px
-                    position: absolute
+                    @extend %line-h-l
                     bottom: -.5rem
-                    left: 1rem
-                    right: 1rem
-                    background: var(--bar)
-
 
             &:not(.active):hover
-                color: var(--text-p0)
-                background: var(--hover)
+                @extend %card-hov
 
             & + .tab
                 margin-left: .5rem

@@ -7,10 +7,10 @@
     .card
         @include radius(all, 6px)
         @include transition(box-shadow .1s ease-out)
-        background: var(--card)
+        background: var(--bg-card)
         margin: 1rem 0
         padding: 1rem
-        box-shadow: var(--shadow)
+        box-shadow: var(--shdw)
 
         .title
             @include font(22px, normal, --text-p0)
@@ -24,7 +24,7 @@
             margin-top: .5rem
 
         &:hover
-            box-shadow: var(--shadow-hover)
+            box-shadow: var(--shdw-hov)
 
 .projects
     @extend .posts

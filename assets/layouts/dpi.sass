@@ -13,8 +13,8 @@
         right: 1rem
         height: 40px
         width: 40px
-        background: var(--card)
-        box-shadow: var(--shadow-block)
+        background: var(--bg-card)
+        box-shadow: var(--shdw-bold)
         box-sizing: content-box
 
         img
@@ -23,7 +23,7 @@
             margin: 10px
 
         &.layout
-            box-shadow: var(--shadow-hover)
+            box-shadow: var(--shdw-hov)
 
     &.topic
         @extend %topic
@@ -54,9 +54,9 @@
             position: fixed
             left: -320px
             margin: 0
-            background: var(--site-bg)
+            background: var(--bg-site)
             z-index: 1000
-            box-shadow: var(--shadow-hover)
+            box-shadow: var(--shdw-hov)
             
             &.layout
                 transform: translateX(320px)

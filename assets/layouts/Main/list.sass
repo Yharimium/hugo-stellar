@@ -2,29 +2,19 @@
     padding: 1rem
 
     .item
-        @include radius
+        @extend %card-dis
+        @include font(14px)
         display: block
-        padding: .5rem 1rem
         color: var(--text-p2)
-        line-height: 1
-
-        img
-            width: 18px
-            height: 18px
-            margin-right: 3px
-            opacity: .7
-            vertical-align: text-bottom
 
         .type
-            @include font(14px, bold)
+            @include font(bold)
             margin-right: .5rem
 
-        .title
-            @include font(14px)
+        // .title
 
         &:not(.dir):hover
-            background: var(--hover)
-            color: var(--text-p0)
+            @extend %card-hov
             .count
                 color: var(--text-link)
 
@@ -32,8 +22,8 @@
             @include font(14px)
             padding: .6rem 1rem;
             margin-bottom: .5rem
-            background: var(--card)
-            box-shadow: var(--shadow)
+            background: var(--bg-card)
+            box-shadow: var(--shdw)
             display: flex
             line-height: 1.2
 
@@ -48,7 +38,7 @@
 
     &.categories
         .count
-            @include font(12px, bold, --text-p4)
+            @include font(13px, bold, --text-p4)
             float: right
             line-height: 1.4
 
@@ -56,12 +46,12 @@
         padding: calc(1rem - 4px)
 
         .card
+            @extend %card-dim
+            padding: .4rem .75rem
+
             @include transition(background .1s)
-            @include radius
             display: inline-flex
             margin: 4px
-            padding: .4rem .75rem
-            background: var(--block)
 
             span
                 &.sign
@@ -72,9 +62,8 @@
                     @include font(13px, --text-p2)
 
             &:hover
-                color: var(--text-p0)
-                background: var(--card)
-                box-shadow: var(--shadow)
+                @extend %card
+                padding: .4rem .75rem
 
                 .sign
                     color: var(--text-link)

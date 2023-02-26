@@ -8,14 +8,7 @@
         font-weight: normal !important
 
     &::after
-        @include HiDPI
-        content: ""
-        position: absolute
-        top: 0
-        bottom: 0
-        left: 0
-        width: 1.5px
-        background: var(--hover)
+        @extend %line-v
 
     ul
         margin-left: 1rem
@@ -24,32 +17,19 @@
         list-style: none
         margin: 0
         > a
+            @extend %card-dis
             @include font(13.6px, --text-p2)
-            @include radius
             display: block
-            position: relative
-            width: 100%
             padding: 5px 8px
 
             &:hover
-                background: var(--hover)
-                color: var(--text-p1)
-                text-decoration: none
+                @extend %card-hov
 
             &.active
                 color: var(--text-link)
 
                 &::after
-                    @include HiDPI
-                    @include radius
-                    content: ""
-                    z-index: 1
-                    position: absolute
-                    top: 4px
-                    bottom: 4px
-                    left: -8.5px
-                    width: 3px
-                    background: var(--text-link)
+                    @extend %line-v-a
     
 &.toc
     .content

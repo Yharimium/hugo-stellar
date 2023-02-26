@@ -11,7 +11,7 @@
         overflow: hidden
         margin-right: 1rem
 
-        div.bg
+        > .bg
             @include transition(opacity .2s ease)
             position: absolute
             z-index: -1
@@ -21,10 +21,9 @@
             &.rainbow
                 opacity: 0
                 background-size: cover
-                scale: 1.2
             &.shadow
                 @include radius(all, 100%)
-                background: var(--hover)
+                background: var(--bg-hov)
 
         img.avatar
             @include radius(all, 100%)
@@ -34,7 +33,7 @@
             background-color: white
 
         &:hover
-            div.bg.rainbow
+            > .bg.rainbow
                 opacity: 1
                 animation: rotate 2.5s infinite linear
 
@@ -87,7 +86,7 @@
         @include radius
         z-index: 999
         margin: 1rem 0 0 0
-        background: var(--block)
+        background: var(--bg-blk)
         display: flex
 
         .nav-item
@@ -102,8 +101,8 @@
 
             &.active, &:hover
                 color: var(--text-p1)
-                background: var(--card)
-                box-shadow: var(--shadow)
+                background: var(--bg-card)
+                box-shadow: var(--shdw)
             
             & + .nav-item
                 margin-right: .5px

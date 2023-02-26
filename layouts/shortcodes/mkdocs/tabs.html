@@ -4,7 +4,7 @@
 {{- $name := printf "tabs-%s" $ordinal -}}
 {{- $active := false -}}
 
-<div class='mkdocs tabsets' name="{{ $name }}">
+<div class='mkdocs tabs' name="{{ $name }}">
 {{- range $index, $tab := $tabs -}}
     {{- $id := printf "tabs-%s-%s" $ordinal $index -}}
     {{- $checked := false -}}
@@ -14,6 +14,6 @@
     {{- end -}}
     <input type='radio' class='toggle' name="{{ $name }}" id="{{ $id }}" {{ if $checked }}checked="checked"{{ end }}>
     <label class="label {{ if not $tab.content }}disabled{{ end }}" for="{{ $id }}">{{ $tab.title }}</label>
-    <div class='inner' >{{ $tab.content }}</div>
+    <div class='inner'>{{ $tab.content }}</div>
 {{- end -}}
 </div>

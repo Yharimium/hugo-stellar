@@ -1,5 +1,6 @@
 title: "Hugo Stellar"
 paginate: 8
+relativeURLs: true
 
 theme:
 - stellar

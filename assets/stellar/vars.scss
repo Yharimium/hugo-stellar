@@ -89,7 +89,7 @@
     --text-p1: #111;
     --text-p2: #1f1f1f;
     --text-p3: #555;
-    --text-codespan: #000;
+    --text-code: #000;
 }
 
 .stellar[color=dark] {
@@ -100,7 +100,7 @@
     --text-p1: #fff;
     --text-p2: #e0e0e0;
     --text-p3: #ddd;
-    --text-codespan: #fff;
+    --text-code: #fff;
 }
 
 .stellar[color=warning] {
@@ -121,7 +121,7 @@
     --text-p1: #fff;
     --text-p2: #e0e0e0;
     --text-p3: #ddd;
-    --text-codespan: #fff;
+    --text-code: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -213,7 +213,7 @@
         --text-p1: #111;
         --text-p2: #1f1f1f;
         --text-p3: #555;
-        --text-codespan: #fff
+        --text-code: #fff
     }
 
     .stellar[color=dark] {
@@ -224,7 +224,7 @@
         --text-p1: #fff;
         --text-p2: #e0e0e0;
         --text-p3: #ddd;
-        --text-codespan: #fff
+        --text-code: #fff
     }
 
     .stellar[color=light],.stellar[color=warning] {
@@ -232,6 +232,6 @@
         --text-p1: #111;
         --text-p2: #1f1f1f;
         --text-p3: #555;
-        --text-codespan: #fff
+        --text-code: #fff
     }
 }

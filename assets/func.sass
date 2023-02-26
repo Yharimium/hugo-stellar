@@ -24,7 +24,7 @@
         @else
             font-weight: $t
 
-@mixin border($T: "", $__t: 1px solid var(--border))
+@mixin border($T: "", $__t: 1px solid var(--bg-border))
     @if $T == "" or $T == "all"
         border: $__t
     @else
@@ -32,7 +32,7 @@
             @if (str-index($T, $__key) != null)
                 #{$__index}: $__t
 
-@mixin radius($T: "", $__t: var(--radius))
+@mixin radius($T: "", $__t: var(--border-radius))
     @if $T == "" or $T == "all"
         border-radius: $__t
     @else

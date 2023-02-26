@@ -16,10 +16,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.logo | relURL }}" />
     <link rel="alt" type="application/rss+xml" href={{ "index.xml" | relURL }} title="{{ .Site.Title }}" />
     <link rel="stylesheet" href={{ partial "toCSS" "_index.sass" }}>
+
     {{- range .Site.Params.syntax -}}
     {{- if fileExists (printf "/assets/%s/_index.sass" .) -}}
     <link rel="stylesheet" href={{ partial "toCSS" (printf "%s/_index.sass" .) }}>
     {{- end -}}
+
     {{- end -}}
     {{- if .Site.Params.autoInvert -}}
     <link rel="stylesheet" href={{ partial "toCSS" "autoinvert.sass" }}>
@@ -38,6 +40,11 @@
 </head>
 
 {{- define "partials/toCSS" -}}
-    {{- $url := (resources.Get . | resources.ToCSS | resources.Fingerprint).Permalink | safeURL -}}
+    {{- $url := (resources.Get . | resources.ToCSS).RelPermalink | relURL -}}
+    {{- return $url -}}
+{{- end -}}
+
+{{- define "partials/toJS" -}}
+    {{- $url := (resources.Get .).RelPermalink | relURL -}}
     {{- return $url -}}
 {{- end -}}

@@ -1,4 +1,4 @@
-.mkdocs.tabsets
+.mkdocs.tabs
     margin: 1rem 0
     overflow: visible
     display: flex
@@ -28,7 +28,7 @@
 
         &:not(.active):hover
             color: var(--text-p0)
-            background: var(--hover)
+            background: var(--bg-hov)
 
         &::after
             @include HiDPI
@@ -41,7 +41,7 @@
             bottom: -.5rem
             left: -.6rem
             right: 0
-            background: var(--hover)
+            background: var(--bg-hov)
         
         &:first-of-type
             &::after
@@ -58,8 +58,8 @@
 
         &:checked + .label
             color: var(--text-p0)
-            background: var(--card)
-            box-shadow: var(--shadow-block)
+            background: var(--bg-card)
+            box-shadow: var(--shdw-bold)
 
             &::before
                 @include HiDPI
@@ -73,7 +73,7 @@
                 bottom: -.5rem
                 left: .7rem
                 right: .7rem
-                background: var(--bar)
+                background: var(--bg-line)
 
             & + .inner
                 display: block

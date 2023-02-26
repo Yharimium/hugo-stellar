@@ -38,7 +38,7 @@ $(".highlight").each( (id, codeblock) => {
             $edit.addClass("active");
             $board.addClass("active");
             $pre.attr("contenteditable", "true")
-                .attr("style", "background: var(--card) !important")
+                .attr("style", "background: var(--bg-card) !important")
                 .focus();
         }
         else {

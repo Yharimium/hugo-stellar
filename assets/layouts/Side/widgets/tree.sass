@@ -4,7 +4,7 @@
         @include border
         @include radius
         margin: 4px 0
-        background: var(--block)
+        background: var(--bg-blk)
         overflow: hidden
 
         > .title
@@ -18,14 +18,14 @@
                 display: none
             &:hover
                 cursor: pointer
-                background: var(--hover)
+                background: var(--bg-hov)
                 &::after
                     display: block
             
         > .inner > .list
             @include border(t)
             padding: 4px
-            background: var(--card)
+            background: var(--bg-card)
 
             > :last-child
                 .item
@@ -42,7 +42,7 @@
                     padding: 5px 8px
 
                     &:hover
-                        background: var(--hover)
+                        background: var(--bg-hov)
                         color: var(--text-p1)
                         text-decoration: none
 

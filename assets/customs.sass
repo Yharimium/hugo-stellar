@@ -19,7 +19,7 @@ a
     text-decoration: none
     -webkit-user-drag: auto
     &:hover
-        color: var(--text-link-hover)
+        color: var(--text-link-hov)
 
 ul
     list-style: disc
@@ -38,11 +38,8 @@ hr
     to
         background-position: 1000%
 
+@import "markdown/chroma"
 @media (prefers-color-scheme: dark)
-    .rainbow, .search-icon, .social img, .board img, .clipboard img, img.arrow
+    .search-icon, .social img, .board img, .clipboard img, img.arrow
         filter: invert(100%)
-
-    table:not(.lntable)
-        background: var(--block) !important
-        
     @import "markdown/monokai"

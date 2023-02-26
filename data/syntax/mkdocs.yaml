@@ -40,9 +40,9 @@ exec:
   cover: "{{% mkdocs/details \"$1\" \"open\" \"$1\" %}} @indent($2) {{% /mkdocs/details %}} \n\n"
   flag: m
 
-# TABSETS
+# TABS
 - match: "^ ((=== @sp+ (.+) @sp* (@inp*) @s*)+)"
-  cover: "{{% mkdocs/tabsets %}} \n$1\n {{% /mkdocs/tabsets %}} \n\n"
+  cover: "{{% mkdocs/tabs %}} \n$1\n {{% /mkdocs/tabs %}} \n\n"
   flag: m
 
 # TAB

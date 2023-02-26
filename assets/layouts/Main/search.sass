@@ -4,7 +4,7 @@
         display: flex
         align-items: center
         z-index: 999
-        background: var(--site-bg)
+        background: var(--bg-site)
 
         .search-input
             @include border(all, none)
@@ -55,7 +55,7 @@
                 width: 100%
     
     .sec_tabs
-        background: var(--site-bg)
+        background: var(--bg-site)
         z-index: 999
 
         .nav
@@ -77,12 +77,12 @@
                 z-index: 1
                 &.active
                     color: var(--text-p1)
-                    background: var(--card)
-                    box-shadow: var(--shadow-block)
+                    background: var(--bg-card)
+                    box-shadow: var(--shdw-bold)
 
                 &:not(.active):hover
                     color: var(--text-p0)
-                    background: var(--hover)
+                    background: var(--bg-hov)
 
                 & + .tab
                     margin-left: .5rem
