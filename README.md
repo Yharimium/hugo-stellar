@@ -6,7 +6,7 @@
 
 ## Demo
 
-模板网站：<https://yharimium.github.io/>
+模板网站：<https://hugo-template.github.io/Stellar-Hugo-Template/>
 
 Yharim Area：<https://yharim.com/>
 
