@@ -10,7 +10,9 @@
         background: var(--bg-card)
         margin: 1rem 0
         padding: 1rem
+        position: relative
         box-shadow: var(--shdw)
+        overflow: hidden
 
         .title
             @include font(22px, normal, --text-p0)
@@ -22,6 +24,23 @@
         .meta
             @include font(13px, --text-p3)
             margin-top: .5rem
+
+        .link-bg
+            --sz: 2rem
+            position: absolute
+            top: calc(0rem - var(--sz))
+            right: calc(0rem - var(--sz))
+            width: 0px
+            height: 0px
+            border: var(--sz) solid transparent
+            border-bottom-color: var(--bg-hov)
+            transform: rotate(45deg)
+        .link
+            @include font(14px)
+            color: var(--text-p3)
+            position: absolute
+            top: .35rem
+            right: .35rem
 
         &:hover
             box-shadow: var(--shdw-hov)

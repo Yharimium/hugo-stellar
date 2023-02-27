@@ -43,7 +43,7 @@
         white-space: nowrap
 
         .text
-            @include font(27px, bold, --text-p0)
+            @include font(30px, bold, --text-p0)
             line-height: 2rem
 
         .sub
@@ -90,22 +90,16 @@
         display: flex
 
         .nav-item
-            @include font(14px, --text-p3)
-            @include radius
-            flex-grow: 1
-            text-overflow: ellipsis
-            padding: .375rem .5rem
-            margin: 1px
-            overflow: hidden
-            text-align: center
-
+            @extend %card-dis
             &.active, &:hover
-                color: var(--text-p1)
-                background: var(--bg-card)
-                box-shadow: var(--shdw)
-            
-            & + .nav-item
-                margin-right: .5px
+                @extend %card
+
+            @include font(14px)
+            flex-grow: 1
+            text-align: center
+            text-overflow: ellipsis
+            margin: .05rem
+            overflow: hidden
 
 
 

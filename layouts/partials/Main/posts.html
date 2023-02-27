@@ -1,10 +1,18 @@
 <div class="posts">
     {{- range (.Scratch.Get "Pages") -}}
-    <a class="post" href="{{ .Permalink }}">
+    {{- if isset .Params "link" -}}
+    <a class="post" href='{{ .Params.link | safeURL }}' target='_blank'>
+    {{- else -}}
+    <a class="post" href='{{ .Permalink }}'>
+    {{- end -}}
       <div class="card">
         <h2 class="title">{{ .Title }}</h2>
         <div class="description">{{ .Description }}</div>
         <div class="meta">发布于 {{ .Date.Format "2006-01-02" }}</div>
+        {{- if isset .Params "link" -}}
+        <div class="link-bg"></div>
+        <div class="link">转</div>
+        {{- end -}}
       </div>
     </a>
     {{- end -}}

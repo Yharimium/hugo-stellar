@@ -10,13 +10,14 @@
 {{/*  search  */}}
 {{- define "partials/search" -}}
 <div class="search-form">
-    <input type="text" class="search-input" id="side-search-input" placeholder="search" AUTOCOMPLETE="off">
+    <input type="text" class="search-input" id="side-search-input" placeholder="" AUTOCOMPLETE="off">
     <img class="search-icon" src="/img/search.svg">
     <script>
-        $input = $('#side-search-input');
+        var $input = $('#side-search-input');
+        var section = window.location.pathname.substring(0,6) == "/docs/" ? "docs" : "posts";
+        $input.attr('placeholder', section == "docs" ? "文档搜索" : "博客搜索")
         $input.keydown( (e) => {
             if (e.keyCode == 13) {
-                var section = window.location.pathname.substring(0,6) == "/docs/" ? "docs" : "posts";
                 window.open(`/search/?sec=${section}?key=${$input.val()}`)
             }
         });

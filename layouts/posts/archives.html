@@ -27,7 +27,11 @@
         <div class="group">
             <h2 class="month">{{ .Key }}</h2>
             {{- range .Pages -}}
-            <a class="post" href="{{ .Permalink }}">
+            {{- if isset .Params "link" -}}
+            <a class="post" href='{{ .Params.link | safeURL }}' target='_blank'>
+            {{- else -}}
+            <a class="post" href='{{ .Permalink }}'>
+            {{- end -}}
                 <span class="time">{{ .Date.Format "01-02" }}</span>
                 <span class="title">{{ .Title }}</span>
             </a>
