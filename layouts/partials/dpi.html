@@ -1,15 +1,21 @@
-<div class="topic mobile-only">
+<div class="info mobile-only">
     <a class="avatar" href="/">
         <div class="bg shadow"></div>
         <img class="bg rainbow" src="/img/rainbow64@3x.webp">
         <img class="avatar" src="{{ .Site.Params.avatar }}">
     </a>
     <a class="title" href="/">
-        <h1 class="text">{{ .Site.Params.Author }}</h1>
-        <div class="sub up">{{ index .Site.Params.Description 0 }}</div>
-        <div class="sub dw">{{ index .Site.Params.Description 1 }}</div>
+        <p class="text site-title">{{ .Site.Params.Author }}</p>
+        <p class="sub up">{{ index .Site.Params.Description 0 }}</p>
+        <p class="sub dw">{{ index .Site.Params.Description 1 }}</p>
     </a>
 </div>
-<div class="sidebar-toggle mobile-only" onclick="sidebar_button_click()">
+<div class="mobile-only sidebar-button" onclick="sidebar_button_click()">
     <img src="/img/menu.svg"></img>
+    <script>
+    sidebar_button_click = (e) => {
+        $(".Side")[0].classList.toggle("layout");
+        $(".sidebar-button")[0].classList.toggle("layout");
+    }
+    </script>
 </div>

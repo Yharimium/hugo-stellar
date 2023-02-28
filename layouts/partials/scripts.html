@@ -1,27 +1,26 @@
-<!-- MathJax -->
-<script src="/js/mathjax.js"></script>
-
-<!-- DPI -->
-<script src="/js/fiximg.js"></script>
-
-<!-- TOC And Header -->
-<script src="/js/toc.js"></script>
-
-<!-- Codeblock -->
-<script src="/js/codeblock.js"></script>
-
 <!-- Redirector -->
 {{- if .Site.Params.tencentUrl | default true -}}
-<script src="/js/tencenturl.js"></script>
+<script src="/js/redirector.js"></script>
 {{- end -}}
 
-<!-- Built-in -->
-<script>
-    sidebar_button_click = (e) => {
-        $(".Side")[0].classList.toggle("layout");
-        $(".sidebar-toggle")[0].classList.toggle("layout");
-    }
-</script>
+<!-- CDN -->
+{{- with .Site.Params.cdn -}}
+{{- $host := .host -}}
+    <link rel='dns-prefetch' href='{{ $host }}'>
+    <link rel='preconnect' href='{{ $host }}' crossorigin=''>
+{{- range .package -}}
+    {{- if isset . "link" -}}
+    <link rel='stylesheet' href='{{ replace .link "host:/" $host }}'>
+    {{- else -}}
+    <script src='{{ replace .script "host:/" $host }}' {{ if eq .defer true }}defer{{ else if eq .async true }}async{{ end }}></script>
+    {{- end -}}
+{{- end -}}
+{{- end -}}
+
+<!-- Auto Invert -->
+{{- if .Site.Params.autoInvert -}}
+<link rel="stylesheet" href={{ partial "func/toCSS" "autoinvert.sass" }}>
+{{- end -}}
 
 <!-- Mermaid -->
 <script>

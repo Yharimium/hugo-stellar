@@ -1,14 +1,22 @@
 syntax:
 - "mkdocs"
 - "stellar"
+
 cdn:
   # host: "https://github.elemecdn.com"
   # host: "https://unpkg.com"
-  host: "https://gcore.jsdelivr.net/npm"
-  link:
-  - "host://lxgw-wenkai-screen-webfont@1.1.0/lxgwwenkaiscreen.css"
-  script:
-  - "host://jquery@3.6.3/dist/jquery.min.js"
-  - "host://withinviewport@2.1.2/withinviewport.js"
-  - "host://withinviewport@2.1.2/jquery.withinviewport.js"
-  - "host://mermaid@9.4.0/dist/mermaid.js"
+  host: "https://gcore.jsdelivr.net"
+  package:
+  - link: "host://npm/lxgw-wenkai-screen-webfont@1.1.0/lxgwwenkaiscreen.css"
+  - script: "host://npm/jquery@3.6.3/dist/jquery.min.js"
+  - script: "host://npm/withinviewport@2.1.2/withinviewport.js"
+  - script: "host://npm/withinviewport@2.1.2/jquery.withinviewport.js"
+  - script: "host://npm/mermaid@9.4.0/dist/mermaid.js"
+  - script: "/js/fiximg.js"
+    defer: true
+  - script: "/js/toc.js"
+    defer: true
+  - script: "/js/codeblock.js"
+    defer: true
+  - script: "/js/mathjax.js"
+    defer: true

@@ -1,8 +1,8 @@
-%topic
+%info
     display: flex
     --sz: 50px
 
-    a.avatar
+    > .avatar
         @include HiDPI
         @include radius(all, 100%)
         width: var(--sz)
@@ -37,7 +37,7 @@
                 opacity: 1
                 animation: rotate 2.5s infinite linear
 
-    a.title
+    > .title
         flex-grow: 1
         position: relative
         white-space: nowrap
@@ -78,12 +78,12 @@
         &:hover
             @include font(--text-warn)
 
-    .topic
-        @extend %topic
+    .info
+        @extend %info
 
     .menu
         @include border
-        @include radius
+        @include radius(all, 4px)
         z-index: 999
         margin: 1rem 0 0 0
         background: var(--bg-blk)

@@ -1,16 +1,16 @@
 {{- $active := index (.Scratch.Get "Active") "Menu" -}}
 
 <header class="header">
-    <div class="topic">
+    <div class="info">
         <a class="avatar" href="/">
             <div class="bg shadow"></div>
             <img class="bg rainbow" src="/img/rainbow64@3x.webp">
             <img class="avatar" src="{{ .Site.Params.avatar }}">
         </a>
         <a class="title" href="/">
-            <h1 class="text">{{ .Site.Params.Author }}</h1>
-            <div class="sub up">{{ index .Site.Params.Description 0 }}</div>
-            <div class="sub dw">{{ index .Site.Params.Description 1 }}</div>
+            <p class="text site-title">{{ .Site.Params.Author }}</p>
+            <p class="sub up">{{ index .Site.Params.Description 0 }}</p>
+            <p class="sub dw">{{ index .Site.Params.Description 1 }}</p>
         </a>
     </div>
     <nav class="menu">

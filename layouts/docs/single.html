@@ -14,7 +14,7 @@
         <div class="content markdown">
             <h1 class="title">{{ .Title }}</h1>
             <span class="description">{{ .Description }}</span>
-            {{- partial "content.html" . -}}
+            {{- partial "func/content.html" . -}}
         </div>
     </div>
 </div>
@@ -33,7 +33,7 @@
         </svg>
         <span>所有项目</span>
     </a>
-    <div class="topic">
+    <div class="info">
         <a class="title" href="{{ $root.Permalink }}">
             <h1 class="text">{{ $root.Title }}</h1>
         </a>

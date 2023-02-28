@@ -4,63 +4,62 @@
         @include border
         @include radius
         margin: 4px 0
-        background: var(--bg-blk)
         overflow: hidden
 
-        > .title
-            @include font(12px, --text-p2)
-            padding: .5rem .7rem
-            display: block
-            position: relative
-            &::after
-                content: "+"
-                float: right
-                display: none
-            &:hover
-                cursor: pointer
-                background: var(--bg-hov)
-                &::after
-                    display: block
-            
-        > .inner > .list
-            @include border(t)
-            padding: 4px
-            background: var(--bg-card)
-
-            > :last-child
-                .item
-                    margin-bottom: 0
-
-            > li
-                list-style: none
-                > a
-                    @include font(13px, --text-p2)
-                    @include radius
-                    display: block
-                    position: relative
-                    width: 100%
-                    padding: 5px 8px
-
-                    &:hover
-                        background: var(--bg-hov)
-                        color: var(--text-p1)
-                        text-decoration: none
-
-                    &.active
-                        color: var(--text-link)
-    
-        &[open]
+        @at-root &[open]
             > .title
                 @include font(bold)
-                &::after
-                    content: "-"
+
+            &:not(:has(.inner))
+                a
+                    background: var(--card)
+                    &:hover
+                        background: var(--card)
+
+        > .title
+            @include font(12px)
+            display: block
+            position: relative
+            a
+                @include font(--text-p2)
+                display: block
+                width: 100%
+                height: 100%
+                padding: .5rem .7rem
+                background: var(--bg-blk)
+                &:hover
+                    background: var(--bg-hov)
+            
+        > .inner
+            > .list
+                @include border(t)
+                padding: 4px
+                background: var(--bg-card)
+
+                > :last-child
+                    .item
+                        margin-bottom: 0
+
+                > li
+                    list-style: none
+                    > a
+                        @include font(13px, --text-p2)
+                        @include radius
+                        display: block
+                        position: relative
+                        width: 100%
+                        padding: 5px 8px
+
+                        &:hover
+                            background: var(--bg-hov)
+                            color: var(--text-p1)
+                            text-decoration: none
+
+                        &.active
+                            color: var(--text-link)
         
         #TableOfContents
-            @import "toc"
             @extend %toc
-            ul
-                @extend %toc
+            margin-left: .5rem
             a
                 font-size: 13px !important
-            &::after
-                display: none

@@ -1,9 +1,7 @@
-@import "Side/header"
-
 .mobile-only
     display: none !important
 
-    &.sidebar-toggle
+    &.sidebar-button
         @include radius(all, 100%)
         @include transition(box-shadow .3s ease)
         z-index: 1001
@@ -25,8 +23,8 @@
         &.layout
             box-shadow: var(--shdw-hov)
 
-    &.topic
-        @extend %topic
+    &.info
+        @extend %info
         padding: 1rem 1rem 0 1rem
 
 @media screen and (max-width: 830px)
@@ -42,9 +40,9 @@
 
 @media screen and (max-width: 730px)
     .mobile-only
-        &.sidebar-toggle
+        &.sidebar-button
             display: block !important
-        &.topic
+        &.info
             display: flex !important
 
     .LBody

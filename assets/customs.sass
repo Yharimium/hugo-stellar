@@ -40,6 +40,9 @@ hr
 
 @import "markdown/chroma"
 @media (prefers-color-scheme: dark)
-    .search-icon, .social img, .board img, .clipboard img, img.arrow
-        filter: invert(100%)
     @import "markdown/monokai"
+    .search-icon, .social img, .board img, .clipboard img, img.arrow, .sidebar-button img
+        filter: invert(100%)
+
+    .tree .item > .inner > .list
+        background: black !important

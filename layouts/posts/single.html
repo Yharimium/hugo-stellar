@@ -38,6 +38,6 @@
     <div class="meta">发布于 {{ .Date.Format "2006-1-2" }}</div>
     <h1 class="title">{{ .Title }}</h1>
     <span class="description">{{ .Description }}</span>
-    {{- partial "content.html" . -}}
+    {{- partial "func/content.html" . -}}
 </main>
 {{- end -}}

@@ -73,13 +73,13 @@
 {{- $root := .root -}}
 {{- $curr := .curr -}}
 <details class="item" {{ if or (in $curr.Ancestors $root) (eq $root.Permalink $curr.Permalink) }}open{{ end }}>
-    <summary class="title">{{ $root.Title }}</summary>
+    <summary class="title"><a href="{{ $root.Permalink }}">{{ $root.Title }}</a></summary>
+    {{- with $root.Data.Pages.ByWeight -}}
     <div class="inner">
         <ul class="list">
-            <li>
+            {{/*  <li>
                 {{- template "treeNode" (dict "root" $root "curr" $curr "title" "overview") -}}
-            </li>
-            {{- with $root.Data.Pages.ByWeight -}}
+            </li>  */}}
             {{- range . -}}
             <li>
             {{- if .IsPage -}}
@@ -89,9 +89,9 @@
             {{- end -}}
             </li>
             {{- end -}}
-            {{- end -}}
         </ul>
     </div>
+    {{- end -}}
 </details>
 {{- end -}}
 

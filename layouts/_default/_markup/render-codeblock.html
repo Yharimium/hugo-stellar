@@ -35,7 +35,7 @@
     {{ $codespan | safeHTML }}
     {{- if $render -}}
     <div class="result">
-        {{- partial "render" (dict "str" .Inner "root" .Page) -}}
+        {{- partial "func/render" (dict "str" .Inner "root" .Page) -}}
     </div>
     {{- end -}}
     <span class='board'>

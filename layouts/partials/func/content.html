@@ -2,5 +2,5 @@
 {{- if len ($str | findRE "(?s:^---.+?---$)") -}}
     {{- $str = "" -}}
 {{- end -}}
-{{- $str = partial "render" (dict "str" $str "root" . ) -}}
+{{- $str = partial "func/render" (dict "str" $str "root" . ) -}}
 {{- $str -}}
