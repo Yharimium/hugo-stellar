@@ -12,7 +12,11 @@ Yharim Area：<https://yharim.com/>
 
 DeCheng Note：<https://note.dc6.fun/>
 
-![hugo-stellar rth1 vip_](https://user-images.githubusercontent.com/97100140/220954726-781e0bdc-2444-4e41-91eb-584ece86cb30.png)
+## Preview
+
+![image](https://user-images.githubusercontent.com/97100140/221884782-32708529-22f2-4054-afe3-05eea0d2646f.png)
+
+![image](https://user-images.githubusercontent.com/97100140/221884615-096120de-c29e-4241-9cdf-cfc7a03d0e35.png)
 
 ## Usage
 
