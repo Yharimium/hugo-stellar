@@ -1,0 +1,65 @@
+%info
+    display: flex
+    --sz: 50px
+
+    > .avatar
+        @include HiDPI
+        @include radius(all, 100%)
+        width: var(--sz)
+        height: var(--sz)
+        flex: 0 0 var(--sz)
+        overflow: hidden
+        margin-right: 1rem
+
+        > .bg
+            @include transition(opacity .2s ease)
+            position: absolute
+            z-index: -1
+            width: var(--sz)
+            height: var(--sz)
+
+            &.rainbow
+                opacity: 0
+                background-size: cover
+            &.shadow
+                @include radius(all, 100%)
+                background: var(--bg-hov)
+
+        img.avatar
+            @include radius(all, 100%)
+            margin: 2px
+            width: calc(100% - 4px)
+            height: calc(100% - 4px)
+            background-color: white
+
+        &:hover
+            > .bg.rainbow
+                opacity: 1
+                animation: rotate 2.5s infinite linear
+
+    > .title
+        flex-grow: 1
+        position: relative
+        white-space: nowrap
+
+        .text
+            @include font(30px, bold, --text-p0)
+            line-height: 2rem
+
+        .sub
+            @include transition(transform, opacity, .2s ease-out)
+            @include font(13px, --text-p0)
+            line-height: 1rem
+            position: absolute
+            white-space: nowrap
+            &.dw
+                transform: translateY(8px)
+                opacity: 0
+
+        &:hover
+            .dw
+                transform: translateY(0)
+                opacity: 1
+            .up
+                transform: translateY(-8px)
+                opacity: 0

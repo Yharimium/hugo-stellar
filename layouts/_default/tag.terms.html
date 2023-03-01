@@ -9,7 +9,7 @@
         {{- partial "Side/footer.html" . -}}
     </div>
     <div class="Main">
-        {{- partial "dpi.html" . -}}
+        {{- partial "mobile-only.html" . -}}
         {{- partial "Main/tabs.html" . -}}
         <div class="list tags">
             {{- range $taxonomy := .Site.Taxonomies.tags -}}

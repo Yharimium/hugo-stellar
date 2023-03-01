@@ -10,7 +10,7 @@
         {{- partial "Side/footer.html" . -}}
     </div>
     <div class="Main">
-        {{- partial "dpi.html" . -}}
+        {{- partial "mobile-only.html" . -}}
         <div class="content markdown search">
             <h1 class="title">{{ .Title }}</h1>
             {{- template "content" . -}}

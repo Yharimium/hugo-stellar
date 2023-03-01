@@ -27,7 +27,7 @@ $toc.find("ul").each( (id, el) => {
 
 $anchor = $toc.find("a");
 $widgets = $(".widgets");
-$heading = $(".content").children("h1, h2, h3, h4, h5, h6");
+$heading = $(".content").children("h1, h2, h3, h4, h5, h6").filter("[id]");
 
 scrollParentToChild = (parent, child) => {
     if (!parent || !child)
