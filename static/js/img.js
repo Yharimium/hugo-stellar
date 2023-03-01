@@ -28,21 +28,18 @@ detectZoom = () => {
     return ratio;
 }
 
-$('[data-fancybox="gallery"]').each( (id, el) => {
-    if (isPC() && el.src.substr(-3) != "svg") {
-        if (el.style.zoom)
-            el.style.zoom = parseFloat(el.style.zoom) / detectZoom();
-        else
-            el.style.zoom = 100 / detectZoom();
-    }
-});
+if (isPC()) {
+    $('[data-fancybox="gallery"]').each( (id, el) => {
+        el.style.zoom = (el.style.zoom ? parseFloat(el.style.zoom) : 100) / detectZoom();
+    });
+}
 
 Fancybox.bind('[data-fancybox="gallery"]', {
     contentClick: "iterateZoom",
     Images: {
         Panzoom: {
             maxScale: 2.5,
-            minScale: 0.5
+            minScale: isPC() ? 100 / detectZoom() : 1
         },
         zoom: false
     },
