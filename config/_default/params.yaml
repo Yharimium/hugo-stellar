@@ -3,33 +3,29 @@ syntax:
 - "stellar"
 
 cdn:
-  # host: "https://github.elemecdn.com"
-  host: "https://unpkg.com"
-  # host: "https://gcore.jsdelivr.net/npm"
+  host: "https://cdn.staticfile.org"
 
   package:
-  - link: "host://lxgw-wenkai-screen-webfont@1.1.0/lxgwwenkaiscreen.css"
+  - link: "host://lxgw-wenkai-screen-webfont/1.1.0/lxgwwenkaiscreen.css"
 
-  - script: "host://jquery@3.6.3/dist/jquery.min.js"
-  - script: "host://withinviewport@2.1.2/withinviewport.js"
-  - script: "host://withinviewport@2.1.2/jquery.withinviewport.js"
+  - script: "host://jquery/3.6.3/jquery.min.js"
 
-  - script: "host://mermaid@9.4.0/dist/mermaid.js"
+  - script: "host://mermaid/9.4.0/mermaid.js"
 
-  - link: "host://@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
-  - script: "host://@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"
+  - link: "/modules/fancybox.css"
+  - script: "/modules/fancybox.umd.js"
     defer: true
 
-  - script: "/js/img.js"
+  - script: "/modules/img.js"
     defer: true
 
-  - script: "/js/toc.js"
+  - script: "/modules/toc.js"
     defer: true
 
-  - script: "/js/codeblock.js"
+  - script: "/modules/codeblock.js"
     defer: true
 
-  - script: "/js/mathjax.js"
+  - script: "/modules/mathjax.js"
     defer: true
-  - script: "host://mathjax@2.7.7/MathJax.js"
+  - script: "host://mathjax/2.7.7/MathJax.js"
     defer: true

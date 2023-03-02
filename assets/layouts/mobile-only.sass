@@ -3,7 +3,7 @@
 
     &.sidebar-button
         @include radius(all, 100%)
-        @include transition(box-shadow .3s ease)
+        @include transition(all .3s ease)
         z-index: 1001
         cursor: pointer
         position: fixed
@@ -22,6 +22,7 @@
 
         &.layout
             box-shadow: var(--shdw-hov)
+            transform: translateY(-2px)
 
     &.info
         @extend %info

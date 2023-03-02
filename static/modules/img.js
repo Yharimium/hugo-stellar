@@ -4,8 +4,6 @@ isPC = () => {
     for (var v = 0; v < Agents.length; v++) 
         if (userAgentInfo.indexOf(Agents[v]) > 0) 
             return false;
-        
-    
     return true;
 }
 
@@ -39,7 +37,7 @@ Fancybox.bind('[data-fancybox="gallery"]', {
     Images: {
         Panzoom: {
             maxScale: 2.5,
-            minScale: isPC() ? 100 / detectZoom() : 1
+            minScale: isPC() ? 100 / detectZoom() : 1,
         },
         zoom: false
     },

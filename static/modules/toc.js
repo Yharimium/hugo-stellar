@@ -24,7 +24,6 @@ $toc.find("ul").each( (id, el) => {
     }
 });
 
-
 $anchor = $toc.find("a");
 $widgets = $(".widgets");
 $heading = $(".content").children("h1, h2, h3, h4, h5, h6").filter("[id]");
@@ -42,9 +41,21 @@ scrollParentToChild = (parent, child) => {
     }
 }
 
+isInViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
 currentAnchor = () => {
-    var heading = $heading.withinviewport();
-    return heading.length && $(`[href=\"${heading[0].id}\"]`);
+    for (var i = 0; i < $heading.length; i ++)
+        if (isInViewport($heading[i]))
+            return $anchor.filter(`[href="${$heading[i].id}"]`);
+    return null;
 }
 
 setActiveAnchor = ($cntAnchor) => {

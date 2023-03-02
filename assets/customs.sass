@@ -15,6 +15,7 @@ body, input, button
 ::-webkit-scrollbar
     width: 5px
     height: 5px
+    background: transparent
 
 ::-webkit-scrollbar-thumb 
     border-radius: var(--border-radius)
@@ -56,7 +57,7 @@ hr
 @import "markdown/chroma"
 @media (prefers-color-scheme: dark)
     @import "markdown/monokai"
-    .search-icon, .social img, .board img, .clipboard img, img.arrow, .sidebar-button img
+    .search-icon, .social img, .board img, .clipboard img, img.arrow, .sidebar-button img, .mermaid svg
         filter: invert(100%)
 
     .tree .item > .inner > .list
