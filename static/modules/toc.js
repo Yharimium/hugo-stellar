@@ -61,19 +61,25 @@ currentAnchor = () => {
 setActiveAnchor = ($cntAnchor) => {
     if (!$cntAnchor)
         return;
+    scrollParentToChild($widgets[0], $cntAnchor[0]);
     $anchor.removeClass("active");
     $cntAnchor.addClass("active");
-    scrollParentToChild($widgets[0], $cntAnchor[0]);
 }
 
-$(window).scroll( () => {
+windowScroll = () => {
     setActiveAnchor(currentAnchor());
-});
+}
 
 setActiveAnchor(currentAnchor());
 
+$(window).scroll(windowScroll);
+
 $anchor.each( (id, el) => {
     $(el).click( () => {
-        scrollParentToChild($widgets[0], el);
+        $(window).unbind('scroll');
+        setActiveAnchor($(el));
+        setTimeout(() => {
+            $(window).scroll(windowScroll);
+        }, 10)
     });
 });

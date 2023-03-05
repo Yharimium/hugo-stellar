@@ -10,7 +10,7 @@ MathJax = {
         blacker: 7,
         showMathMenu: false,
         undefinedFamily: "inherit",
-        // linebreaks: { automatic: true },
+        // linebreaks: { automatic: true, width: "container" },
         scale: 90,
         styles: {
             "text": {
