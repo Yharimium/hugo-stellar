@@ -10,7 +10,7 @@
 
 Yharim Area：<https://yharim.com/>
 
-DeCheng Note：<https://note.dc6.fun/>
+DC Note：<https://dcgg.eu.org/>
 
 ## Preview
 
@@ -24,7 +24,7 @@ DeCheng Note：<https://note.dc6.fun/>
 
 [Hugo Stellar 一键模板](https://github.com/cyolc932/Stellar-Hugo-Template)
 
-十分甚至九分感谢由用户 [cyolc932](https://github.com/cyolc932) 提供的大力支持。
+九分甚至十分感谢由用户 [cyolc932](https://github.com/cyolc932) 提供的大力支持。
 
 ### 方案 2：本地建站
 
@@ -47,12 +47,19 @@ rm config.toml
 hugo server
 ```
 
-> 注：请务必保证您的站点配置文件（如 `config.yaml`）中包含有下列配置：
+> 注：
+> 1. 请务必保证您的站点配置文件（如 `config.yaml`）中包含有下列配置：
 > ```
 > markup:
 >   _merge: deep
 > ```
 > 否则将导致代码块渲染异常。
+> 2. 请务必检查路径下`/content/posts/至少有一篇文章.md`, 否则无法正常预览
+> 3. 请务必检查您的站点配置文件（如 `config.yaml`）中包含有：
+> ```
+> theme:
+> - stellar
+> ```
 
 ## Content Management
 
