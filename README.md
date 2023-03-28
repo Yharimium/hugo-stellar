@@ -10,7 +10,7 @@
 
 Yharim Area：<https://yharim.com/>
 
-DC Note：<https://dcgg.eu.org/>
+DC Doc：<https://doc.dcgg.eu.org>
 
 ## Preview
 
