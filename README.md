@@ -6,11 +6,9 @@
 
 ## Demo
 
-模板网站：<https://hugo-template.github.io/Stellar-Hugo-Template/>
+模板网站：<https://cyolc932.github.io/Stellar-Hugo-Template/>
 
 Yharim Area：<https://yharim.com/>
-
-DC Note：<https://dcgg.eu.org/>
 
 ## Preview
 
