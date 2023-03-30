@@ -6,11 +6,9 @@
 
 ## Demo
 
-模板网站：<https://hugo-template.github.io/Stellar-Hugo-Template/>
+模板网站：[https://cyolc932/Stellar-Hugo-Template/](https://hugo-template.github.io/Stellar-Hugo-Template/)
 
-Yharim Area：<https://yharim.com/>
-
-DC Note：<https://dcgg.eu.org/>
+Yharim Area：[https://yharim.com/](https://yharim.com/)
 
 ## Preview
 
@@ -32,7 +30,7 @@ DC Note：<https://dcgg.eu.org/>
 
 本地建站 sh 脚本：
 
-``` sh
+```sh
 hugo new site mysite
 cd mysite
 git init
@@ -48,14 +46,18 @@ hugo server
 ```
 
 > 注：
+>
 > 1. 请务必保证您的站点配置文件（如 `config.yaml`）中包含有下列配置：
+>
 > ```
 > markup:
 >   _merge: deep
 > ```
+>
 > 否则将导致代码块渲染异常。
-> 2. 请务必检查路径下`/content/posts/至少有一篇文章.md`, 否则无法正常预览
+> 2. 请务必检查路径下 `/content/posts/至少有一篇文章.md`, 否则无法正常预览
 > 3. 请务必检查您的站点配置文件（如 `config.yaml`）中包含有：
+>
 > ```
 > theme:
 > - stellar
