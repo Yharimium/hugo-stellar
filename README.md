@@ -1,5 +1,7 @@
 ## Hugo Stellar
 
+> **因为作者个人原因，Hugo Stellar 主题暂停更新直到今年六月底。**
+
 [Hexo theme stellar](https://github.com/xaoxuu/hexo-theme-stellar) 的 Hugo 移植版本。
 
 > **注意！此移植版本尚未完善，仅供 debug！**
