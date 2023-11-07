@@ -17,6 +17,7 @@ Yharim Area：<https://yharim.com/>
 
 > 请使用 hugo extended `v0.109.0` 或更新版本。
 
+<!--
 本地建站 sh 脚本：
 
 ``` sh
@@ -27,6 +28,9 @@ git submodule add https://github.com/Yharimium/hugo-stellar themes/stellar
 cp -R themes/stellar/exampleSite/* .
 rm config.toml
 ```
+-->
+
+请直接下载主题文件并解压到 `themes` 文件夹内，具体细节请参考官网。
 
 预览网站：
 
