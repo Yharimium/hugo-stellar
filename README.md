@@ -20,14 +20,6 @@ Yharim Area：<https://yharim.com/>
 
 ## Usage
 
-### 方案 1：GitHub Actions + Pages 建站
-
-[Hugo Stellar 一键模板](https://github.com/cyolc932/Stellar-Hugo-Template)
-
-九分甚至十分感谢由用户 [cyolc932](https://github.com/cyolc932) 提供的大力支持。
-
-### 方案 2：本地建站
-
 > 请使用 hugo extended `v0.109.0` 或更新版本。
 
 本地建站 sh 脚本：
@@ -82,20 +74,11 @@ content/
 
 > 注：此功能可能存在 bug，请谨慎使用。
 
-支持在正文中使用 mkdocs 和 hexo stellar 语法，例如：
+支持在正文中使用 mkdocs 语法，例如：
 
 ```
 !!! note
     `markdown` text
-```
-
-```
-{% poetry 独不见 author:唐·沈佺期 footer:诗词节选 %}
-卢家少妇郁金堂，海燕双栖玳瑁梁。
-**九月寒砧催木叶，十年征戍忆辽阳。**
-白狼河北音书断，丹凤城南秋夜长。
-谁为含愁独不见，更教明月照流黄？
-{% endpoetry %}
 ```
 
 详见 [扩展语法支持](https://yharim.com/posts/%E5%BB%BA%E7%AB%99/%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/)
