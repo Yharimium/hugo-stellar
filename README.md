@@ -4,11 +4,7 @@
 
 [Hexo theme stellar](https://github.com/xaoxuu/hexo-theme-stellar) 的 Hugo 移植版本。
 
-> **注意！此移植版本尚未完善，仅供 debug！**
-
 ## Demo
-
-模板网站：<https://cyolc932.github.io/Stellar-Hugo-Template/>
 
 Yharim Area：<https://yharim.com/>
 
