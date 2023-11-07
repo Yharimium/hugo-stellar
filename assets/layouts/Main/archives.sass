@@ -1,35 +1,61 @@
-> .archive
-    margin: 0 1rem
+> .post-list
+  > .archive-group
+    display: flex
+    > .archive-title
+      margin: .4rem 0
+      writing-mode: vertical-lr
+      position: relative
+      &::before
+        content: ""
+        position: absolute
+        top: 4rem
+        bottom: 2rem
+        left: .8rem
+        width: .25rem
+        background: var(--block-hover)
+        border-radius: .2rem
+    > .archives
+      margin-bottom: 1rem
+      > .archive
+        margin: 0 1rem 1rem 1rem
+        position: relative
+        > .archive-header
+          display: inline-block
+          font-weight: 700
+          line-height: 1.2
+          position: relative
+          padding: 4px 0
+          color: var(--text-p1)
+          // margin-bottom: .5rem
+          // &::before
+          //   content: ""
+          //   position: absolute
+          //   left: 0
+          //   right: 0
+          //   bottom: 0
+          //   height: .25rem
+          //   background: var(--block-hover)
+          //   border-radius: .2rem
 
-    .year
-        @include font(24px, bold, --text-p1)
-        padding: 2rem 1rem
-        padding-bottom: 0
+        &:hover
+          > .archive-header
+            &::before
+              background: var(--theme-bg2)
 
-    .month
-        @include font(18px, bold, --text-p2)
-        padding: 2px 0
+        > .archive-list
+          > .post
+            display: inline-flex
+            align-items: baseline
+            margin: 0.25rem 0
+            > span
+              color: var(--text-p1)
 
-    > .group
-        margin: 1rem
-        display: flex
-        align-items: flex-start
-        flex-direction: column
-        
-        > .post
-            @include font(14px)
-            display: inline-block
-            margin: .25rem 0
-
-            > .title
-                color: var(--text-p1)
-
-            > .time
-                @include font(bold, --text-p4)
-                display: inline-block
-                width: 3.25em
-                // margin-right: .5rem
-
+            > time
+              margin-right: 1em
+              font-weight: 700
+              flex-shrink: 0
+              color: var(--text-p3)
+            
             &:hover
-                > .title, > .time
-                    color: var(--text-warn)
+              > span, > time
+                color: #ff5724

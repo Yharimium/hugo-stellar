@@ -1,88 +1,93 @@
 > .search
-    .search-form
-        position: relative
-        display: flex
-        align-items: center
-        z-index: 999
-        background: var(--bg-site)
+  .search-form
+    position: relative
+    display: flex
+    align-items: center
+    z-index: 999
 
-        .search-input
-            @include border(all, none)
-            width: 100%
-            padding: .5rem 0 .5rem 1.5rem
-            color: var(--text-p0)
-            background: none
+    .search-input
+      border: none
+      width: 100%
+      padding: .5rem 0 .5rem 1.5rem
+      color: var(--text-p0)
+      background: none
 
-        .search-icon
-            position: absolute
-            width: 1rem
-            height: 1rem
-            left: 0
-            margin-left: .25rem
-            vertical-align: middle
-            opacity: .7
+    .search-icon
+      position: absolute
+      width: 1rem
+      height: 1rem
+      left: 0
+      margin-left: .25rem
+      vertical-align: middle
+      opacity: .7
 
-        &::after
-            @include HiDPI
-            @include radius
-            content: ''
-            position: absolute
-            left: 0
-            right: 0
-            bottom: 0
-            height: 2px
-            background: linear-gradient(to right,#04f3ff,#08ffc6,#ddf730,#ffbd19,#ff1fe0,#c418ff,#04f3ff)
-            background-size: 200%
-            animation: glow 20s linear infinite
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 0
+      height: 2px
+      background: linear-gradient(to right,#04f3ff,#08ffc6,#ddf730,#ffbd19,#ff1fe0,#c418ff,#04f3ff)
+      background-size: 200%
+      animation: glow 20s linear infinite
 
+  .search-result
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    .item
+      font-size: 15px
+      display: inline-block
+
+      &.summary
+        font-size: 13px
+        color: var(--text-link)
+        margin-top: 1.5rem
+        width: 100%
+
+      &.card
+        @include trans1(box-shadow)
+        box-sizing: border-box
+        flex: calc(50% - .5rem) 0 0
+        color: var(--text-p1)
+        border-radius: 5px
+        background: var(--card)
+        box-shadow: var(--shadow-light)
+        margin: .5rem 0
+        padding: .4rem 1rem
+        
+        &:hover
+          box-shadow: var(--shadow)
+
+        .title
+          display: block
+          margin: .3rem 0
+        
+        .preview
+          border-radius: 2px
+          display: block
+          font-size: 13px
+          color: var(--text-p4)
+          margin: .5rem 0
+          height: 3.75rem
+          overflow: hidden
+          word-break: break-all
+          box-shadow: inset var(--shadow-light)
+
+        .key
+          background: yellow
+
+@media screen and (max-width: 770px) and (min-width: 667px)
+  > .search
     .search-result
-        .item
-            @include font(15px)
-            @include trim
-            display: block
+      .item
+        &.card
+          flex: 100% 0 0
 
-            .preview
-                @include font(13px, --text-p4)
-                margin-top: .2rem
-                height: 3.75rem
-                overflow: hidden
-                .key
-                    background: yellow
-
-            &.summary
-                @include font(13px, --text-link)
-                margin-top: 1.5rem
-                width: 100%
-    
-    .sec_tabs
-        background: var(--bg-site)
-        z-index: 999
-
-        .nav
-            @include hideScrollBar
-            @include font(13px, --text-p3)
-            display: flex
-            justify-content: center
-            position: relative
-            padding: .5rem 1rem
-            overflow: scroll hidden
-            .tab
-                @include radius
-                padding: 0 1rem
-                line-height: 2.2
-                color: var(--text-p3)
-                white-space: nowrap
-                position: relative
-                cursor: pointer
-                z-index: 1
-                &.active
-                    color: var(--text-p1)
-                    background: var(--bg-card)
-                    box-shadow: var(--shdw-bold)
-
-                &:not(.active):hover
-                    color: var(--text-p0)
-                    background: var(--bg-hov)
-
-                & + .tab
-                    margin-left: .5rem
+@media screen and (max-width: 500px)
+  > .search
+    .search-result
+      .item
+        &.card
+          flex: 100% 0 0

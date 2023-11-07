@@ -1,0 +1,84 @@
+.md-text
+  padding: 1rem
+  line-height: 1.5
+  color: var(--text-p0)
+
+  h1, h2, h3, h4, h5, h6
+    margin: 2rem 0 1rem 0
+    .anchor
+      display: inline-block
+      opacity: 0
+      cursor: pointer
+    &:hover .anchor
+      opacity: 1
+
+  h2 + h3, h3 + h4
+    margin-top: 1rem
+
+  h1
+    font-size: 2rem
+
+  h2
+    font-size: 1.7rem
+    border-bottom: 1px solid var(--block-border)
+
+  h3
+    font-size: 1.25rem
+
+  h4
+    font-size: 1rem
+
+  p
+    margin: 1rem 0
+  
+  dl
+    margin: 1rem 0
+    dt
+      font-weight: bold
+    dd
+      margin-bottom: 1rem
+
+  a.md-link
+    .icon
+      height: .8em
+      vertical-align: -1.5px
+      margin: 0 4px
+      filter: invert(60%)
+
+  blockquote
+    border-left: 4px solid var(--text-meta)
+    color: var(--text-p3)
+    margin-left: 0
+    padding-left: 1rem
+
+  img, svg
+    @include disable-select
+    &.md_img
+      display: block
+      margin: 0 auto
+      max-width: 100%
+      background: inherit
+
+  sup[id^="fnref"]
+    @include disable-select
+    line-height: 0
+
+  .footnotes
+    font-size: 90%
+    ol
+      margin-top: .5rem
+      li, p
+        margin: 5px 0
+      p
+        .footnote-backref
+          opacity: 0
+        &:hover
+          .footnote-backref
+            opacity: 1
+  
+  .MathJax_SVG_Display
+    margin: 0
+    overflow: auto hidden
+  
+  .mermaid
+    text-align: center

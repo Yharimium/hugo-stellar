@@ -1,0 +1,14 @@
+<header class="header mobile-only">
+  <div class="logo-wrap">
+      <a class="avatar" href="/">
+          <div class="mask"></div>
+          <div class="bg" style="background-image:url(/img/rainbow64@3x.webp)"></div>
+          <img class="avatar" src="{{ .Site.Params.avatar }}" onerror="this.classList.add('error');this.src='/img/unknow.svg';">
+      </a>
+      <a class="title" href="/">
+          <div class="main" ff="title">{{ .Site.Params.Author }}</div>
+          <div class="sub normal cap">{{ index .Site.Params.Description 0 }}</div>
+          <div class="sub hover cap">{{ index .Site.Params.Description 1 }}</div>
+      </a>
+  </div>
+</header>

@@ -1,0 +1,64 @@
+\:root
+  --width-left: 288px
+  --width-main: 720px
+  --gap-l: 16px
+  --gap-p: 1rem
+  --gap-p-compact: 0.75rem
+  --site-bg: #f9fafb
+  --card: #fff
+  --block: #f1f2f3
+  --block-border: #e3e5e8
+  --block-hover: #e9eaec
+  --text-p0: #000
+  --text-p1: #333
+  --text-p2: #4d4d4d
+  --text-p3: #808080
+  --text-p4: #999
+  --text-meta: #ccc
+  --text-code: #f53900
+  --theme-bg2: #1cd0fd
+  --theme-link: #2385d5
+
+\:root
+  --blur-px: 12px
+  --blur-bg: rgba(255, 255, 255, 0.5)
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1)
+  --shadow-light: 0 2px 8px 0 rgba(0, 0, 0, 0.02)
+  --shadow-hover: 0 0 2px 0 rgba(0, 0, 0, 0.04), 0 0 8px 0 rgba(0, 0, 0, 0.04)
+  --shadow-bold: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px
+  --shadow-heavy: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 8px 16px 0 rgba(0, 0, 0, 0.1)
+
+@media screen and (min-width: 2048px)
+  \:root
+    --gap-l: 32px
+    --width-left: 352px
+    --width-main: 780px
+
+@media screen and (min-width: 2560px)
+  \:root
+    --width-main: 860px
+    --gap-l: 64px
+
+// @media screen and (max-width: 768px)
+//   \:root
+//     --width-left: 252px
+
+@media screen and (max-width: 667px)
+  \:root
+    --width-left: 288px
+
+@media (prefers-color-scheme: dark)
+  \:root
+    --site-bg: #1c1e21
+    --card: #373d43
+    --block: #26292c
+    --block-border: #383d42
+    --block-hover: #2f3337
+    --text-p0: #fff
+    --text-p1: #ccc
+    --text-p2: #b3b3b3
+    --text-p3: #858585
+    --text-p4: #707070
+    --text-meta: #4d4d4d
+    --text-code: #ff6333
+    --blur-bg: rgba(0, 0, 0, 0.5)

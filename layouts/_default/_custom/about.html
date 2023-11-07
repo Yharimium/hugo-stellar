@@ -1,22 +1,15 @@
-{{- define "main" -}}
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Active"  (dict "Menu" "/about/")
+    "Side"    (slice "search" "toc")
+    "Main"    (slice "header" "about" "float-panel")
+  ) -}}
+{{- end -}}
 
-{{- .Scratch.Set "Widgets" (slice "search" "toc") -}}
-{{- .Scratch.Set "Active" (dict "Menu" .Params.url) -}}
-
-<div class="LBody">
-    <div class="Side">
-        {{- partial "Side/header.html" . -}}
-        {{- partial "Side/widgets.html" . -}}
-        {{- partial "Side/footer.html" . -}}
-    </div>
-    <div class="Main">
-        {{- partial "mobile-only.html" . -}}
-        <div class="content markdown">
-            <h1 class="title">{{ .Title }}</h1>
-            <span class="description">{{ .Description }}</span>
-            {{- partial "func/content.html" . -}}
-        </div>
-    </div>
-</div>
-
+{{- define "partials/main/about" -}}
+<h1 class="article-title">{{ .Title }}</h1>
+<article class="md-text content post">
+  <span class="description">{{ .Description }}</span>
+  {{- partial "func/content.html" . -}}
+</article>
 {{- end -}}

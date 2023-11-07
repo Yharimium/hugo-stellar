@@ -1,5 +1,5 @@
 ---
-title: 搜索
+title: Search
 layout: _custom/search
 url: /search/
 ---

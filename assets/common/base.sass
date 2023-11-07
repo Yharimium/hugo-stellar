@@ -1,0 +1,63 @@
+*
+  outline: 0
+
+html
+  font-size: 16px
+  tab-size: 4
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+  scroll-behavior: smooth
+
+body
+  background: var(--site-bg)
+  margin: 0
+  overflow-y: scroll
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-rendering: optimizelegibility
+  -webkit-tap-highlight-color: transparent
+
+::selection
+  background-color: #bee0f3
+  color: inherit
+
+a
+  text-decoration: none
+  color: var(--theme-link)
+  &:hover
+    color: #ff5724
+
+ol, ul
+  padding-left: 2em
+  li
+    margin: .5rem 0
+
+hr
+  border: none
+  border-bottom: 1px solid var(--text-meta)
+  opacity: .7
+
+code
+  border-radius: 2px
+  font-size: 90%
+  color: var(--text-p1)
+  background: #66b2ff26
+  padding: 0 4px
+
+pre
+  padding: .5rem 1rem
+  border-radius: 4px
+  overflow: auto
+  position: relative
+  line-height: 1.6
+
+  code
+    background: none
+    padding: 0
+    color: var(--text-p0)
+
+    &, span
+      font-style: normal !important
+
+.dis-select
+  @include disable-select

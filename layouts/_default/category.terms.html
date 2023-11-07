@@ -1,25 +1,20 @@
-{{- define "main" -}}
-{{- .Scratch.Set "Widgets" (slice "search" "notice" "recent") -}}
-{{- .Scratch.Set "Active" (dict "Menu" "/" "Tabs" "/categories/") -}}
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Active"  (dict "Menu" "/" "Tab" "/categories/")
+    "Side"    (slice "search" "notice" "recent")
+    "Main"    (slice "header" "nav-bar" "categories" "footer" "float-panel")
+  ) -}}
+{{- end -}}
 
-<div class="LBody">
-    <div class="Side">
-        {{- partial "Side/header.html" . -}}
-        {{- partial "Side/widgets.html" . -}}
-        {{- partial "Side/footer.html" . -}}
-    </div>
-    <div class="Main">
-        {{- partial "mobile-only.html" . -}}
-        {{- partial "Main/tabs.html" . -}}
-        <div class="list categories">
-            {{- range $taxonomy := .Site.Taxonomies.categories -}}
-            <a class="item" href={{ .Page.Permalink }}>
-                <span class="title">{{ .Page.Title }}</span>
-                <span class="count">({{ $taxonomy.Count }})</span>
-            </a>
-            {{- end -}}
-        </div>
-        {{- partial "Main/footer.html" . -}}
-    </div>
+{{- define "partials/main/categories" -}}
+<div class="post-list">
+  <article class="cats">
+    {{- range $taxonomy := .Site.Taxonomies.categories -}}
+    <a class="cat" href={{ .Page.Permalink }}>
+      <span class="name">{{ .Page.Title }}</span>
+      <span class="badge">({{ $taxonomy.Count }})</span>
+    </a>
+    {{- end -}}
+  </article>
 </div>
 {{- end -}}

@@ -1,0 +1,42 @@
+{{- $section := index (last 1 (where .Ancestors "Section" "docs")) 0 -}}
+{{- $root := index $section.Data.Pages 0 -}}
+{{- $curr := . -}}
+{{- range $root.Data.Pages.ByWeight -}}
+    {{- template "buildTree" (dict "root" . "curr" $curr) -}}
+{{- end -}}
+
+{{- define "buildTree" -}}
+{{- $root := .root -}}
+{{- $curr := .curr -}}
+<details class="item" {{ if or (in $curr.Ancestors $root) (eq $root.Permalink $curr.Permalink) }}open{{ end }}>
+    <summary class="title"><a href="{{ $root.Permalink }}">{{ $root.Title }}</a></summary>
+    {{- with $root.Data.Pages.ByWeight -}}
+    <div class="inner">
+        <ul class="list">
+            {{/*  <li>
+                {{- template "treeNode" (dict "root" $root "curr" $curr "title" "overview") -}}
+            </li>  */}}
+            {{- range . -}}
+            <li>
+            {{- if .IsPage -}}
+                {{- template "treeNode" (dict "root" . "curr" $curr) -}}
+            {{- else -}}
+                {{- template "buildTree" (dict "root" . "curr" $curr) -}}
+            {{- end -}}
+            </li>
+            {{- end -}}
+        </ul>
+    </div>
+    {{- end -}}
+</details>
+{{- end -}}
+
+{{- define "treeNode" -}}
+{{- $title := cond (ne .title nil) .title .root.Title -}}
+{{- if eq .root.Permalink .curr.Permalink -}}
+    <a href="{{ .root.Permalink }}" class="active">{{ $title }}</a>
+    {{- .root.TableOfContents -}}
+{{- else -}}
+    <a href="{{ .root.Permalink }}">{{ $title }}</a>
+{{- end -}}
+{{- end -}}

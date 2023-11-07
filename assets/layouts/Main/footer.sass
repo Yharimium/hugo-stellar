@@ -1,26 +1,40 @@
-> .footer
-    padding: 1rem
-    padding-bottom: 0
-    > .sitemap
-        @include hideScrollBar
-        margin: .5rem 0
-        display: grid
-        grid-gap: 1rem 1rem
-        grid-auto-flow: column dense
-        overflow: scroll
-        > .group
-            display: flex
-            flex-direction: column
-            align-items: flex-start
-            > .title
-                @include font(15px, --text-p0)
-                margin-bottom: .5rem
-            > .link
-                @include font(13px, --text-p3)
-                margin: 2px 0
-                &:hover
-                    @include font(--text-warn)
+> .page-footer
+  margin: 4rem 1rem 0
+  color: var(--text-p3)
+  
+  a
+    color: var(--text-p3)
+    &:hover
+      color: #ff5724
 
-    > .reference
-        @include font(13px)
-        text-align: center
+  > .sitemap
+    @include scrollbar(0)
+    margin: 0.5rem 0 2rem
+    display: grid
+    scrollbar-width: none
+    grid-gap: 1rem 1rem
+    grid-auto-flow: column dense
+    overflow: scroll
+
+    > .sitemap-group
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      > span, > a
+        @include txt-ellipsis
+        text-decoration: none
+      > span
+        margin: .5rem 0
+        font-weight: 500
+        color: var(--text-p1)
+      > a
+        margin: .2rem 0
+
+  > .text
+    text-align: center
+    p
+      margin: 4px 0
+      line-height: 1.5
+    a:not([class])
+      text-decoration: underline
+      font-weight: 500

@@ -1,15 +1,16 @@
 @import "vars"
     
 .mkdocs.hint
-    @include border(l, 4px solid)
-    @include radius
     margin: 1rem 0
-    box-shadow: var(--shdw-bold)
-    background: var(--bg-card)
+    border-left: 4px solid
+    border-radius: 4px
+    box-shadow: var(--shadow-bold)
+    background: var(--card)
     overflow: hidden
 
     > .title
-        @include font(13px, bold)
+        font-size: 13px
+        font-weight: bold
         display: flex
         justify-content: space-between
         padding: 5px .5rem
@@ -24,15 +25,21 @@
             &.icon
                 margin-right: .5rem
             &.arrow
-                @include transition(transform .15s ease)
-    
+                @include trans1(transform)
+        i
+            margin: 0
+            &.icon
+                margin-right: .5rem
+            &.arrow
+                @include trans1(transform)
+
     > summary.title
         &:hover
             cursor: pointer
 
     > .inner
         @include trim
-        @include font(93.75%)
+        font-size: 93.75%
         padding: .7rem 1rem
 
     &[open]
@@ -46,7 +53,7 @@
             > .title
                 background: #{$color}1f
             &[open] > .title
-                @include border(b, 1px solid #{$color}1f)
+                border-bottom: 1px solid #{$color}1f
 
     @each $Type, $filter in $hint-filter
         &.#{$Type}

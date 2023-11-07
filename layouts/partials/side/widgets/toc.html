@@ -1,0 +1,10 @@
+{{- if ne .TableOfContents "<nav id=\"TableOfContents\"></nav>" -}}
+<widgets class="widget-wrapper toc">
+    <div class="widget-header cap dis-select">
+        <a class="name" href="#">{{ .Title }}</a>
+    </div>
+    <div class="widget-body fs14">
+        {{ .TableOfContents }}
+    </div>
+</widgets>
+{{- end -}}

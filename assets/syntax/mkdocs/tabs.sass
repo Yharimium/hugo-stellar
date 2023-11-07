@@ -6,8 +6,9 @@
     justify-content: center
 
     > .label
-        @include font(13px, --text-p3)
-        @include radius
+        color: var(--text-p3)
+        font-size: 13px
+        border-radius: 4px
         cursor: pointer
         position: relative
         padding: 0 1rem
@@ -28,12 +29,11 @@
 
         &:not(.active):hover
             color: var(--text-p0)
-            background: var(--bg-hov)
+            background: var(--block-hover)
 
         &::after
-            @include HiDPI
-            @include radius
             content: ''
+            border-radius: 4px
             pointer-events: none
             cursor: default
             height: 2px
@@ -41,7 +41,8 @@
             bottom: -.5rem
             left: -.6rem
             right: 0
-            background: var(--bg-hov)
+            background: var(--block-hover)
+            will-change: transform
         
         &:first-of-type
             &::after
@@ -58,13 +59,12 @@
 
         &:checked + .label
             color: var(--text-p0)
-            background: var(--bg-card)
-            box-shadow: var(--shdw-bold)
+            background: var(--card)
+            box-shadow: var(--shadow-bold)
 
             &::before
-                @include HiDPI
-                @include radius
                 content: ''
+                border-radius: 4px
                 pointer-events: none
                 cursor: default
                 z-index: 1
@@ -73,7 +73,8 @@
                 bottom: -.5rem
                 left: .7rem
                 right: .7rem
-                background: var(--bg-line)
+                background: var(--theme-bg2)
+                will-change: transform
 
             & + .inner
                 display: block

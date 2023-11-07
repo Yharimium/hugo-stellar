@@ -1,5 +1,5 @@
 {{- $str := .RawContent | replaceRE "\\r\\n" "\n" -}}
-{{- if len ($str | findRE "(?s:^---.+?---$)") -}}
+{{- if len ($str | findRE "(?s:^\\n*---.+?---\n*$)") -}}
     {{- $str = "" -}}
 {{- end -}}
 {{- $str = partial "func/render" (dict "str" $str "root" . ) -}}

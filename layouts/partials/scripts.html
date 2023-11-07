@@ -1,34 +1,4 @@
-<!-- Redirector -->
-{{- if .Site.Params.tencentUrl | default true -}}
-<script src="/modules/redirector.js"></script>
-{{- end -}}
+<script src="/scripts/table-of-contents.js"></script>
 
-<!-- CDN -->
-{{- with .Site.Params.cdn -}}
-{{- $host := .host -}}
-    <link rel='dns-prefetch' href='{{ $host }}'>
-    <link rel='preconnect' href='{{ $host }}' crossorigin=''>
-{{- range .package -}}
-    {{- if isset . "link" -}}
-    <link rel='stylesheet' href='{{ replace .link "host:/" $host }}'>
-    {{- else -}}
-    <script src='{{ replace .script "host:/" $host }}' {{ if eq .defer true }}defer{{ else if eq .async true }}async{{ end }}></script>
-    {{- end -}}
-{{- end -}}
-{{- end -}}
-
-<!-- Auto Invert -->
-{{- if .Site.Params.autoInvert -}}
-<link rel="stylesheet" href={{ partial "func/toCSS" "autoinvert.sass" }}>
-{{- end -}}
-
-<!-- Mermaid -->
-<script>
-    mermaid.initialize({
-        securityLevel: 'loose',
-        themeVariables: {
-            fontFamily: 'Cera Round Pro',
-            fontSize: '85%'
-        }
-    });
-</script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js" defer></script>
+<script src="/scripts/mathjax.js"></script>

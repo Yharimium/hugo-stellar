@@ -1,37 +1,46 @@
-html
-    -webkit-font-smoothing: antialiased
-    -webkit-tap-highlight-color: transparent
-    text-rendering: optimizelegibility
-    overflow-y: scroll
-
-body
-    margin: 0 auto
-    background: var(--bg-site)
-
 .LBody
-    display: flex
-    justify-content: center
+  display: flex
+  margin: auto
+  justify-content: center
 
-    > .Side
-        @import "Side"
-        z-index: 8
-        position: -webkit-sticky
-        position: sticky
-        top: 0
-        display: flex
-        flex-direction: column
-        width: var(--width-side)
-        height: 100vh
-        margin-right: 1rem
+  > .LSide
+    z-index: 8
+    width: var(--width-left)
+    flex-shrink: 0
+    position: sticky
+    position: -webkit-sticky
+    top: 0
+    
+  > .LMain
+    flex-shrink: 1
+    flex-grow: 1
+    width: 320px
+    max-width: var(--width-main)
+    // overflow: hidden
+  
+  @import "side"
+  @import "main"
 
-    > .Main
-        @import "Main"
-        position: relative
-        flex-shrink: 1
-        flex-grow: 1
-        width: 0;
-        max-width: var(--width-main)
-        padding: 1rem 0
+@media screen and (max-width: 667px)
+  .mobile-only
+    display: block !important
 
-@import "mobile-only"
-@import "dpi"
+  .LBody
+    padding: 0
+
+    > .LSide
+      position: fixed
+      transform: translateX(-320px)
+      margin: 0
+      left: 0
+      background: var(--site-bg)
+      box-shadow: var(--shadow-heavy)
+      z-index: 9
+      transition: transform 0.15s ease-out
+
+    > .LMain
+      max-width: 100%
+
+    &.mobile
+      > .LSide
+        transform: translateX(0)
