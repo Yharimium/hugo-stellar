@@ -10,9 +10,8 @@ Yharim Area：<https://yharim.com/>
 
 ## Preview
 
-![image](https://user-images.githubusercontent.com/97100140/221884782-32708529-22f2-4054-afe3-05eea0d2646f.png)
+![image](https://github.com/Yharimium/hugo-stellar/assets/97100140/01f07272-8959-4d2d-b40e-0dc388daa47a)
 
-![image](https://user-images.githubusercontent.com/97100140/221884615-096120de-c29e-4241-9cdf-cfc7a03d0e35.png)
 
 ## Usage
 
