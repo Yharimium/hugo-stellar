@@ -34,19 +34,11 @@ rm config.toml
 hugo server
 ```
 
-> 注：
-> 1. 请务必保证您的站点配置文件（如 `config.yaml`）中包含有下列配置：
-> ```
-> markup:
->   _merge: deep
-> ```
-> 否则将导致代码块渲染异常。
-> 2. 请务必检查路径下`/content/posts/至少有一篇文章.md`, 否则无法正常预览
-> 3. 请务必检查您的站点配置文件（如 `config.yaml`）中包含有：
-> ```
-> theme:
-> - stellar
-> ```
+如果网站不能实时显示最新效果的话请使用：
+
+```
+hugo server --disableFastRender
+```
 
 ## Content Management
 
