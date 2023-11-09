@@ -1,5 +1,5 @@
 > .bread-nav
-  padding: 0.25rem 1rem 0
+  padding: 0 1rem
   color: var(--text-p3)
 
   > .breadcrumb
@@ -15,7 +15,7 @@
     > .sep
       color: var(--text-p3)
       margin: 0 .3rem
-      &:last-of-type
+      &:has(+.sep)
         display: none
 
   > .post-meta
@@ -24,7 +24,10 @@
 > .article-title
   margin: 0 1rem
   font-size: 2rem
+  color: var(--text-p1)
 
 > .content
-  > h1:first-of-type
-    margin-top: 1rem
+  > .article-title
+    margin-top: 0
+  > .description
+    margin-bottom: 3rem

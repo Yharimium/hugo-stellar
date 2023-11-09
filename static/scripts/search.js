@@ -3,14 +3,22 @@
     pattern = (window.location.href.match(/\?key=(.+)/) || ["", ""])[1];
     pattern = decodeURIComponent(pattern);
 
-    $items  = $("#data").find("item");
-    $result = $("#search-result");
-    $input  = $("#search-input");
+    var data   = document.getElementById("data").children;
+    var result = document.getElementById("search-result");
+    var input  = document.getElementById("search-input");
+    
+    String.prototype.escapeRegex = function() {
+        return this.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    };
 
-    $input.val(pattern);
+    String.prototype.highlightKeyWords = function(pattern) {
+        return String(this).replaceAll(pattern, `<span class="key">$1</span>`);
+    };
+
+    input.value = pattern;
 
     search = () => {
-        var key = $input.val().trim();
+        var key = input.value.trim();
         var path = window.location.href;
         
         if (path.indexOf("?") != -1) {
@@ -19,40 +27,35 @@
 
         if (! key.length) {
             history.pushState('', '', path);
-            $result.html("");
+            result.innerHTML = "";
             return;
         }
 
         history.pushState('', '', path + `?key=${key}`);
-        
-        var counter = 0, html = "";
-        var regexKey = RegExp(`(${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, "gi");
 
-        for (item of $items) {
-            var $item = $(item);
-            var title   = $item.find("title").html();
-            var url     = $item.find("url").html();
-            var content = $item.find("description").html();
+        var counter = 0, html = "";
+        var regexKey = RegExp(`(${key.escapeRegex()})`, "gi");
+
+        for (item of data) {
+            var title   = item.querySelector("title").innerHTML;
+            var url     = item.querySelector("url").innerHTML;
+            var content = item.querySelector("description").innerHTML;
 
             var index   = (title + content).search(regexKey);
 
             if (index > -1) {
                 counter ++;
-                title = title
-                    .replaceAll(regexKey, `<span class="key">$1</span>`);
-                content = content
-                    .substr(Math.max(0, index - 20), 60)
-                    .replaceAll(regexKey, `<span class="key">$1</span>`);
-                html += `<a class="item card" href='${url}' target='_blank'><span class="title">${title}</span><code class="preview">${content}...</code></a>`;
+                title   = title.highlightKeyWords(regexKey);
+                content = content.substr(Math.max(0, index - 20), 60).highlightKeyWords(regexKey);
+                html += `<a class="item card" href='${url}'><span class="title">${title}</span><code class="preview">${content}...</code></a>`;
             }
         }
 
-        html = `<p class="item summary">${!counter ? `未找到匹配的文章.` : `找到 ${counter} 个包含「${key}」的结果.`}</p>` + html;
-
-        $result.html(html);
+        result.innerHTML = `<p class="item summary">${!counter ? `未找到匹配的文章.` : `找到 ${counter} 个包含「${key}」的结果.`}</p>` + html;
     }
 
-    $input.bind("input propertychange", search);
+    input.oninput = search;
+
 
     search()
 })(window);

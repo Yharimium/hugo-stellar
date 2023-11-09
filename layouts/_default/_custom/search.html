@@ -17,26 +17,25 @@
     </div>
     <div class="search-result cards" id="search-result"></div>
     
-    <pre id="data" style="display: none">
-        {{- partial "generateXML" . -}}
-    </pre>
+    {{- partial "generateXML" . -}}
 </div>
 
-<script src="/scripts/jquery.min.js"></script>
 <script src="/scripts/search.js"></script>
 
 {{- end -}}
 
 {{- define "partials/generateXML" -}}
-{{- range where .Site.Pages ".Params.hide" "!=" "true" -}}
-    {{- if (and .File .Content) -}}
-    <item>
-        <title>{{ .Title }}</title>
-        <url>{{ .Permalink }}</url>
-        <description>{{ partial "subFile" .File }}</description>
-    </item>
+<pre id="data" style="display: none">
+    {{- range where .Site.Pages ".Params.hide" "!=" "true" -}}
+        {{- if (and .File .Content) -}}
+        <item>
+            <title>{{ .Title }}</title>
+            <url>{{ .Permalink }}</url>
+            <description>{{ partial "subFile" .File }}</description>
+        </item>
+        {{- end -}}
     {{- end -}}
-{{- end -}}
+</pre>
 {{- end -}}
 
 {{- define "partials/subFile" -}}
@@ -51,8 +50,6 @@
         | replaceRE "[\\s]*\\!\\[\\]\\(.+?\\)[\\s]*" ""
         | replaceRE "[\\s]*\\[(.+?)\\]\\(.+?\\)[\\s]*" "$1"
         | replaceRE "#{1,}" ""
-        | replaceRE "\\$" ""
-        | replaceRE "[\\s\\n\\t\\r]+" " "
     -}}
     {{- return $file -}}
 {{- end -}}

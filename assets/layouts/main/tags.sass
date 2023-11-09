@@ -5,6 +5,7 @@
     padding: 0
     margin: 0 -4px
     > a.tag
+      @include trans1(box-shadow)
       display: inline-flex
       align-items: center
       position: relative
@@ -23,7 +24,8 @@
         opacity: 0.4
       &:hover
         color: var(--text-p0)
-        background: var(--block-hover)
+        background: var(--card)
+        box-shadow: var(--shadow-hover)
         &:before
           color: var(--theme-link)
           opacity: 1
