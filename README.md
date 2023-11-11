@@ -22,10 +22,11 @@ Yharim Area：<https://yharim.com/>
 ``` sh
 hugo new site mySite
 cd mySite
+del *.toml
 git init
 git submodule add https://github.com/Yharimium/hugo-stellar themes/hugo-stellar
 cp -R themes/stellar/exampleSite/* .
-rm config.toml
+
 ```
 
 预览网站：
