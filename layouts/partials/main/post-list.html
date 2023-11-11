@@ -1,0 +1,19 @@
+<div class="post-list">
+  {{- range (.Scratch.Get "Config").Pages -}}
+  {{- if isset .Params "link" -}}
+  <a class="post-card" href='{{ .Params.link | safeURL }}' target='_blank'>
+  {{- else -}}
+  <a class="post-card" href='{{ .Permalink }}'>
+  {{- end -}}
+    <article class="md-text">
+      <h2 class="post-title">{{ .Title }}</h2>
+      <div class="excerpt">{{ .Description }}</div>
+      <div class="meta cap">发布于 {{ .Date.Format "2006-01-02" }}</div>
+      {{- if isset .Params "link" -}}
+      <div class="link-bg"></div>
+      <div class="link"><img class="icon" src="/img/link.svg"></div>
+      {{- end -}}
+    </article>
+  </a>
+  {{- end -}}
+</div>

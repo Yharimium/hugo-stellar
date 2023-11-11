@@ -1,0 +1,28 @@
+.LMain
+  position: relative
+  padding-bottom: calc(1 * var(--gap-l))
+
+  @import "archives"
+  @import "article"
+  @import "categories"
+  @import "dir-list"
+  @import "footer"
+  @import "header"
+  @import "nav-bar"
+  @import "paginator"
+  @import "post-list"
+  @import "search"
+  @import "tags"
+
+@media screen and (min-width: 1400px)
+  .LMain
+    margin-left: calc(2 * var(--gap-l))
+    // margin-right: calc(2 * var(--gap-l) + var(--width-left) / 2);
+
+@media screen and (min-width: 667px)
+  .LMain
+    padding-top: calc(2 * var(--gap-l))
+
+@media screen and (max-width: 667px)
+  .LMain
+    padding-top: 1rem

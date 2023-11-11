@@ -1,0 +1,170 @@
+> .post-list
+  margin: 1rem
+
+  > .post-card
+    @include trans1(all)
+    display: block
+    margin: 1rem 0
+    border-radius: 12px
+    box-shadow: var(--shadow-light)
+    overflow: hidden
+    z-index: 0
+    background: var(--card)
+    position: relative
+
+    &:hover
+      box-shadow: 0 1px 4px 0 rgba(0,0,0,.1), 0 4px 16px 0 rgba(0,0,0,.1)
+
+    > article
+      padding: 1rem
+
+      .post-title
+        @include trans1(color)
+        font-weight: 500
+        margin: .5rem 0 .75rem 0
+        line-height: 1.2
+        font-size: 1.375rem
+        border-bottom: none
+        color: var(--text-p0)
+
+      .excerpt
+        margin: 1rem 0
+        line-height: 1.5
+        color: var(--text-p2)
+        font-size: 0.875rem
+
+      .meta
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        margin: 0.25rem 0
+        line-height: 1.5
+  
+  .post-card.wiki
+    > article
+      @include trans1(box-shadow)
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      padding: 1rem 0.5rem
+
+      .preview
+        display: flex
+        margin: 1rem 0.5rem
+        align-items: center
+
+        > img
+          object-fit: contain
+          width: 200px
+
+          &:not(.lazy)
+            @include trans1(transform, .25s)
+
+      .excerpt
+        margin: 1rem 0.5rem
+        min-width: 280px
+        flex: 1
+        overflow: hidden
+        word-wrap: break-word
+
+        p:last-child
+          margin-bottom: 0
+
+  // .post-card
+  //   .post-cover
+  //     overflow: hidden
+  //     width: calc(100% + 2 * 1rem)
+  //     border-radius: 0
+  //     margin-left: -1rem
+  //     margin-top: -1rem
+  //     margin-right: -1rem
+  //     background: var(--block)
+
+  //     &:not(.lazy)
+  //       @include trans1(transform, 1s)
+
+  //     img
+  //       object-fit: cover
+  //       width: 100%
+  //       border-radius: 0
+  //       height: 280px
+
+  //   &.post.photo
+  //     .cover
+  //       position: relative
+  //       line-height: 0
+
+  //       img
+  //         width: 100%
+
+  //       .cover-info
+  //         padding: 1.5rem 1rem
+  //         position: absolute
+  //         line-height: 1.2
+  //         width: calc(100% - 1rem * 2)
+  //         color: var(--text-p0)
+
+  //         &[position="top"]
+  //           top: 0
+  //           background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0))
+
+  //         &[position="bottom"]
+  //           bottom: 0
+  //           background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2))
+
+  //         div + div
+  //           margin-top: 4px
+
+  //         .cap
+  //           font-size: 0.8125rem
+  //           color: unset
+
+  //         .title
+  //           font-weight: 500
+  //           font-size: 1.375rem
+
+  //     h2
+  //       margin: 0.25rem 0
+  //       font-size: 1.125rem
+
+@media screen and (max-width: 500px)
+  .post-list .post-title
+    font-size: 1.125rem
+    margin: 0.5rem 0
+
+  .post-list .post-card .excerpt
+    margin: 0.5rem 0
+
+  .post-list .md-text
+    padding: 0.5rem 1rem
+
+@media screen and (max-width: 900px)
+  .post-list .post-card .post-cover img
+    height: 240px
+
+@media screen and (max-width: 768px)
+  .post-list .post-card .post-cover img
+    height: 220px
+
+@media screen and (max-width: 425px)
+  .post-list .post-card .post-cover img
+    height: 200px
+
+@media screen and (max-width: 375px)
+  .post-list .post-card .post-cover img
+    height: 180px
+
+@media screen and (max-width: 500px)
+  .post-list .post-card.post.photo .cover .cover-info
+    padding: 1rem
+    div + div
+      margin-top: 2px
+    .title
+      font-size: 1.125rem
+    .cap
+      font-size: 0.75rem
+
+@media screen and (min-width: 950px)
+  .post-list .post-card.wiki article .preview
+    margin: 1rem
+    margin-right: 2rem

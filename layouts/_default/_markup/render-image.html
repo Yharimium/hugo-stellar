@@ -1,0 +1,1 @@
+<img class="md_img" data-fancybox="gallery" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}" {{ end }}{{ if eq .Title (index (.Title | findRE "[0-9.]*%") 0) }}style="zoom: {{ .Title }}"{{ end }}>

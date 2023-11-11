@@ -1,0 +1,53 @@
+macros:
+  regex:
+    - "@limit": "<%(?:[^<%]|<[^%]|%[^>])*%>"
+    - "@quote\\[(.+?)\\]": "<%BEGIN @sp* $1 @sp* END%>"
+    - "@quote (.+)": "<%BEGIN @sp* $1 @sp* END%>"
+    - "@arg\\((.+?)\\)": "(?:@sp+ $1:@sp*(?P<$1>@w+) | )"
+    - "@arg": "(?:@sp+ @w+:@sp*@w+ | )"
+    - "@word": "(?:@sp+ (@w+))"
+    - "@text": "(?:@sp+ (.+?))"
+
+exec:
+# ALIGN ARGUMENTS
+- match: "\\{%(?:[^\\{%]|\\{[^%]|%[^\\}])*%\\}"
+  exec:
+  - match: "\\{% @sp* @word (@arg*) @text (@arg*) @sp* %\\}"
+    cover: "<%BEGIN $1 @sort($2 $4) $3 END%>"
+  - match: "\\{% @sp* @word (@arg*) @text (@arg*) @sp* %\\}"
+    cover: "<%BEGIN $1 @sort($2 $4) $3 END%>"
+  - match: "\\{% @sp* @word (@arg*) @sp* %\\}"
+    cover: "<%BEGIN $1 @sort($2) END%>"
+
+# INLINE
+- match: "<%(?:[^<%]|<[^%]|%[^>])*%>"
+  exec:
+  # NOTE
+  - match: "@quote note @arg(color) @word @text"
+    cover: "{{% stellar/note \"$1\" \"$2\" %}} $3 {{% /stellar/note %}}"
+  # MARK
+  - match: "@quote mark @arg(color) @text"
+    cover: "{{% stellar/mark \"$1\" %}} $2 {{% /stellar/mark %}}"
+  # TAG
+  - match: "@quote tag @arg(color) @word @text"
+    cover: "{{% stellar/tag \"$1\" \"$2\" %}} $3 {{% /stellar/tag %}}"
+  # COPY AREA
+  - match: "@quote copy @text"
+    cover: "{{% stellar/copyarea %}} $1 {{% /stellar/copyarea %}}"
+  # RADIO BOX
+  - match: "@quote radio @arg(checked) @text"
+    cover: "{{% stellar/radio \"$1\" %}} $2 {{% /stellar/radio %}}"
+  # CHECK BOX
+  - match: "@quote checkbox @arg(checked) @arg(color) @arg(symbol) @text"
+    cover: "{{% stellar/checkbox \"$1\" \"$2\" \"$3\" %}} $4 {{% /stellar/checkbox %}}"
+
+# FOLDING
+- match: "@quote[ folding @arg(codeblock) @arg(color) @arg(open) @text ] (@any) @quote[endfolding]"
+  cover: "{{% stellar/folding \"$1\" \"$2\" \"$3\" \"$4\" %}} $5 {{% /stellar/folding %}}"
+
+# POETRY
+- match: "@quote[ poetry @arg(author) @arg(footer) @text ] (@any) @quote[endpoetry]"
+  cover: "{{% stellar/poetry \"$1\" \"$2\" \"$3\" %}} $4 {{% /stellar/poetry %}}"
+  exec:
+  - match: "([^\\n])\\n([^\\n])"
+    cover: "$1\n\n$2"

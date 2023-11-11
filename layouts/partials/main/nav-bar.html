@@ -1,0 +1,20 @@
+{{- $config := .Scratch.Get "Config" -}}
+
+{{- $menu := $config.Active.Menu -}}
+{{- $tab := $config.Active.Tab -}}
+{{- $tabTitle := $config.Active.TabTitle -}}
+
+{{- with where .Site.Menus.main "URL" $menu -}}
+{{- with (index . 0).Params.tabs -}}
+<div class="nav-wrap">
+    <nav class="sub post cap">
+    {{- range . -}}
+        {{- $url := cond (ne (substr .url -1 1) "/") (add .url "/") .url -}}
+        {{- $isCurrent := eq $tab $url -}}
+        {{- $name := cond (and $isCurrent (ne $tabTitle nil)) (printf "%s: %s" .name $tabTitle) .name -}}
+        {{- printf "<a class=\"%s\" href=\"%s\">%s</a>" (cond $isCurrent "active" "") $url $name | safeHTML -}}
+    {{- end -}}
+    </nav>
+</div>
+{{- end -}}
+{{- end -}}

@@ -1,0 +1,25 @@
+plain:
+- "@sort\\((.+?)\\)": "<%SORT-$1%>"
+- "@block-(\\w+)\\((.+?)\\)": "@begin-$1\n$2\n@end-$1"
+- "@begin-(\\w+)": "<%BEGIN-$1%>"
+- "@end-(\\w+)": "<%END-$1%>"
+- "@null": ""
+- "@n": "\n"
+
+regex:
+- "\\x20": ""
+- "@block-(\\w+)\\((.+?)\\)": "@begin-$1$2@end-$1"
+- "@begin-(\\w+)": "<%BEGIN-$1%>"
+- "@end-(\\w+)": "<%END-$1%>"
+- "@any": "[\\s\\S]+?"
+- "@null": ""
+- "@n": "\\n"
+- "@sp": "\\x20"
+- "@s": "\\s"
+- "@t": "(\\t|\\x20{4})"
+- "@w": "[^\\s]"
+
+protect:
+- match: "\\{\\{%.+?%\\}\\}" # Shortcode
+- match: "\n```[\\s\\S]*?\n```" # Code Block
+- match: "`[^\n`]+?`" # Inline Code Block

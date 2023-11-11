@@ -1,0 +1,42 @@
+.mobile-only
+  display: none
+
+@media screen and (max-width: 667px)
+  .mobile-only
+    display: block !important
+
+@media screen and (max-width: 667px)
+  .mobile-hidden
+    display: none !important
+
+.float-panel
+  @include trans1(all)
+  position: fixed
+  right: 0
+  bottom: 2rem
+  z-index: 10
+  display: flex
+  border-radius: 2rem
+  margin-right: 1rem
+  overflow: hidden
+  --blur-px: 16px
+  --blur-bg: rgba(255, 255, 255, 0.4)
+  box-shadow: var(--shadow)
+
+@media (prefers-color-scheme: dark)
+  .float-panel
+    --blur-bg: rgba(0, 0, 0, 0.4)
+
+.sidebar-toggle
+  cursor: pointer
+  color: var(--text-p0)
+  background: 0 0
+  padding: 0.5rem
+  line-height: 0
+  font-size: 20px
+  margin: 0
+  background: var(--card)
+
+.sidebar-toggle.mobile
+  color: #ff5724
+  border-color: var(--block-border)

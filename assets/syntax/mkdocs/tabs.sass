@@ -1,0 +1,80 @@
+.mkdocs.tabs
+    margin: 1rem 0
+    overflow: visible
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+    > .label
+        color: var(--text-p3)
+        font-size: 13px
+        border-radius: 4px
+        cursor: pointer
+        position: relative
+        padding: 0 1rem
+        margin: 0 .25rem
+        margin-bottom: 1.2rem
+        line-height: 2
+        text-align: center
+        white-space: nowrap
+
+        &.disabled
+            pointer-events: none
+            // padding: 0
+
+        &:first-of-type.disabled
+            padding-left: 1rem
+        &:last-of-type.disabled
+            padding-right: 1rem
+
+        &:not(.active):hover
+            color: var(--text-p0)
+            background: var(--block-hover)
+
+        &::after
+            content: ''
+            border-radius: 4px
+            pointer-events: none
+            cursor: default
+            height: 2px
+            position: absolute
+            bottom: -.5rem
+            left: -.6rem
+            right: 0
+            background: var(--block-hover)
+            will-change: transform
+        
+        &:first-of-type
+            &::after
+                left: 0
+
+    > .inner
+        @include trim
+        order: 999
+        width: 100%
+        display: none
+
+    > input[type="radio"]
+        display: none
+
+        &:checked + .label
+            color: var(--text-p0)
+            background: var(--card)
+            box-shadow: var(--shadow-bold)
+
+            &::before
+                content: ''
+                border-radius: 4px
+                pointer-events: none
+                cursor: default
+                z-index: 1
+                height: 2px
+                position: absolute
+                bottom: -.5rem
+                left: .7rem
+                right: .7rem
+                background: var(--theme-bg2)
+                will-change: transform
+
+            & + .inner
+                display: block

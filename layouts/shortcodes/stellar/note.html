@@ -1,0 +1,8 @@
+{{- $color := .Get 0 -}}
+{{- $title := .Get 1 | markdownify -}}
+{{- $content := .Inner | markdownify -}}
+
+<div class='stellar note' color='{{ $color }}'>
+    <p class='title'>{{ $title }}</p>
+    <div class='inner'>{{ $content }}</div>
+</div>

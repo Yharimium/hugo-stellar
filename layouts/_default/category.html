@@ -1,0 +1,8 @@
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Pages"   (.Paginate .Data.Pages).Pages
+    "Active"  (dict "Menu" "/" "Tab" "/categories/" "TabTitle" .Title)
+    "Side"    (slice "search" "notice" "recent")
+    "Main"    (slice "header" "nav-bar" "post-list" "paginator" "footer" "float-panel")
+  ) -}}
+{{- end -}}

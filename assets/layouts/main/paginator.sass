@@ -1,0 +1,44 @@
+> .paginator-wrap
+  margin: 1rem
+  display: flex
+  justify-content: space-between
+  align-items: center
+  font-size: 1rem
+  font-weight: 700
+  background: var(--card)
+  border-radius: 6px
+  overflow: hidden
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.03)
+
+  > .page-number
+    padding: 4px 8px
+    border-radius: 4px
+    background: var(--block)
+    margin: 2px
+    min-width: .8rem
+    text-align: center
+    &.current
+      color: var(--text-p3)
+
+  > .extend
+    @include trans1(filter)
+    text-align: center
+    background-size: contain
+    width: 1rem
+    height: 1rem
+    background-origin: content-box
+    background-clip: content-box
+    color: var(--text-p3)
+    padding: .8rem 1rem
+    line-height: 0
+    filter: grayscale(100%)
+    > img
+      height: 1rem
+    &:hover
+      filter: unset
+    &.next
+      background-image: url("/img/next.svg")
+    &.prev
+      background-image: url("/img/prev.svg")
+    &.disable
+      pointer-events: none

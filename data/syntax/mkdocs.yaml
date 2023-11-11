@@ -1,0 +1,61 @@
+macros:
+  plain:
+  - "@indent\\((.+?)\\)": "@block-INDENT($1)"
+  
+  regex:
+  - "\\?{3}": "\\?{3}"
+  - "@inp": "((?:\\n(?:(?:\\t|\\x20{4}).+$|\\s*$))+)"
+  - "@word": "(?:@sp+ ([^\\s\\x20]+))"
+  - "@text": "(?:@sp+ ([^\\s\\x20]{1}.*))"
+    
+exec:
+
+# HINT WITH TITLE
+- match: "^ !!! @word @text @sp* (@inp*)" 
+  cover: "{{% mkdocs/hint \"$1\" \"$2\" %}} @indent($3) {{% /mkdocs/hint %}} \n\n"
+  flag: m
+
+# HINT WITHOUT TITLE
+- match: "^ !!! @word @sp* (@inp*)" 
+  cover: "{{% mkdocs/hint \"$1\" \"$1\" %}} @indent($2) {{% /mkdocs/hint %}} \n\n"
+  flag: m
+
+# HINT OPENABLE WITH TITLE
+- match: "^ ??? @word @text @sp* (@inp*)" 
+  cover: "{{% mkdocs/details \"$1\" \"\" \"$2\" %}} @indent($3) {{% /mkdocs/details %}} \n\n"
+  flag: m
+
+# HINT OPENABLE WITHOUT TITLE
+- match: "^ ??? @text @sp* (@inp*)" 
+  cover: "{{% mkdocs/details \"$1\" \"\" \"$1\" %}} @indent($2) {{% /mkdocs/details %}} \n\n"
+  flag: m
+
+# HINT OPENABLE OPEN WITH TITLE
+- match: "^ ???\\+ @word @text @sp* (@inp*)" 
+  cover: "{{% mkdocs/details \"$1\" \"open\" \"$2\" %}} @indent($3) {{% /mkdocs/details %}} \n\n"
+  flag: m
+
+# HINT OPENABLE OPEN WITHOUT TITLE
+- match: "^ ???\\+ @text @sp* (@inp*)" 
+  cover: "{{% mkdocs/details \"$1\" \"open\" \"$1\" %}} @indent($2) {{% /mkdocs/details %}} \n\n"
+  flag: m
+
+# TABS
+- match: "^ ((=== @sp+ (.+) @sp* (@inp*) @s*)+)"
+  cover: "{{% mkdocs/tabs %}} \n$1\n {{% /mkdocs/tabs %}} \n\n"
+  flag: m
+
+# TAB
+- match: "^ === @sp+ (.+) @sp* (@inp*)"
+  cover: "{{% mkdocs/tab \"$1\" %}} @indent($2) {{% /mkdocs/tab %}} \n\n"
+  flag: m
+
+# COLUMNS
+- match: "^ ((::: @sp* (@inp*) @s*)+)"
+  cover: "{{% mkdocs/columns %}} \n$1\n {{% /mkdocs/columns %}} \n\n"
+  flag: m
+
+# COLUMN
+- match: "^ ::: @sp* (@inp*)"
+  cover: "{{% mkdocs/column %}} @indent($1) {{% /mkdocs/column %}} \n\n"
+  flag: m

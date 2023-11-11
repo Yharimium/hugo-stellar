@@ -1,0 +1,46 @@
+.LBody
+  display: flex
+  margin: auto
+  justify-content: center
+
+  > .LSide
+    z-index: 8
+    width: var(--width-left)
+    flex-shrink: 0
+    position: sticky
+    position: -webkit-sticky
+    top: 0
+    
+  > .LMain
+    flex-shrink: 1
+    flex-grow: 1
+    width: 320px
+    max-width: var(--width-main)
+    // overflow: hidden
+  
+  @import "side"
+  @import "main"
+
+@media screen and (max-width: 667px)
+  .mobile-only
+    display: block !important
+
+  .LBody
+    padding: 0
+
+    > .LSide
+      position: fixed
+      transform: translateX(-320px)
+      margin: 0
+      left: 0
+      background: var(--site-bg)
+      box-shadow: var(--shadow-heavy)
+      z-index: 9
+      transition: transform 0.15s ease-out
+
+    > .LMain
+      max-width: 100%
+
+    &.mobile
+      > .LSide
+        transform: translateX(0)

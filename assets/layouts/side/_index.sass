@@ -1,0 +1,44 @@
+.LSide
+  display: flex
+  flex-direction: column
+  word-break: break-all
+  text-align: justify
+  height: 100vh
+
+  @import "header"
+  @import "widgets"
+  @import "footer"
+
+
+  // &[layout="wiki"]
+  //   padding-bottom: 0
+  //   height: 100vh
+
+  //   .widgets > :last-child
+  //     margin-bottom: 6rem
+
+  // .widgets .widget-wrapper.logo-wrap.wiki .widget-body
+  //   display: flex
+  //   margin-bottom: 1.5rem
+  //   flex-direction: column
+  //   align-items: flex-start
+
+  //   a.wiki-home
+  //     margin-bottom: 0.5rem
+  //     color: var(--text-p1)
+
+  //   svg
+  //     margin-right: 2px
+
+  //   &:hover
+  //     color: #ff5724
+  //     filter: unset !important
+
+@media screen and (min-width: 667px)
+  .LSide > .widgets:first-child > .widget-wrapper:first-child
+    margin-top: calc(2 * var(--gap-l))
+
+@media screen and (max-width: 667px)
+  .LSide
+    height: 100%
+    margin: var(--gap-l) 0

@@ -1,0 +1,20 @@
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Active"  (dict "Menu" "/" "Tab" "/tags/")
+    "Side"    (slice "search" "notice" "recent")
+    "Main"    (slice "header" "nav-bar" "tags" "footer" "float-panel")
+  ) -}}
+{{- end -}}
+
+{{- define "partials/main/tags" -}}
+<div class="post-list">
+  <article class="tags">
+    {{- range $taxonomy := .Site.Taxonomies.tags -}}
+    <a class="tag" href={{ .Page.Permalink }}>
+      <span class="name">{{ .Page.Title }}</span>
+      {{/*  <span class="badge">({{ $taxonomy.Count }})</span>  */}}
+    </a>
+    {{- end -}}
+  </article>
+</div>
+{{- end -}}

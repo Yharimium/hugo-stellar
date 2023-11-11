@@ -1,0 +1,6 @@
+permalinks:
+  post: /:sections/:filename/
+
+params:
+  syntax:
+  - mkdocs

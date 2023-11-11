@@ -1,0 +1,7 @@
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Active"  (dict "Menu" (.Params.menu | default "/docs/"))
+    "Side"    (slice "search")
+    "Main"    (slice "header" "float-panel")
+  ) -}}
+{{- end -}}

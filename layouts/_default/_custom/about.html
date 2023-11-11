@@ -1,0 +1,15 @@
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Active"  (dict "Menu" "/about/")
+    "Side"    (slice "search" "toc")
+    "Main"    (slice "header" "about" "float-panel")
+  ) -}}
+{{- end -}}
+
+{{- define "partials/main/about" -}}
+<h1 class="article-title">{{ .Title }}</h1>
+<article class="md-text content post">
+  <span class="description">{{ .Description }}</span>
+  {{- partial "func/content.html" . -}}
+</article>
+{{- end -}}

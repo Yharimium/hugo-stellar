@@ -1,0 +1,27 @@
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Pages"   (where (where (where .Data.Pages "Section" "docs") ".Params.hide" "!=" "true") "IsPage" false)
+    "Active"  (dict "Menu" "/docs/" "Tab" "/docs/")
+    "Side"    (slice "search" "notice")
+    "Main"    (slice "header" "nav-bar" "wiki" "paginator" "footer" "float-panel")
+  ) -}}
+{{- end -}}
+
+{{- define "partials/main/wiki" -}}
+<div class="post-list wiki">
+  {{- range (.Scratch.Get "Config").Pages -}}
+  <a class="post-card wiki" href='{{ .Permalink }}'>
+    <article class="md-text">
+      <div class="preview">
+        <img class="icon" src="{{ .Params.logo }}">
+      </div>
+      <div class="excerpt">
+        {{/*  <div class="cap breadcrumb"></div>  */}}
+        <h2 class="post-title">{{ .Title }}</h2>
+        <p class="post-description">{{ .Description }}</p>
+      </div>
+    </article>
+  </a>
+  {{- end -}}
+</div>
+{{- end -}}

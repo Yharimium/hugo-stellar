@@ -1,0 +1,40 @@
+> .page-footer
+  margin: 4rem 1rem 0
+  color: var(--text-p3)
+  
+  a
+    color: var(--text-p3)
+    &:hover
+      color: #ff5724
+
+  > .sitemap
+    @include scrollbar(0)
+    margin: 0.5rem 0 2rem
+    display: grid
+    scrollbar-width: none
+    grid-gap: 1rem 1rem
+    grid-auto-flow: column dense
+    overflow: scroll
+
+    > .sitemap-group
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      > span, > a
+        @include txt-ellipsis
+        text-decoration: none
+      > span
+        margin: .5rem 0
+        font-weight: 500
+        color: var(--text-p1)
+      > a
+        margin: .2rem 0
+
+  > .text
+    text-align: center
+    p
+      margin: 4px 0
+      line-height: 1.5
+    a:not([class])
+      text-decoration: underline
+      font-weight: 500

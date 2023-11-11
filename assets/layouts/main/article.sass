@@ -1,0 +1,33 @@
+> .bread-nav
+  padding: 0 1rem
+  color: var(--text-p3)
+
+  > .breadcrumb
+    display: flex
+    align-items: center
+    flex-direction: row
+
+    > .item
+      color: var(--theme-link)
+      &:hover
+        color: #ff5724
+
+    > .sep
+      color: var(--text-p3)
+      margin: 0 .3rem
+      &:has(+.sep)
+        display: none
+
+  > .post-meta
+    margin-top: 2px
+
+> .article-title
+  margin: 0 1rem
+  font-size: 2rem
+  color: var(--text-p1)
+
+> .content
+  > .article-title
+    margin-top: 0
+  > .description
+    margin-bottom: 3rem

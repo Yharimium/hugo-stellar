@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{{- partial "head.html" . -}}
+<body>
+    {{- template "Config" . -}}
+    <div class="LBody" id="start">
+        <aside class="LSide">
+            {{- partial "side/header" . -}}
+            {{- partial "side/widgets" . -}}
+            {{- partial "side/footer" . -}}
+        </aside>
+        <main class="LMain">
+            {{- $curr := . -}}
+            {{- range (.Scratch.Get "Config").Main -}}
+            {{- partial (add "main/" .) $curr -}}
+            {{- end -}}
+        </main>
+    </div>
+</body>
+{{- partial "scripts.html" . -}}
+</html>

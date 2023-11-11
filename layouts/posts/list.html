@@ -1,0 +1,47 @@
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Active"  (dict "Menu" "/" "Tab" "/posts/")
+    "Side"    (slice "search" "notice" "recent")
+    "Main"    (slice "header" "nav-bar" "list" "footer" "float-panel")
+  ) -}}
+{{- end -}}
+
+{{- define "partials/main/list" -}}
+
+{{- $dir := "" -}}
+{{- with .File -}}
+    {{- if .Dir -}}
+        {{- $dir = substr .Dir 0 -1 -}}
+    {{- end -}}
+{{- end -}}
+
+<div class="dir-list">
+  <span class="item dir">
+    {{- range $index, $content := split $dir "\\" -}}
+    {{- if $index -}}
+    <span class="seperator">></span>
+    {{- end -}}
+    <a class="subdir" href='/{{ delimit (split $dir "\\" | first (add $index 1)) "/" }}'>{{ $content }}</a>
+    {{- end -}}
+  </span>
+  {{- if not (eq .Parent.Kind "home") -}}
+  <a class="item" href="..">
+    <img class="icon" src="/img/folder.svg">
+    <span class="title">..</span>
+  </a>
+  {{- end -}}
+  {{- range where (where .Data.Pages ".Params.hide" "!=" "true").ByWeight ".IsPage" false -}}
+  <a class="item" href={{ .Permalink }}>
+    <img class="icon" src="/img/folder.svg">
+    <span class="title">{{ .Title }}</span>
+  </a>
+  {{- end -}}
+  {{- range where (where .Data.Pages ".Params.hide" "!=" "true").ByWeight ".IsPage" true -}}
+  <a class="item" href={{ .Permalink }}>
+    <img class="icon" src="/img/file.svg">
+    <span class="title">{{ .Title }}</span>
+  </a>
+  {{- end -}}
+</div>
+
+{{- end -}}

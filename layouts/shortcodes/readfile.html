@@ -1,0 +1,13 @@
+{{- $file := .Get "file" -}}
+
+{{- if and (eq .Page.Section "docs") (eq (.Get "relative" | default "true") "true") -}}
+    {{- $file = add (index .Page.Ancestors 1).File.Dir $file -}}
+{{- end -}}
+
+{{- if eq (.Get "markdown") "true" -}}
+    {{- $file  | readFile | markdownify -}}
+{{- else if  (.Get "highlight") -}}
+    {{-  highlight ($file  | readFile) (.Get "highlight") "" -}}
+{{- else -}}
+    {{ $file  | readFile | safeHTML }}
+{{- end -}}

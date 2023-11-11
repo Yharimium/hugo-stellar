@@ -1,0 +1,9 @@
+<footer class="footer dis-select">
+    <div class="social-wrap">
+        {{- range .Site.Params.Social -}}
+        <a class="social" href="{{ .url }}" target="_blank">
+            <img src="{{ .logo }}">
+        </a>
+        {{- end -}}
+    </div>
+</footer>

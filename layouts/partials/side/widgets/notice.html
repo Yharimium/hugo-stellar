@@ -1,0 +1,16 @@
+<widget class="widget-wrapper notice">
+    <div class="widget-header cap theme dis-select">
+        <span class="name">公告</span>
+    </div>
+    <div class="widget-body fs14">
+    {{- if reflect.IsSlice .Site.Params.Notice -}}
+    <ul>
+        {{- range .Site.Params.Notice -}}
+        <li>{{ . | $.Page.RenderString }}</li>
+        {{- end -}}
+    </ul>
+    {{- else -}}
+        {{ .Site.Params.Notice | $.Page.RenderString }}
+    {{- end -}}
+    </div>
+</widget>

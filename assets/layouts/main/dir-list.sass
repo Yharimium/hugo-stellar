@@ -1,0 +1,36 @@
+> .dir-list
+  padding: 1rem
+  
+  > .item
+    font-size: 14px
+    display: block
+    color: var(--text-p2)
+    border-radius: 6px
+    padding: .5rem 1rem
+
+    > .icon
+      width: 1.1rem
+      height: 1.1rem
+      margin-right: .2rem
+      vertical-align: text-bottom
+
+    &:not(.dir):hover
+      background: var(--block-hover)
+      color: var(--text-p0)
+
+    &.dir
+      margin-bottom: .5rem
+      display: flex
+      line-height: 1.2
+      background: var(--card)
+      box-shadow: var(--shadow-bold)
+      border-radius: 4px
+
+      > .seperator, > .subdir
+        color: var(--text-p1)
+        margin: 0 .25rem
+
+      > .subdir
+        &:hover
+          color: var(--theme-link)
+          text-decoration: underline

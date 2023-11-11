@@ -1,0 +1,59 @@
+> .widget-wrapper.toc
+  #TableOfContents
+    ul
+      line-height: 1.2
+      margin-left: 0
+      padding-left: .5rem
+      position: relative
+      &::after
+        content: ""
+        position: absolute
+        top: .3rem
+        bottom: .3rem
+        left: 0
+        width: 1.5px
+        background: var(--block-hover)
+        will-change: transform
+
+      ul
+        margin-left: .75rem
+
+      li
+        list-style: none
+        margin: 0
+        > a
+          font-size: 13.6px
+          color: var(--text-p2)
+          display: block
+          position: relative
+          width: 100%
+          padding: 5px 8px
+          border-radius: 4px
+
+          &:hover
+            background: var(--block-hover)
+            color: var(--text-p1)
+            text-decoration: none
+
+          &::after
+            content: ""
+            width: 3px
+            top: 10px
+            bottom: 10px
+
+        &.active
+          > a
+            color: var(--theme-link)
+            &::after
+              z-index: 1
+              position: absolute
+              top: 2px
+              bottom: 2px
+              left: -8.5px
+              background: var(--theme-link)
+              border-radius: 4px
+              will-change: transform
+              
+      li.active:not(:has(ul)) + li.active
+        > a::after
+          top: -4px

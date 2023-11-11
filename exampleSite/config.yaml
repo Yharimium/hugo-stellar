@@ -1,0 +1,72 @@
+title: "Hugo Stellar"
+paginate: 8         # 每页显示的文章条数
+buildfuture: true   # 解决时区问题
+relativeURLs: true
+
+theme: hugo-stellar
+
+params:
+  author: Author
+  avatar: /avatar.png
+  logo: /logo.svg
+
+  description:
+  - "description"
+  - "deep description"
+
+  notice:
+  - "notice example 1"
+  - "notice example 2"
+  - "notice example 3"
+
+  copyright: "place copyright here"
+
+  social:
+  - name: "hugo"
+    url: "https://gohugo.io/"
+    logo: "/social/hugo.png"
+  - name: "github"
+    url: "https://github.com/"
+    logo: "/social/github.svg"
+  - name: "bilibili"
+    url: "https://space.bilibili.com/"
+    logo: "/social/bilibili.ico"
+
+menus:
+  main:
+  - name: "博客"
+    weight: 1
+    url: "/"
+    params:
+      tabs:
+      - name: "所有文章"
+        url: "/"
+      - name: "分类"
+        url: "/categories/"
+      - name: "标签"
+        url: "/tags/"
+      - name: "归档"
+        url: "/archives/"
+  - name: "文档"
+    weight: 2
+    url: "/docs/"
+    params:
+      tabs:
+      - name: "所有文档"
+        url: "/docs/"
+  - name: "搜索"
+    weight: 3
+    url: "/search/"
+    params:
+      tabs:
+      - name: "博客搜索"
+        url: "/search/?sec=posts"
+      - name: "文档搜索"
+        url: "/search/?sec=docs"
+  - name: "关于"
+    weight: 4
+    url: "/about/"
+    params:
+      tabs:
+      - name: "About Hugo"
+        url: "/about/#about-hugo"

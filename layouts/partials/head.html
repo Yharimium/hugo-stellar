@@ -1,0 +1,19 @@
+<head>
+    {{- if or .IsHome (not (len .Title)) -}}
+    <title>{{ .Site.Title }}</title>
+    {{- else -}}
+    <title>{{ printf "%s - %s" .Title .Site.Title }}</title>
+    {{- end -}}
+
+    <meta charset="utf-8">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta name="Robots" content="All">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="windows-Target" content="_top">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.logo | relURL }}" />
+    <link rel="alt" type="application/rss+xml" href={{ "index.xml" | relURL }} title="{{ .Site.Title }}" />
+    <link rel="stylesheet" href={{ partial "func/toCSS" "_index.sass" }}>
+</head>

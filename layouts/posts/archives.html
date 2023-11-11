@@ -1,0 +1,36 @@
+{{- define "Config" -}}
+  {{- .Scratch.Set "Config" (dict
+    "Active"  (dict "Menu" "/" "Tab" "/archives/")
+    "Side"    (slice "search" "notice" "recent")
+    "Main"    (slice "header" "nav-bar" "archives" "footer" "float-panel")
+  ) -}}
+{{- end -}}
+
+{{- define "partials/main/archives" -}}
+<div class="post-list">
+  {{- range (where (where .Site.RegularPages "Section" "posts") ".Params.hide" "!=" "true").GroupByDate "2006" -}}
+  <div class="archive-group">
+    <h2 class="archive-title">{{ .Key }}</h2>
+    <div class="archives">
+      {{- range .Pages.GroupByDate "January" -}}
+      <article class="archive">
+        <div class="archive-header h4">{{ .Key }}</div>
+        {{- range .Pages -}}
+        <div class="archive-list">
+          {{- if isset .Params "link" -}}
+          <a class="post fs14" href='{{ .Params.link | safeURL }}' target='_blank'>
+          {{- else -}}
+          <a class="post fs14" href='{{ .Permalink }}'>
+          {{- end -}}
+            <time>{{ .Date.Format "01-02" }}</time>
+            <span>{{ .Title }}</span>
+          </a>
+        </div>
+        {{- end -}}
+      </article>
+      {{- end -}}
+    </div>
+  </div>
+{{- end -}}
+</div>
+{{- end -}}

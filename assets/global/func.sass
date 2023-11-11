@@ -1,0 +1,68 @@
+@mixin trans1($op, $time: .15s)
+  transition: $op $time ease-out
+  -moz-transition: $op $time ease-out
+  -webkit-transition: $op $time ease-out
+  -o-transition: $op $time ease-out
+
+@mixin trans2($op1, $op2, $t1: .15s, $t2: .15s)
+  transition: $op1 $t1 ease-out, $op2 $t2 ease-out
+  -moz-transition: $op1 $t1 ease-out, $op2 $t2 ease-out
+  -webkit-transition: $op1 $t1 ease-out, $op2 $t2 ease-out
+  -o-transition: $op1 $t1 ease-out, $op2 $t2 ease-out
+
+@mixin trans3($op1, $op2, $op3)
+  transition: $op1 .15s ease-out, $op2 .15s ease-out, $op3 .15s ease-out
+  -moz-transition: $op1 .15s ease-out, $op2 .15s ease-out, $op3 .15s ease-out
+  -webkit-transition: $op1 .15s ease-out, $op2 .15s ease-out, $op3 .15s ease-out
+  -o-transition: $op1 .15s ease-out, $op2 .15s ease-out, $op3 .15s ease-out
+
+@mixin trans4($op1, $op2, $op3, $op4)
+  transition: $op1 .15s ease-out, $op2 .15s ease-out, $op3 .15s ease-out, $op4 .15s ease-out
+  -moz-transition: $op1 .15s ease-out, $op2 .15s ease-out, $op3 .15s ease-out, $op4 .15s ease-out
+  -webkit-transition: $op1 .15s ease-out, $op2 .15s ease-out, $op3 .15s ease-out, $op4 .15s ease-out
+  -o-transition: $op1 .15s ease-out, $op2 .15s ease-out, $op3 .15s ease-out, $op4 .15s ease-out
+
+@mixin txt-ellipsis()
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+@mixin disable-select()
+  -moz-user-select: none
+  -ms-user-select: none
+  -webkit-user-select: none
+  user-select: none
+
+@mixin scrollbar($w: 4px)
+  &::-webkit-scrollbar
+    height: $w
+    width: $w
+  &::-webkit-scrollbar-track-piece
+    background: transparent
+  &::-webkit-scrollbar-thumb
+    background: transparent
+    cursor: pointer
+    border-radius: 6px
+  &:hover
+    &::-webkit-scrollbar-thumb
+      background: var(--text-meta)
+      &:hover
+        background: var(--text-p3)
+
+@mixin trim
+  > :first-child
+    margin-top: 0
+    > :first-child
+      margin-top: 0
+      > :first-child
+        margin-top: 0
+        > :first-child
+          margin-top: 0
+  > :last-child
+    margin-bottom: 0
+    > :last-child
+      margin-bottom: 0
+      > :last-child
+        margin-bottom: 0
+        > :last-child
+          margin-bottom: 0

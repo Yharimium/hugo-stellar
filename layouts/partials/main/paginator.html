@@ -1,0 +1,57 @@
+{{- $paginator := .Paginator -}}
+{{- $adjacent_divnks := 1 -}}
+{{- $max_divnks := (add (mul $adjacent_divnks 2) 1) -}}
+{{- $lower_divmit := 1 -}}
+{{- $upper_divmit := $paginator.TotalPages -}}
+{{- $include_lower_eldivpsis := false -}}
+{{- $include_upper_eldivpsis := false -}}
+
+{{- if gt $paginator.TotalPages (add $max_divnks 2) -}}
+    {{- if ge $paginator.PageNumber $adjacent_divnks -}}
+        {{- $lower_divmit = sub $paginator.PageNumber $adjacent_divnks -}}
+        {{- if lt (sub $paginator.TotalPages $lower_divmit) $max_divnks -}}
+            {{- $lower_divmit = add 1 (sub $paginator.TotalPages $max_divnks) -}}
+        {{- end -}}
+        {{- if gt (sub $lower_divmit 1) 1 -}}
+            {{- $include_lower_eldivpsis = true -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if gt (sub $paginator.TotalPages $paginator.PageNumber) $adjacent_divnks -}}
+        {{- $upper_divmit = add $paginator.PageNumber $adjacent_divnks -}}
+        {{- if le $upper_divmit $max_divnks -}}
+            {{- $upper_divmit = $max_divnks -}}
+        {{- end -}}
+        {{- if gt (sub $paginator.TotalPages $upper_divmit) 1 -}}
+            {{- $include_upper_eldivpsis = true -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if gt $paginator.TotalPages 1 -}}
+<div class="paginator-wrap dis-select">
+    {{- if $paginator.HasPrev -}}
+    <a class="extend prev" href='{{ $paginator.Prev.URL }}'></a>
+    {{- else -}}
+    <a class="extend prev disable"></a>
+    {{- end -}}
+
+    {{- range $paginator.Pagers -}}
+        {{- if or (or (eq .PageNumber 1) (eq .PageNumber $paginator.TotalPages)) (and (ge .PageNumber $lower_divmit) (le .PageNumber $upper_divmit)) -}}
+            {{- if eq $paginator.PageNumber .PageNumber -}}
+            <a class="page-number current">{{ .PageNumber }}</a>
+            {{- else -}}
+            <a class="page-number" href='{{ .URL }}'>{{ .PageNumber }}</a>
+            {{- end -}}
+            {{- if or (and (eq .PageNumber 1) (eq $include_lower_eldivpsis true)) (and (eq .PageNumber $upper_divmit) (eq $include_upper_eldivpsis true)) -}}
+            <a class="page-number current">...</a>
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{- if $paginator.HasNext -}}
+    <a class="extend next" href='{{ $paginator.Next.URL }}'></a>
+    {{- else -}}
+    <a class="extend next disable"></a>
+    {{- end -}}
+</div>
+{{- end -}}

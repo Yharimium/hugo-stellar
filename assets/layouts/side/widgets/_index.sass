@@ -1,0 +1,69 @@
+& > .widgets
+  @include scrollbar(0)
+  overflow: scroll
+  flex-grow: 1
+  scrollbar-width: none
+  z-index: 1
+  line-height: 1.2
+
+  > .widget
+    @import "notice"
+    @import "recent"
+    @import "search"
+    @import "toc"
+
+    > .widget-wrapper
+      display: block
+      margin: 2rem 0
+
+      > .widget-header
+        padding: 0 var(--gap-l)
+        display: flex
+        justify-content: space-between
+        align-items: center
+        position: sticky
+        top: -2px
+        padding-top: 2px
+        background: var(--site-bg)
+        z-index: 1
+
+        // &:empty
+          // display: none
+
+        > .name
+          margin: 0.25rem 0
+          text-align: left
+
+        > .cap-action
+          @include trans2(color, background)
+          border-radius: 4px
+          padding: 4px 4px
+          line-height: 0
+          color: var(--text-meta)
+          .icon
+            @include trans1(fill)
+            fill: var(--text-meta)
+          &:hover
+            color: #ff5724
+            background: var(--block-hover)
+            .icon
+              fill: #ff5724
+
+      > .widget-body
+        margin: 0.5rem var(--gap-l)
+        color: var(--text-p1)
+
+        // p
+        //   margin-top: 0.5em
+        //   margin-bottom: 0.5em
+        //   line-height: 1.5
+
+      > .widget-header + .widget-body
+        margin-top: 0
+
+      // + .widget-wrapper
+        // .widget-header
+          // margin-top: 3rem
+
+        // &.toc .widget-header
+          // margin-top: 1rem

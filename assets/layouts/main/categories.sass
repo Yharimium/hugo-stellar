@@ -1,0 +1,22 @@
+> .post-list
+  > article.cats
+    padding: 0
+    > .cat
+      display: flex
+      padding: 0.5em 1rem
+      border-radius: 6px
+      color: var(--text-p2)
+      align-items: center
+      justify-content: space-between
+      font-weight: 500
+      font-size: 0.875rem
+      > .badge
+        font-weight: 700
+        opacity: 0.5
+        font-size: 0.75rem
+      &:hover
+        background: var(--block-hover)
+        color: var(--text-p0)
+        > .badge
+          opacity: 1
+          color: var(--theme-link)
