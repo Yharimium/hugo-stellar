@@ -1,8 +1,0 @@
-<div class="widgets">
-    {{- $curr := . -}}
-    {{- range (.Scratch.Get "Config").Side -}}
-    <div class="widget {{ . }}">
-        {{- partial (printf "side/widgets/%s" .) $curr -}}
-    </div>
-    {{- end -}}
-</div>

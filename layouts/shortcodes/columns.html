@@ -1,7 +1,0 @@
-<div class="columns">
-{{ range split .Inner "<--->" }}
-  <div class="inner">
-    {{ . | $.Page.RenderString (dict "display" "block") }}
-  </div>
-{{ end }}
-</div>
