@@ -23,7 +23,7 @@ Yharim Area：<https://yharim.com/>
 hugo new site mySite
 cd mySite
 git init
-git submodule add https://github.com/Yharimium/hugo-stellar themes/stellar
+git submodule add https://github.com/Yharimium/hugo-stellar themes/hugo-stellar
 cp -R themes/stellar/exampleSite/* .
 rm config.toml
 ```
