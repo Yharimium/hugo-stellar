@@ -20,9 +20,8 @@ Yharim Area：<https://yharim.com/>
 全自动建站脚本：
 
 ``` sh
-hugo new site mySite
+mkdir mySite
 cd mySite
-del *.toml
 git init
 git submodule add https://github.com/Yharimium/hugo-stellar themes/hugo-stellar
 cp -R themes/hugo-stellar/exampleSite/* .
