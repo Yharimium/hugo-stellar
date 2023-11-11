@@ -25,7 +25,7 @@ cd mySite
 del *.toml
 git init
 git submodule add https://github.com/Yharimium/hugo-stellar themes/hugo-stellar
-cp -R themes/stellar/exampleSite/* .
+cp -R themes/hugo-stellar/exampleSite/* .
 
 ```
 
