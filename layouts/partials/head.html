@@ -13,7 +13,29 @@
     <meta name="force-rendering" content="webkit">
     <meta http-equiv="windows-Target" content="_top">
 
+    {{/*  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />  */}}
+
     <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.logo | relURL }}" />
     <link rel="alt" type="application/rss+xml" href={{ "index.xml" | relURL }} title="{{ .Site.Title }}" />
     <link rel="stylesheet" href={{ partial "func/toCSS" "_index.sass" }}>
+
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.css" />
+    <link rel="stylesheet" href="https://fonts.loli.net/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" />
+
+    {{/*  <script src="/scripts/fastLoad.js"></script>
+    <script async>
+        loadFastestCSS([
+            'https://cdnjs.loli.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.css',
+            'https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.css',
+            'https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.7.0/style.min.css',
+        ]);
+    </script>
+    <script async>
+        loadFastestCSS([
+            'https://fonts.loli.net/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap',
+            'https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css',
+        ]);
+    </script>  */}}
 </head>

@@ -30,6 +30,8 @@
   {{- with .Description -}}
   <blockquote class="description">{{ . }}</blockquote>
   {{- end -}}
+  <section>
   {{- partial "func/content.html" . -}}
+  </section>
 </article>
 {{- end -}}

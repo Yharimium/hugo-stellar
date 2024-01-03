@@ -10,13 +10,13 @@
 /* LineNumbersTable */ .chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
 /* LineNumbers */ .chroma .ln { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
 /* Line */ .chroma .line { display: flex; }
-/* Keyword */ .chroma .k { font-weight: bold }
+/* Keyword */ .chroma .k { font-weight: 1000 }
 /* KeywordConstant */ .chroma .kc { font-weight: bold }
 /* KeywordDeclaration */ .chroma .kd { font-weight: bold }
 /* KeywordNamespace */ .chroma .kn { font-weight: bold }
 /* KeywordPseudo */ .chroma .kp { font-weight: bold }
 /* KeywordReserved */ .chroma .kr { font-weight: bold }
-/* KeywordType */ .chroma .kt { color: #445588; font-weight: bold }
+/* KeywordType */ .chroma .kt { color: #445588; font-weight: 1000 }
 /* Name */ .chroma .n {  }
 /* NameAttribute */ .chroma .na { color: #008080 }
 /* NameBuiltin */ .chroma .nb { color: #999999 }

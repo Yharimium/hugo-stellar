@@ -5,6 +5,7 @@ MathJax = {
     tex2jax: {
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
         inlineMath: [['$', '$'], ['\\(', '\\)']],
+        processEscapes: true
     },
     SVG: {
         blacker: 7,
@@ -18,7 +19,8 @@ MathJax = {
             },
             ".MathJax_SVG": {
                 "overflow": "auto hidden",
-                "vertical-align": "middle"
+                "vertical-align": "middle",
+                "display": "contents !important"
             }
         },
     },

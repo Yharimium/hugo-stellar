@@ -31,7 +31,7 @@
         <item>
             <title>{{ .Title }}</title>
             <url>{{ .Permalink }}</url>
-            <description>{{ partial "subFile" .File }}</description>
+            <description>{{ .Description }}{{ partial "subFile" .File }}</description>
         </item>
         {{- end -}}
     {{- end -}}

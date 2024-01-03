@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach((section) => {
+  document.querySelectorAll('section[id]').forEach((section) => {
     observer.observe(section);
   });
 });
